@@ -1,0 +1,471 @@
+/* Home Css */
+.mask {
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  position: absolute;
+  z-index: 2;
+}
+
+.home-section-1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.welcome {
+  display: flex;
+  height: 90vh;
+  width: 100%;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: "Playfair Display", serif;
+  font-family: Athene, serif;
+}
+.welcome-section {
+  display: flex;
+  height: 80vh;
+  width: 80vw;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+.welcome-content {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.welcome-image {
+  position: absolute;
+  height: 50rem;
+  width: 35rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 0;
+  overflow: hidden;
+}
+.welcome-image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  background-color: #edeae4;
+  height: 50rem;
+  width: 35rem;
+}
+.welcome-image img {
+  height: 50rem;
+  width: 35rem;
+  object-fit: contain;
+}
+.welcome-text {
+  text-align: left;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  height: 40%;
+}
+.welcome-text h3 {
+  font-size: 7.6rem;
+  font-weight: 100;
+  color: white;
+  mix-blend-mode: difference;
+  z-index: 2;
+}
+
+/* Shop Css */
+.home-section-2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: #fff; */
+}
+.categories {
+  min-height: 590vh;
+  width: 70vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 20px;
+  /* box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.2); */
+  color: #d3b7a3;
+  color: #000;
+  text-align: center;
+}
+.categories-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+.categories-top h1 {
+  margin: 0;
+  padding: 10px 0;
+  /* font-family: 'Playfair Display', serif; */
+  text-transform: uppercase;
+  font-size: 5rem;
+  font-weight: 100;
+  /* color: rgb(107, 63, 63);
+  color: rgb(0,255,255); */
+}
+.headTitle {
+  height: 2px;
+  width: 50px;
+  background-color: black;
+  /* background-color: #d3b7a3; */
+  border-radius: 20px;
+}
+.categories-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 520vh;
+}
+.categories-section {
+  min-height: 470vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 80vw;
+  position: relative;
+}
+.locs-img,
+.weaves-img,
+.braids-img,
+.twists-img {
+  width: 40rem;
+  height: 50rem;
+  object-fit: contain;
+  z-index: 2;
+}
+/* .locs-img:hover, .weaves-img:hover, .braids-img:hover, .twist-img:hover{
+  filter: grayscale(100%) blur(2px);
+  filter: blur(2px);
+} */
+.locs,
+.weaves,
+.braids,
+.twists {
+  width: 80vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: all 1.5s;
+  position: relative;
+}
+/* .locs, .weaves{
+  justify-content: flex-start;
+}
+.twist, .braids{
+  justify-content: flex-end;
+} */
+
+.locs-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.locs-container,
+.weaves-container,
+.braids-container,
+.twists-container {
+  width: 40rem;
+  height: 50rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: all 1.5s;
+  z-index: 1;
+  position: absolute;
+  top: 15%;
+  /* border-radius: 50%; */
+}
+.shrinker {
+  width: 40rem;
+  height: 50rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: all 1.5s;
+  z-index: 1;
+}
+.shrink {
+  width: 37rem;
+  height: 47rem;
+  border-radius: 0%;
+}
+.locs-container,
+.weaves-container,
+.braids-container,
+.twist-container {
+  z-index: 0;
+  overflow: unset;
+}
+.locs-type,
+.weaves-type,
+.braids-type,
+.twists-type {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  text-transform: uppercase;
+  z-index: 2;
+  color: #d3b7a3;
+  color: #dd7d78;
+  color: black;
+  font-size: 8rem;
+  font-weight: 200;
+  font-family: "Playfair Display", serif;
+  top: 0;
+  /* font-family: Saudagar,sans-serif; */
+  font-family: Athene, serif;
+  overflow: hidden;
+}
+/* .locs-type::after,
+.weaves-type::after,
+.braids-type::after,
+.twists-type::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  background-color: #fff;
+  height: 35rem;
+  width: 50rem;
+} */
+.locs-type h1,
+.weaves-type h1,
+.braids-type h1,
+.twists-type h1 {
+  font-weight: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* <motion.h1
+onMouseEnter={() => {
+  setEnterLocs(true);
+}}
+onMouseLeave={() => {
+  setEnterLocs(false);
+}}
+variants={typeName}
+>
+{" "}
+<motion.span animate={{ x: "-100" }}>l</motion.span>
+<motion.span variants={letter}>o</motion.span>
+<motion.span variants={letter}>c</motion.span>
+<motion.span variants={letter}>s</motion.span>{" "}
+</motion.h1> */
+.locs-num,
+.weaves-num,
+.braids-num,
+.twists-num {
+  position: absolute;
+  top: 0;
+  font-size: 1.5rem;
+  font-family: Athene, serif;
+}
+.locs-num,
+.weaves-num {
+  left: 0;
+}
+.braids-num,
+.twists-num {
+  right: 0;
+}
+
+.locs-go,
+.weaves-go,
+.twists-go,
+.braids-go {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  position: absolute;
+  min-height: 20vh;
+  z-index: 3;
+  overflow: hidden;
+}
+.locs-go,
+.weaves-go {
+  right: 0;
+  bottom: 20%;
+  text-align: right;
+  align-items: flex-end;
+}
+.twists-go,
+.braids-go {
+  left: 0;
+  bottom: 20%;
+  text-align: left;
+  align-items: flex-start;
+}
+.locs-write,
+.weaves-write,
+.twists-write,
+.braids-write {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 1.3rem;
+  width: 100%;
+  line-height: 2rem;
+  text-align: inherit;
+  position: relative;
+  pointer-events: none;
+  color: #d3b7a3;
+  color: #dd7d78;
+  color: black;
+}
+.locs-write h2,
+.weaves-write h2,
+.twists-write h2,
+.braids-write h2 {
+  font-size: 1.8rem;
+}
+.locs-write,
+.weaves-write {
+  text-align: right;
+  align-items: flex-end;
+}
+.twists-write,
+.braids-write {
+  text-align: left;
+  align-items: flex-start;
+}
+
+.locs-shop,
+.weaves-shop,
+.twists-shop,
+.braids-shop {
+  position: relative;
+}
+.locs-button,
+.weaves-button,
+.twists-button,
+.braids-button {
+  height: 3rem;
+  font-size: 1rem;
+  padding: 0 1rem;
+  cursor: pointer;
+  border: 2px solid black !important;
+  background-color: unset;
+  color: #d3b7a3;
+  color: #dd7d78;
+  color: black;
+  transition: 0.4s;
+  text-transform: uppercase;
+  font-family: "Arima Madurai", cursive;
+  position: relative;
+  overflow: hidden;
+}
+.locs-button::after,
+.weaves-button::after,
+.twists-button::after,
+.braids-button::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  top: 0;
+  right: 100%;
+  transition: all 0.4s;
+  z-index: -1;
+  pointer-events: none;
+}
+.locs-button::after,
+.weaves-button::after {
+  left: 100%;
+}
+.twists-button::after,
+.braids-button::after {
+  right: 100%;
+}
+.locs-button:hover::after,
+.weaves-button:hover::after {
+  left: 0%;
+}
+.twists-button:hover::after,
+.braids-button:hover::after {
+  right: 0%;
+}
+.locs-button:hover,
+.weaves-button:hover,
+.twists-button:hover,
+.braids-button:hover {
+  color: white;
+  transition: 1s;
+}
+
+/* .shopButton span{
+  display: inline;
+  position: relative;
+  right: -5px;
+  opacity: 0;
+  transition: 0.4s;
+  color:  #d3b7a3;
+  color:   #dd7d78;
+}
+.shopButton:hover span{
+  position: relative;
+  right: 0px;
+  opacity: 1;
+  transition: 0.4s;
+} */
+/* .locs-write-display, .weaves-write-display, .braids-write-display, .twist-write-display{
+ opacity: 1;
+} */
+/* .arrow-container-locs,.arrow-container-twist,.arrow-container-weaves,.arrow-container-braids{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  transition: all 1.5s;
+  background-color:pink;
+}
+.arrow-container-locs img:hover,.arrow-container-twist img:hover,.arrow-container-weaves img:hover,.arrow-container-braids img:hover{
+  animation: down 2s ease infinite alternate;
+  transition: all 1.5s;
+}
+.arrow-container-locs,.arrow-container-weaves{
+  top: 15rem;
+  right: 15rem;
+}
+.arrow-container-twist,.arrow-container-braids{
+  top: 15rem;
+  left: 15rem;
+}
+.arrow-container-braids{
+  transform: rotateZ(180deg);
+}
+.arrow-move-right{
+  transform-origin: center;
+  transform: rotateZ(-90deg);
+}
+.arrow-move-left{
+  transform-origin:left;
+  transform: rotateZ(90deg);
+}
+.arrow-container-locs img,.arrow-container-twist  img,.arrow-container-weaves img,.arrow-container-braids img{
+  
+  width: 17rem;
+  color: black;
+} */

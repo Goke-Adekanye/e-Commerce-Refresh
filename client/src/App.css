@@ -1,0 +1,51 @@
+*:focus {
+  outline: none;
+}
+* {
+  z-index: unset;
+}
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans");
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
+
+/* nav font */
+@import url("https://fonts.googleapis.com/css2?family=Arima+Madurai&display=swap");
+
+/* welcome font */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+@font-face {
+  font-family: "Saudagar";
+  src: local("Saudagar"),
+    url(./assets/fonts/Saudagar/Saudagar.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Athene";
+  src: local("Athene"),
+    url(./assets/fonts/AtheneFF/Athene.otf) format("truetype");
+}
+
+::-webkit-scrollbar-track {
+  background-color: #edeae4;
+  background-color: rgb(211, 207, 198);
+}
+::-webkit-scrollbar {
+  width: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgb(211, 207, 198);
+  border-radius: 20px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(0, 0, 0);
+  width: 6px;
+}
+
+/* General Css */
+
+body {
+  background-color: #edeae4;
+  /* font-family: 'Arima Madurai', cursive; */
+  font-family: "Montserrat", sans-serif;
+}
