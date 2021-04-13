@@ -142,7 +142,6 @@
   flex-direction: row;
   justify-content: space-between;
   width: 27.5vw;
-  font-size: 1.5rem;
 }
 .card-body-right-left,
 .card-body-right-right {
@@ -247,6 +246,7 @@
   .card-body {
     font-size: 1.1em;
   }
+
   .sub-total h2 {
     font-weight: 100;
     font-size: 1.1rem;

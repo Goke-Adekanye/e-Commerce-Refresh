@@ -18,7 +18,7 @@ const useCart = () => {
           end: "bottom top",
         },
       })
-      .to(".card-container", 1.4, {
+      .to(".card-container", 2.2, {
         x: "0vw",
         left: "0",
         ease: Power2.easeInOut,
@@ -32,7 +32,7 @@ const useCart = () => {
           end: "bottom top",
         },
       })
-      .to(".cart-overlay", 1.4, {
+      .to(".cart-overlay", 1.6, {
         width: "100vw",
         opacity: "1",
         visibility: "visible",
@@ -65,7 +65,7 @@ const useCart = () => {
           end: "bottom top",
         },
       })
-      .to(".cart-overlay", 1.0, {
+      .to(".cart-overlay", 2, {
         opacity: "0",
         ease: Power2.easeInOut,
       })
