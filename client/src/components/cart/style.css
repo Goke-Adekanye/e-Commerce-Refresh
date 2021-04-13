@@ -70,6 +70,7 @@
 .card-head-quantity,
 .card-sub-total {
   min-width: 10rem;
+  text-align: center;
 }
 .card-head h2 {
   font-weight: 100;
@@ -103,6 +104,7 @@
   width: 70vw;
   max-height: 90vh;
   padding: 2rem 0.625rem;
+  font-size: 1.5rem;
 }
 .card-body-left {
   display: flex;
@@ -116,7 +118,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100px;
+  width: 5vw;
   height: 10vh;
 }
 .card-img > img {
@@ -130,6 +132,7 @@
   align-items: flex-start;
   flex-direction: column;
   min-width: 8vw;
+  font-size: 1rem;
 }
 .card-remove {
   cursor: pointer;
@@ -139,6 +142,7 @@
   flex-direction: row;
   justify-content: space-between;
   width: 27.5vw;
+  font-size: 1.5rem;
 }
 .card-body-right-left,
 .card-body-right-right {
@@ -151,7 +155,7 @@
 .card-quantity {
   height: 2rem;
   width: 4.3rem;
-  font-size: 1.5em;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -173,6 +177,7 @@
   flex-direction: column;
   align-items: flex-end;
   width: 70vw;
+  font-size: 1.5rem;
 }
 .card-end-line {
   height: 2px;
@@ -188,7 +193,6 @@
   padding: 1.25rem 0;
   padding-right: 0.625rem;
   font-weight: 100;
-  font-size: 1.5rem;
 }
 .card-check-out {
   display: flex;
@@ -221,7 +225,6 @@
   flex-direction: column;
   padding-top: 10vh;
   line-height: 2.7rem;
-  font-size: 1.5rem;
   text-align: center;
 }
 .empty-cart-top h2 {
@@ -229,4 +232,26 @@
 }
 .empty-cart-bottom {
   padding-top: 2.5vh;
+}
+
+@media screen and (max-width: 1600px) {
+  .card-main header h2 {
+    font-size: 4rem;
+  }
+  .card-head h2 {
+    font-size: 1.5rem;
+  }
+  .card-details {
+    font-size: 0.9rem;
+  }
+  .card-body {
+    font-size: 1.1em;
+  }
+  .sub-total h2 {
+    font-weight: 100;
+    font-size: 1.1rem;
+  }
+  .card-end {
+    font-size: 1.1rem;
+  }
 }

@@ -80,11 +80,11 @@ function ProductDetails({ match }) {
           end: "bottom top",
         },
       })
-      .to(".mask", 1.4, {
+      .to(".mask", 2, {
         width: "0vw",
-        right: "0",
+        left: "0",
         position: "fixed",
-        ease: Power2.easeOut,
+        ease: Power2.easeInOut,
       });
   };
   const nextPageMask = {
@@ -92,7 +92,7 @@ function ProductDetails({ match }) {
       width: "100vw",
       left: "0",
       position: "fixed",
-      transition: { delay: 0.9, duration: 0.8, ease: "easeInOut" },
+      transition: { delay: 0.4, duration: 2, ease: Power2.easeInOut },
     },
   };
   const addItem = () => {

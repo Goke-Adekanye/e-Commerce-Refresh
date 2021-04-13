@@ -44,8 +44,8 @@ function Home() {
         transform: "scale(1.4) ",
         ease: Power2.easeInOut,
       })
-      .to(".mask", 1.4, { width: "0%", left: "0", ease: Power2.easeInOut })
-      .to(".mask-revealer", 1.8, {
+      .to(".mask", 2, { width: "0%", left: "0", ease: Power2.easeInOut })
+      .to(".mask-revealer", 2.3, {
         height: "0rem",
         ease: Power2.easeInOut,
       })
@@ -312,7 +312,7 @@ function Home() {
   }, []);
 
   //Ease
-  const transition = { duration: 1.4, ease: [0.6, 0.01, -0.05, 0.9] };
+  const transition = { duration: 1.8, ease: [0.6, 0.01, -0.05, 0.9] };
 
   const nextPageImg = {
     exit: {
@@ -341,7 +341,7 @@ function Home() {
       width: "100vw",
       left: "0",
       position: "fixed",
-      transition: { delay: 2.5, ...transition },
+      transition: { delay: 2.5, duration: 2, ease: Power2.easeInOut },
     },
   };
   const letter = {
