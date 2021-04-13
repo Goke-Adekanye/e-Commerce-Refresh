@@ -25,7 +25,7 @@ header {
 
   /* box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.2); */
   color: black;
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   /* font-family: 'Arima Madurai', cursive;
   font-family: Athene,serif; */
 }
@@ -46,6 +46,7 @@ header {
 .nav-links li,
 .nav-links a {
   text-decoration: none;
+
   list-style: none;
 }
 .cart-icon {
@@ -156,4 +157,10 @@ header {
 }
 .noClick {
   pointer-events: none;
+}
+
+@media screen and (max-width: 1600px) {
+  .nav {
+    font-size: 1.4rem;
+  }
 }

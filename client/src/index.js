@@ -6,11 +6,14 @@ import reportWebVitals from "./reportWebVitals";
 import { persistor } from "./App";
 import { PersistGate } from "redux-persist/integration/react";
 import { BrowserRouter as Router } from "react-router-dom";
+import { ParallaxProvider } from "react-scroll-parallax";
 ReactDOM.render(
   <React.StrictMode>
     <PersistGate persistor={persistor}>
       <Router>
-        <App />
+        <ParallaxProvider>
+          <App />
+        </ParallaxProvider>
       </Router>
     </PersistGate>
   </React.StrictMode>,

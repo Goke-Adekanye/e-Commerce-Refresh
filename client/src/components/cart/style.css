@@ -28,8 +28,10 @@
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
-  min-height: 90vh;
+  width: 70vw;
+  min-height: 85vh;
   overflow-x: hidden;
+  transition: all 1.5s ease;
 }
 .card-main header {
   display: flex;
@@ -202,4 +204,29 @@
   justify-content: flex-start;
   flex-direction: column;
   min-width: 10rem;
+}
+.empty-cart-body {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  min-height: 40vh;
+  transition: all 1.5s;
+}
+.empty-cart-top,
+.empty-cart-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 10vh;
+  line-height: 2.7rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+.empty-cart-top h2 {
+  font-weight: 200;
+}
+.empty-cart-bottom {
+  padding-top: 2.5vh;
 }

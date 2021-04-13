@@ -3,7 +3,6 @@ import "./style.css";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLongArrowAltRight } from "@fortawesome/free-solid-svg-icons";
-import Footer from "../../components/footer/footer";
 import { connect } from "react-redux";
 import { useDispatch } from "react-redux";
 import { REMOVE, ADD, DECREASE } from "../../redux/cart/actions";
@@ -15,13 +14,32 @@ const Cart = ({ cart, total, quantity, match, func }) => {
   if (cart.length === 0) {
     return (
       <div>
-        <div className="card-main">
-          <main>
-            <h2> Your Bag</h2>
-            is currently empty
-          </main>
+        <div className="cart-overlay" onClick={func}></div>
+        <div className="card-container">
+          <div className="card-main">
+            <header>
+              {" "}
+              <h2>Shopping Bag</h2>{" "}
+            </header>
+            <div className="empty-cart-body">
+              <div className="empty-cart-top">
+                <h2> Your Bag</h2>
+                is currently empty
+              </div>
+              <div className="empty-cart-bottom">
+                <Link to="/">
+                  <button className="add-button" type="button" onClick={func}>
+                    Continue Shopping{" "}
+                    <span>
+                      {" "}
+                      <FontAwesomeIcon icon={faLongArrowAltRight} />{" "}
+                    </span>
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
-        <Footer />
       </div>
     );
   } else {

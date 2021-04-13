@@ -26,7 +26,6 @@ const store = createStore(
 
 const App = () => {
   const location = useLocation();
-  console.log(location);
   return (
     <div className="App">
       <Provider store={store}>

@@ -7,18 +7,6 @@
   pointer-events: none;
   display: none;
 }
-.img-bg {
-  position: fixed;
-  z-index: -1;
-  height: 100vh;
-  width: 50vw;
-}
-.img-bg-edit {
-  object-fit: cover;
-  height: 100%;
-  width: 50vw;
-  filter: grayscale(100%) blur(1px);
-}
 .type-container {
   display: flex;
   justify-content: flex-start;
@@ -71,15 +59,14 @@
 .filter-change-head {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-direction: column;
-  min-height: 22vh;
   cursor: pointer;
 }
 .filter-change-button {
   height: 3.125rem;
   font-size: 1.17em;
-  min-width: 10rem;
+  min-width: 11rem;
   cursor: pointer;
   border: 2px solid black;
   background-color: unset;
@@ -94,6 +81,8 @@
   transition: 0.4s;
 }
 .filter-change-body {
+  font-size: 1.17em;
+  margin-top: 3vh;
   position: relative;
   top: 10%;
   list-style: none;
@@ -110,9 +99,9 @@
   justify-content: center;
   text-align: left;
   min-height: 3rem;
-  min-width: 9.75rem;
+  min-width: 10.75rem;
   border-bottom: 0.5px solid black;
-  background-color: #edeae4;
+  background-color: white;
 }
 .button-span-on {
   transform: rotate(180deg);
@@ -148,12 +137,13 @@
 .type-product-section {
   margin: 0;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   text-align: left;
   flex-direction: column;
   width: 15vw;
   transition: 0.5s ease-in;
+  line-height: 2rem;
 }
 .product-img {
   width: 15vw;
@@ -168,7 +158,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  min-height: 5.5vh;
+
   font-size: 1.2rem;
   text-transform: uppercase;
 }
@@ -177,13 +167,17 @@
   align-items: center;
   justify-content: center;
   font-size: 1.2rem;
-  height: 5vh;
+  font-style: italic;
   text-align: center;
 }
 .product-img > img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  transition: 0.9s ease-in-out;
+}
+.product-img > img:hover {
+  transform: scale(1.025);
 }
 .load-more-container {
   display: flex;
@@ -198,8 +192,56 @@
 .load-more button {
   background-color: unset;
   border: 2px solid black !important;
-  font-size: 1.5rem;
-  padding: 2rem;
+  font-size: 1rem;
+  position: relative;
+  padding: 1.2rem;
   text-transform: uppercase;
   cursor: pointer;
+  overflow: hidden;
+}
+.load-more button::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  top: 100%;
+  left: 0;
+  transition: all 0.4s;
+  z-index: -1;
+  pointer-events: none;
+}
+.load-more button:hover {
+  color: white;
+  transition: 1s;
+}
+.load-more button:hover::after {
+  top: 0%;
+}
+
+@media screen and (max-width: 1600px) {
+  .type-collection {
+    font-size: 3.2rem;
+  }
+  .filter-change-button {
+    font-size: 1rem;
+    min-width: 10rem;
+  }
+  .filter-change-body {
+    top: 10%;
+    font-size: 1rem;
+  }
+  .filter-change-body li {
+    min-height: 3rem;
+    min-width: 9.75rem;
+  }
+  .type-product-name {
+    font-size: 1rem;
+  }
+  .type-product-price {
+    font-size: 1rem;
+  }
+  .load-more button {
+    font-size: 0.9rem;
+  }
 }

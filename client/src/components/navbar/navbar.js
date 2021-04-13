@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./style.css";
 import { Link, useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,7 +8,6 @@ import { selectCartItemsCount } from "../../redux/cart/cartSelector";
 
 const Navbar = ({ itemName, showItem, func }) => {
   const { totalNumberCart } = useSelector(mapStateToProps);
-  const [displayCart, setDisplayCart] = useState(true);
 
   const history = useHistory();
 

@@ -12,45 +12,39 @@ import { connect } from "react-redux";
 import { ADD } from "../../redux/cart/actions";
 import { useDispatch } from "react-redux";
 import axios from "axios";
-import image1 from "../../assets/pexels-neemias-seara-3680316 (2).jpg";
-import { TimelineLite, TweenLite, Power2 } from "gsap";
-import * as ScrollMagic from "scrollmagic";
+import { motion } from "framer-motion";
+import image2 from "../../assets/twist.jpg";
+import { Power2, gsap } from "gsap";
+
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function ProductDetails({ match }) {
   const dispatch = useDispatch();
   const [loader, showLoader, hideLoader] = useFullPageLoader();
   const [cart, showCart, hideCart] = useCart();
-  const [showItem, setShowItem] = useState(false);
   const [displayCart, setDisplayCart] = useState(true);
-  const [addedCart, setAddedCart] = useState([]);
-  const [items, setItems] = React.useState([]);
+
+  const [items, setItems] = useState([]);
+  const [images, setImages] = useState();
   const [related, setRelated] = useState([]);
 
-  const scrollController = new ScrollMagic.Controller();
   const body = document.querySelector("body");
   const filter = match.params.filterType;
   const style = match.params.productType;
   const level = "2";
-  let filterName;
   let from;
 
   useEffect(() => {
     window.scrollTo(0, 0);
     fetchItems();
     fetchRelated();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   items.map((item) => {
-    from = item.name;
+    return (from = item.name);
   });
-
-  if (filter === "newIn") {
-    filterName = "New In";
-  } else if (filter === "highLow") {
-    filterName = "High to Low";
-  } else if (filter === "lowHigh") {
-    filterName = "Low to High";
-  }
 
   function fetchItems() {
     hideMask();
@@ -61,6 +55,7 @@ function ProductDetails({ match }) {
       )
       .then((response) => {
         setItems([response.data]);
+        setImages(response.data.image);
         hideLoader();
       });
   }
@@ -76,22 +71,30 @@ function ProductDetails({ match }) {
   }
 
   const hideMask = () => {
-    const Animation7 = TweenLite.to(".mask", 1.4, {
-      width: "0%",
+    // Animation 12
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: ".container",
+          start: "top center",
+          end: "bottom top",
+        },
+      })
+      .to(".mask", 1.4, {
+        width: "0vw",
+        right: "0",
+        position: "fixed",
+        ease: Power2.easeOut,
+      });
+  };
+  const nextPageMask = {
+    exit: {
+      width: "100vw",
       left: "0",
       position: "fixed",
-      ease: Power2.easeInOut,
-    });
-    new ScrollMagic.Scene({
-      duration: 0,
-      triggerElement: ".container",
-      triggerHook: 0,
-      reverse: false,
-    })
-      .setTween(Animation7)
-      .addTo(scrollController);
+      transition: { delay: 0.9, duration: 0.8, ease: "easeInOut" },
+    },
   };
-
   const addItem = () => {
     items.map((item) => {
       dispatch({
@@ -107,11 +110,15 @@ function ProductDetails({ match }) {
     });
   };
   const cartFun = () => {
-    displayCart ? setDisplayCart(false) : setDisplayCart(true);
-    displayCart ? showCart() : hideCart();
-    setTimeout(() => {
-      body.style.overflow = "hidden";
-    }, 1000);
+    if (displayCart) {
+      setDisplayCart(false);
+      showCart();
+      setTimeout(() => {
+        body.style.overflow = "hidden";
+      }, 1000);
+    } else {
+      hideCartFun();
+    }
   };
   const hideCartFun = () => {
     setDisplayCart(true);
@@ -124,90 +131,104 @@ function ProductDetails({ match }) {
     cartFun();
     addItem();
   };
+  const changeImg = (e) => {
+    const img = e.target.src;
+    setImages(img);
+  };
+
   return (
     <div className="container">
-      <div className="mask"></div>
+      <motion.div
+        variants={nextPageMask}
+        exit="exit"
+        className="mask"
+      ></motion.div>
       {loader}
-      {/* <div className="img-bg">
-        <img className="img-bg-edit" src={image1} alt="Locs" />
-      </div> */}
       <Navbar
-        itemName={addedCart}
-        showItem={showItem}
         func={() => {
           cartFun();
         }}
       />
-      {items.map((item) => {
-        return (
-          <div className="product-main" key={item._id}>
-            <MiniNav
-              level={level}
-              style={style}
-              filter={filter}
-              product={from}
-            />
-            <div className="product-container">
-              <div className="product-container-top">
-                <div className="product-container-head">
-                  <div className="product-container-head-content">
-                    <img className="image1" src={item.image} alt="item.name" />
+
+      <div className="product-main">
+        <MiniNav level={level} style={style} filter={filter} product={from} />
+        <div className="product-body">
+          {items.map((item) => {
+            return (
+              <div className="product-container" key={item._id}>
+                <div className="product-container-top" key={item._id}>
+                  <div className="product-container-left">
+                    <aside className="product-container-left-side-content">
+                      <article className="product-container-left-side-content-images">
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          onClick={changeImg}
+                        />
+                      </article>
+                      <article className="product-container-left-side-content-images">
+                        {" "}
+                        <img src={image2} alt={image2} onClick={changeImg} />
+                      </article>
+                    </aside>
+                    <div className="product-container-left-main-content">
+                      <img
+                        className="product-details-img"
+                        src={images}
+                        alt={images}
+                      />
+                    </div>
+                  </div>
+                  <div className="product-container-right">
+                    <div className="product-name"> {item.name} </div>
+                    <div className="product-price"> Price : ₦{item.price} </div>
+                    <div className="product-add">
+                      <AddButton func={btnFun} />
+                    </div>
+                    <div className="product-detail" key={item._id}>
+                      {item.description}
+                    </div>
                   </div>
                 </div>
-                <div className="product-container-body">
-                  <div className="product-name">
-                    {" "}
-                    <h3> {item.name} </h3>{" "}
-                  </div>
-                  <div className="product-price">
-                    {" "}
-                    <h3> Price : ₦{item.price} </h3>{" "}
-                  </div>
-                  <div className="product-add">
-                    <AddButton func={btnFun} />
-                  </div>
-                  <div className="product-detail" key={item._id}>
-                    {item.description}
-                  </div>
-                </div>
-              </div>
-              <div className="product-container-bottom">
-                <div className="related-products-head">Related Products</div>
-                <div className="related-products-body">
-                  {related.map((relatedItem) => {
-                    return (
-                      <div className="related-products" key={relatedItem._id}>
-                        <div className="type-product-section">
-                          <Link
-                            key={relatedItem._id}
-                            to={`/${relatedItem.type}/newIn/${relatedItem._id}/details`}
-                          >
-                            <div className="related-product-img">
-                              {" "}
-                              <img
-                                className="image3"
-                                src={relatedItem.image}
-                                alt={relatedItem.name}
-                              />
+                <div className="product-container-bottom">
+                  <div className="related-products-head">Related Products</div>
+                  <div className="related-products-body">
+                    {related.map((relatedItem) => {
+                      return (
+                        <div className="related-products" key={relatedItem._id}>
+                          <div className="type-product-section">
+                            <Link
+                              key={relatedItem._id}
+                              to={`/${relatedItem.type}/newIn/${relatedItem._id}/details`}
+                            >
+                              <div className="related-product-img">
+                                {" "}
+                                <img
+                                  className="image3"
+                                  src={relatedItem.image}
+                                  alt={relatedItem.name}
+                                />
+                              </div>
+                            </Link>
+                            <div className="related-product-name">
+                              {relatedItem.name}
                             </div>
-                          </Link>
-                          <div className="related-product-name">
-                            <h2> {relatedItem.name}</h2>
-                          </div>
-                          <div className="related-product-price">
-                            <h3> ₦{relatedItem.price}</h3>
+                            <div className="related-product-price">
+                              ₦{relatedItem.price}
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    );
-                  })}
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-        );
-      })}
+            );
+          })}
+        </div>
+      </div>
       <Footer />
+      {cart}
       <Cart
         func={() => {
           hideCartFun();
