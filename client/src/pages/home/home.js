@@ -318,7 +318,7 @@ function Home() {
   }, []);
 
   //Ease
-  const transition = { duration: 1.4, ease: [0.6, 0.01, -0.05, 0.9] };
+  const transition = { duration: 1.8, ease: [0.6, 0.01, -0.05, 0.9] };
 
   const nextPageImg = {
     exit: {
@@ -347,7 +347,7 @@ function Home() {
       width: "100vw",
       left: "0",
       position: "fixed",
-      transition: { delay: 2.5, ...transition },
+      transition: { delay: 2.5, duration: 2, ease: Power2.easeInOut },
     },
   };
   const letter = {
