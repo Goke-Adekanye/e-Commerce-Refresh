@@ -45,9 +45,10 @@ function Home() {
         ease: Power2.easeInOut,
       })
       .to(".mask", 1.4, { width: "0%", left: "0", ease: Power2.easeInOut })
-      .to(".mask-revealer", 1.8, {
+      .to(".mask-revealer", 3, {
         height: "0rem",
         ease: Power2.easeInOut,
+        delay: "-1",
       })
       .call(() => {
         body.style.overflow = "unset";
@@ -82,14 +83,15 @@ function Home() {
     gsap
       .timeline({
         scrollTrigger: {
-          trigger: ".categories-bottom",
-          start: "+=25 +=300",
+          trigger: ".categories-top",
+          start: "bottom center",
           end: "bottom top",
         },
       })
       .from(".locs-num", 2, {
         opacity: 0,
         ease: Power3.easeOut,
+        delay: 0.3,
       });
 
     // Animation 4
@@ -98,7 +100,7 @@ function Home() {
       .timeline({
         scrollTrigger: {
           trigger: ".locs",
-          start: "top center",
+          start: "top +=200",
           end: "bottom top",
         },
       })
@@ -125,9 +127,10 @@ function Home() {
         ease: Power2.easeOut,
         delay: 0.7,
       })
-      .from(".locs-shop", 0.8, {
+      .from(".locs-shop", 1, {
         opacity: "0",
         ease: Power2.easeInOut,
+        delay: "-0.4",
       });
 
     // Animation 5
@@ -185,9 +188,10 @@ function Home() {
         ease: Power2.easeOut,
         delay: 0.7,
       })
-      .from(".twists-shop", 0.8, {
+      .from(".twists-shop", 1, {
         opacity: "0",
         ease: Power2.easeInOut,
+        delay: "-0.4",
       });
 
     // Animation 7
@@ -245,9 +249,10 @@ function Home() {
         ease: Power2.easeOut,
         delay: 0.7,
       })
-      .from(".weaves-shop", 0.8, {
+      .from(".weaves-shop", 1, {
         opacity: "0",
         ease: Power2.easeInOut,
+        delay: "-0.4",
       });
 
     // Animation 9
@@ -305,9 +310,10 @@ function Home() {
         ease: Power2.easeOut,
         delay: 0.7,
       })
-      .from(".braids-shop", 0.8, {
+      .from(".braids-shop", 1, {
         opacity: "0",
         ease: Power2.easeInOut,
+        delay: "-0.4",
       });
   }, []);
 
@@ -386,7 +392,7 @@ function Home() {
           </div>
           <div className="categories-bottom">
             <div className="categories-section">
-              <div className=" panel locs">
+              <div className="  locs">
                 <motion.div
                   variants={nextPage}
                   exit="exit"
@@ -476,7 +482,7 @@ function Home() {
                 </div>
               </div>
 
-              <div className="panel twists">
+              <div className=" twists">
                 <motion.div
                   variants={nextPage}
                   exit="exit"
@@ -571,7 +577,7 @@ function Home() {
                 </div>
               </div>
 
-              <div className="panel weaves">
+              <div className=" weaves">
                 <motion.div
                   variants={nextPage}
                   exit="exit"
@@ -666,7 +672,7 @@ function Home() {
                 </div>
               </div>
 
-              <div className="panel braids">
+              <div className=" braids">
                 <motion.div
                   variants={nextPage}
                   exit="exit"

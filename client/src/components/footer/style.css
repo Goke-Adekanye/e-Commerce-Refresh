@@ -25,6 +25,7 @@
   justify-content: space-around;
   align-items: flex-start;
   min-height: 55vh;
+  /* width: 100%; */
 }
 .contact-head {
   min-height: 15vh;
@@ -84,9 +85,17 @@
   text-align: justify;
   text-transform: uppercase;
 }
+.contact-bottom {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: row;
+  width: 80vw;
+}
 .socials {
   display: flex;
   flex-direction: row;
+  width: 100%;
 }
 .socials li {
   font-size: 1.2rem;
@@ -185,5 +194,59 @@
     right: 0;
     bottom: 0;
     font-size: 0.9rem;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .bottom-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    min-height: 55vh;
+  }
+  .contact-head {
+    min-height: 0vh;
+    width: 80vw;
+    font-size: 1.25rem;
+  }
+  .contact-body {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    line-height: 5rem;
+  }
+  .contact-body h2 {
+    font-size: 0.8rem;
+  }
+  .contact-body h3 {
+    font-size: 1.7rem;
+  }
+  .contact-num {
+    line-height: 2.5rem;
+  }
+  .contact-num-head {
+    display: flex;
+    text-transform: uppercase;
+    min-height: 0vh;
+  }
+  .contact-add {
+    line-height: 2.5rem;
+  }
+  .contact-add-head {
+    min-height: 0vh;
+  }
+  .contact-add-body {
+    display: flex;
+    max-width: 40ch;
+    text-align: left;
+  }
+  .socials li {
+    font-size: 0.9rem;
+    width: 10rem;
+  }
+  .rights {
+    align-self: center;
+    font-size: 0.8rem;
   }
 }
