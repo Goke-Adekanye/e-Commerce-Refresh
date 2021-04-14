@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css";
 import { selectCartTotal } from "../../redux/cart/cartSelector";
 import { connect, useDispatch } from "react-redux";
@@ -8,7 +8,7 @@ import image from "../../assets/pexels-pixabay-259200.jpg";
 import { CLEAR_CART } from "../../redux/cart/actions";
 import Cities from "../../utils/cities";
 import { apiInstance } from "../../utils/utils";
-
+import { Power2, gsap } from "gsap";
 const config = {
   reference: new Date().getTime(),
   email: "",
@@ -33,6 +33,10 @@ function CheckOut({ total }) {
   const [shippingAddress, setshippingAddress] = useState({
     ...initialAdressState,
   });
+
+  useEffect(() => {
+    hideMask();
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleConfig = (evt) => {
     const { name, value } = evt.target;
@@ -79,9 +83,26 @@ function CheckOut({ total }) {
         dispatch({ type: CLEAR_CART });
       });
   };
-
+  const hideMask = () => {
+    // Animation 17
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: ".container",
+          start: "top center",
+          end: "bottom top",
+        },
+      })
+      .to(".mask", 2, {
+        width: "0vw",
+        left: "0",
+        position: "fixed",
+        ease: Power2.easeInOut,
+      });
+  };
   return (
-    <div>
+    <div className="container">
+      <div className="mask"></div>
       <Navbar />
 
       <div className="payment-details">
