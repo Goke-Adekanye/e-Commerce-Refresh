@@ -31,7 +31,8 @@
   width: 70vw;
   min-height: 85vh;
   overflow-x: hidden;
-  transition: all 1.5s ease;
+  transform: translateY(10vw);
+  opacity: 0;
 }
 .card-main header {
   display: flex;

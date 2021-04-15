@@ -18,10 +18,16 @@ const useCart = () => {
           end: "bottom top",
         },
       })
-      .to(".card-container", 2.2, {
+      .to(".card-container", 1.6, {
         x: "0vw",
         left: "0",
         ease: Power2.easeInOut,
+      })
+      .to(".card-main", 1.6, {
+        y: "0vw",
+        opacity: "1",
+        ease: Power2.easeInOut,
+        // delay: "-1",
       });
     // Animation 14
     gsap
@@ -51,6 +57,11 @@ const useCart = () => {
           end: "bottom top",
         },
       })
+      .to(".card-main", 1.4, {
+        y: "10vw",
+        opacity: "0",
+        ease: Power2.easeInOut,
+      })
       .to(".card-container", 1.4, {
         x: "-100vw",
         left: "0",
@@ -68,6 +79,7 @@ const useCart = () => {
       .to(".cart-overlay", 2, {
         opacity: "0",
         ease: Power2.easeInOut,
+        delay: "1.3",
       })
       .to(".cart-overlay", 0, {
         visibility: "hidden",

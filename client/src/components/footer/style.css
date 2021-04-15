@@ -217,10 +217,10 @@
     line-height: 5rem;
   }
   .contact-body h2 {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
   .contact-body h3 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
   .contact-num {
     line-height: 2.5rem;
@@ -238,7 +238,7 @@
   }
   .contact-add-body {
     display: flex;
-    max-width: 40ch;
+    max-width: 50ch;
     text-align: left;
   }
   .socials li {

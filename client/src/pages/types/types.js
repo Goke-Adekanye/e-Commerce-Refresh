@@ -22,9 +22,10 @@ function Type({ match }) {
   const [page, setPage] = useState([]);
   const [click, setClick] = useState("noMore");
   const [displayCart, setDisplayCart] = useState(true);
+  const [oddnum, setOddnum] = useState(false);
   const [loader, showLoader, hideLoader] = useFullPageLoader();
   const [cart, showCart, hideCart] = useCart();
-  const [clickButton, setClickButton] = useState(false);
+  const [clickButton, setClickButton] = useState(true);
   const body = document.querySelector("body");
   const filter = match.params.filterType;
   const style = match.params.productType;
@@ -55,6 +56,7 @@ function Type({ match }) {
         setPage(response.data.next.page);
         setItems(response.data.results);
         setClick("More");
+        oddChecker();
         hideLoader();
       });
   }
@@ -93,9 +95,36 @@ function Type({ match }) {
     } else {
       setClick("noMore");
     }
-    console.log(request.data.next);
+
     hideLoader();
   }
+
+  const hideMask = () => {
+    // Animation 11
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: ".container",
+          start: "top center",
+          end: "bottom top",
+        },
+      })
+      .to(".mask", 2, {
+        width: "0vw",
+        left: "0",
+        position: "fixed",
+        ease: Power2.easeInOut,
+      });
+  };
+
+  const nextPageMask = {
+    exit: {
+      width: "100vw",
+      left: "0",
+      position: "fixed",
+      transition: { delay: 0.4, duration: 2, ease: Power2.easeInOut },
+    },
+  };
 
   const loadMore = () => {
     fetchMore();
@@ -131,31 +160,28 @@ function Type({ match }) {
     filterName = "Low to High";
   }
 
-  const hideMask = () => {
-    // Animation 11
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".container",
-          start: "top center",
-          end: "bottom top",
-        },
-      })
-      .to(".mask", 2, {
-        width: "0vw",
-        left: "0",
-        position: "fixed",
-        ease: Power2.easeInOut,
-      });
-  };
-
-  const nextPageMask = {
-    exit: {
-      width: "100vw",
-      left: "0",
-      position: "fixed",
-      transition: { delay: 0.4, duration: 2, ease: Power2.easeInOut },
-    },
+  const oddChecker = () => {
+    items.map((item, index) => {
+      if (index % 2 !== 0) {
+        setOddnum(true);
+        console.log(index);
+      } else {
+        setOddnum(false);
+      }
+    });
+    // odd ? "console.log(odd)" : "noo";
+    // console.log(index);
+    // if (index % 2 !== 0) {
+    //   setOddnum(true);
+    // } else {
+    //   setOddnum(false);
+    // }
+    // if (oddnum) {
+    //   console.log("odd");
+    // } else {
+    //   console.log("even");
+    // }
+    // odd ? "console.log(odd)" : "noo";
   };
 
   const cartFun = () => {
@@ -196,22 +222,22 @@ function Type({ match }) {
                 <div className="filter-change">
                   <div
                     className="filter-change-head"
-                    onMouseLeave={() => {
-                      setClickButton(false);
-                    }}
+                    // onMouseLeave={() => {
+                    //   setClickButton(true);
+                    // }}
                   >
                     <button
                       className="filter-change-button"
-                      onMouseEnter={() => {
-                        setClickButton(true);
-                      }}
+                      // onMouseEnter={() => {
+                      //   setClickButton(false);
+                      // }}
                       onClick={handleChange}
                     >
                       {" "}
                       {filterName}{" "}
                       <span
                         className={` ${
-                          clickButton ? "button-span-on" : "button-span-off"
+                          clickButton ? "button-span-off" : " button-span-on"
                         }`}
                       >
                         <FontAwesomeIcon icon={faAngleUp} />
@@ -219,7 +245,7 @@ function Type({ match }) {
                     </button>
                     <ul
                       className={`filter-change-body ${
-                        clickButton ? "filter-appear" : ""
+                        clickButton ? "filter-disappear" : "filter-appear"
                       }`}
                       onClick={() => {
                         setClickButton(false);
@@ -240,9 +266,15 @@ function Type({ match }) {
               </div>
             </div>
             <div className="type-section-body">
-              {items.map((item) => {
+              {items.map((item, index) => {
                 return (
-                  <div className="type-product-container" key={item._id}>
+                  <div
+                    className={`type-product-container ${
+                      index % 2 !== 0 ? "odd" : "even"
+                    }`}
+                    key={item._id}
+                  >
+                    {}
                     <div className="type-product-section">
                       <Link to={`/${style}/${filter}/${item._id}/details`}>
                         <div className="product-img">

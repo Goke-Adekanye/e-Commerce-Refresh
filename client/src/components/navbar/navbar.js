@@ -6,7 +6,7 @@ import { faOpencart } from "@fortawesome/free-brands-svg-icons";
 import { connect, useSelector } from "react-redux";
 import { selectCartItemsCount } from "../../redux/cart/cartSelector";
 
-const Navbar = ({ itemName, showItem, func }) => {
+const Navbar = ({ func }) => {
   const { totalNumberCart } = useSelector(mapStateToProps);
 
   const history = useHistory();
@@ -39,18 +39,6 @@ const Navbar = ({ itemName, showItem, func }) => {
               <div className={`cart-icon ${click}`}>
                 {" "}
                 <FontAwesomeIcon icon={faOpencart} onClick={func} />
-                <div className={`alert ${showItem ? "alert-show" : ""}`}>
-                  <div className="alert-container">
-                    <div className="alert-head"></div>
-                    <div className="alert-head-trans"></div>
-                    <div className="alert-body">
-                      <span>
-                        {" "}
-                        <h1>{itemName}</h1> has been added to cart!
-                      </span>
-                    </div>
-                  </div>
-                </div>
               </div>
             </li>
           </ul>

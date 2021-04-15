@@ -61,7 +61,6 @@
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
-  cursor: pointer;
 }
 .filter-change-button {
   height: 3.125rem;
@@ -88,10 +87,15 @@
   list-style: none;
   border: 2px solid black;
   z-index: 1;
-  opacity: 0;
+  cursor: pointer;
 }
 .filter-appear {
   opacity: 1;
+  pointer-events: unset;
+}
+.filter-disappear {
+  opacity: 0;
+  pointer-events: none;
 }
 .filter-change-body li {
   display: flex;
@@ -133,7 +137,6 @@
   align-items: center;
   flex-direction: column;
 }
-
 .type-product-section {
   margin: 0;
   display: flex;
@@ -243,5 +246,85 @@
   }
   .load-more button {
     font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .type-collection {
+    font-size: 2rem;
+  }
+  .filter-change {
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+  .filter-change-head {
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+  .filter-change-button {
+    height: 2.125rem;
+    font-size: 0.8rem;
+    min-width: 7rem;
+    padding: 0px 0.5rem;
+  }
+  .filter-change-button span {
+    right: 0.5rem;
+  }
+  .filter-change-body {
+    font-size: 0.8rem;
+    margin-top: 2vh;
+    top: 10%;
+  }
+  .filter-appear {
+    opacity: 1;
+  }
+  .filter-change-body li {
+    min-height: 3rem;
+    min-width: 6.75rem;
+  }
+  .type-section-head {
+    width: 80vw;
+    padding-bottom: 0.5rem;
+  }
+  .type-section-head-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    min-width: 80vw;
+    position: relative;
+  }
+  .type-section-body {
+    width: 80vw;
+    min-height: 10vh;
+    padding-bottom: 1.5rem;
+  }
+  .type-product-container {
+    width: 47.1%;
+    min-height: 20vh;
+    padding-top: 1rem;
+  }
+  .odd {
+    margin-left: 1rem;
+  }
+  .type-product-section {
+    margin: 0;
+    width: 100%;
+    line-height: 1.5rem;
+  }
+  .product-img {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    margin-bottom: 1rem;
+  }
+  .type-product-name {
+    font-size: 0.8rem;
+  }
+  .type-product-price {
+    font-size: 0.7rem;
+  }
+  .load-more button {
+    font-size: 0.7rem;
+    padding: 0.7rem;
   }
 }

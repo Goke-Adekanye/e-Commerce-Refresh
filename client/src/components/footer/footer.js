@@ -41,7 +41,7 @@ function Footer() {
             </div>
           </div>
           <div className="rights">
-            <FontAwesomeIcon icon={faCopyright} /> 2021, XXX-XXX-XXX-XXX.
+            <FontAwesomeIcon icon={faCopyright} /> 2021, Frugal Targets.
           </div>
         </div>
       </footer>
