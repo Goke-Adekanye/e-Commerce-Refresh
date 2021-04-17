@@ -26,20 +26,8 @@
     url(./assets/fonts/AtheneFF/Athene.otf) format("truetype");
 }
 
-::-webkit-scrollbar-track {
-  background-color: #edeae4;
-  background-color: rgb(211, 207, 198);
-}
 ::-webkit-scrollbar {
   width: 0px;
-}
-::-webkit-scrollbar-thumb {
-  background-color: rgb(211, 207, 198);
-  border-radius: 20px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background-color: rgb(0, 0, 0);
-  width: 6px;
 }
 
 /* General Css */

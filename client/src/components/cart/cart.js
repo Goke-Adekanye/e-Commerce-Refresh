@@ -2,7 +2,10 @@ import React from "react";
 import "./style.css";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLongArrowAltRight } from "@fortawesome/free-solid-svg-icons";
+import {
+  faLongArrowAltRight,
+  faTimes,
+} from "@fortawesome/free-solid-svg-icons";
 import { connect } from "react-redux";
 import { useDispatch } from "react-redux";
 import { REMOVE, ADD, DECREASE } from "../../redux/cart/actions";
@@ -76,6 +79,82 @@ const Cart = ({ cart, total, quantity, match, func }) => {
                           src={item.item_img}
                           alt="Locs"
                         />
+                        <div className="remove-product">
+                          {" "}
+                          <span
+                            onClick={() => {
+                              dispatch({
+                                type: REMOVE,
+                                payload: {
+                                  name: item.name,
+                                  price: item.price,
+                                  description: item.description,
+                                  item_img: item.item_img,
+                                },
+                              });
+                            }}
+                          >
+                            <FontAwesomeIcon icon={faTimes} />
+                          </span>
+                        </div>
+                      </div>
+                      <div className="mobile-card-details">
+                        <div className="mobile-card-name">
+                          <div className="mobile-card-name-left">Product:</div>
+                          <div className="mobile-card-name-right">
+                            {item.name}
+                          </div>
+                        </div>
+                        <div className="mobile-card-price">
+                          <div className="mobile-card-price-left">Price:</div>
+                          <div className="mobile-card-price-right">
+                            ₦{item.price}
+                          </div>
+                        </div>
+                        <div className="mobile-card-quantity">
+                          <div className="mobile-card-quantity-left">
+                            Quantity:
+                          </div>
+                          <div className="mobile-card-quantity-right">
+                            <span
+                              onClick={() => {
+                                dispatch({
+                                  type: DECREASE,
+                                  payload: {
+                                    name: item.name,
+                                    price: item.price,
+                                    description: item.description,
+                                    item_img: item.item_img,
+                                  },
+                                });
+                              }}
+                              className="left-arrow"
+                            >
+                              {" "}
+                              {`<`}{" "}
+                            </span>
+
+                            <span> {item.quantity} </span>
+
+                            <span
+                              onClick={() => {
+                                dispatch({
+                                  type: ADD,
+                                  payload: {
+                                    name: item.name,
+                                    price: item.price,
+                                    description: item.description,
+                                    item_img: item.item_img,
+                                  },
+                                });
+                              }}
+                              className="right-arrow"
+                            >
+                              {" "}
+                              {`>`}{" "}
+                            </span>
+                          </div>
+                        </div>
                       </div>
                       <div className="card-details">
                         <div className="card-name">{item.name}</div>

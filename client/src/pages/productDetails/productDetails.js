@@ -14,9 +14,14 @@ import { useDispatch } from "react-redux";
 import axios from "axios";
 import { motion } from "framer-motion";
 import image2 from "../../assets/twist.jpg";
+import image1 from "../../assets/locs.jpg";
 import { Power2, gsap } from "gsap";
-
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChevronRight,
+  faChevronLeft,
+} from "@fortawesome/free-solid-svg-icons";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -25,15 +30,23 @@ function ProductDetails({ match }) {
   const [loader, showLoader, hideLoader] = useFullPageLoader();
   const [cart, showCart, hideCart] = useCart();
   const [displayCart, setDisplayCart] = useState(true);
-
   const [items, setItems] = useState([]);
   const [images, setImages] = useState();
   const [related, setRelated] = useState([]);
 
+  const productImages = document.querySelectorAll(
+    ".product-container-left-content img"
+  );
+
+  const imageContainer = document.querySelector(
+    ".product-container-left-content-images"
+  );
+  const imgWidth = productImages[1].offsetWidth;
   const body = document.querySelector("body");
   const filter = match.params.filterType;
   const style = match.params.productType;
   const level = "2";
+  let counter = 0;
   let from;
 
   useEffect(() => {
@@ -85,6 +98,9 @@ function ProductDetails({ match }) {
         left: "0",
         position: "fixed",
         ease: Power2.easeInOut,
+      })
+      .call(() => {
+        body.style.overflow = "unset";
       });
   };
   const nextPageMask = {
@@ -110,7 +126,7 @@ function ProductDetails({ match }) {
     });
   };
   const cartFun = () => {
-    if (displayCart) {
+    if (displayCart === true) {
       setDisplayCart(false);
       showCart();
       setTimeout(() => {
@@ -119,6 +135,7 @@ function ProductDetails({ match }) {
     } else {
       hideCartFun();
     }
+    console.log(displayCart);
   };
   const hideCartFun = () => {
     setDisplayCart(true);
@@ -132,8 +149,17 @@ function ProductDetails({ match }) {
     addItem();
   };
   const changeImg = (e) => {
-    const img = e.target.src;
-    setImages(img);
+    if (counter >= productImages.length - 1) return;
+    counter++;
+    imageContainer.style.transform = `translateX(-${imgWidth * counter}px)`;
+    imageContainer.style.transition = `all 0.4s ease`;
+    imageContainer.addEventListener("transitionend", () => {
+      if (productImages[counter].id === "last-image") {
+        counter = counter - 3;
+        imageContainer.style.transition = `none`;
+        imageContainer.style.transform = `translateX(-${imgWidth * counter}px)`;
+      }
+    });
   };
 
   return (
@@ -158,25 +184,29 @@ function ProductDetails({ match }) {
               <div className="product-container" key={item._id}>
                 <div className="product-container-top" key={item._id}>
                   <div className="product-container-left">
-                    <aside className="product-container-left-side-content">
-                      <article className="product-container-left-side-content-images">
-                        <img
-                          src={item.image}
-                          alt={item.name}
+                    <div className="product-container-left-content">
+                      <div className="next-image-left">
+                        <FontAwesomeIcon
+                          icon={faChevronLeft}
                           onClick={changeImg}
                         />
-                      </article>
-                      <article className="product-container-left-side-content-images">
-                        {" "}
+                      </div>
+                      <div className="next-image-right">
+                        <FontAwesomeIcon
+                          icon={faChevronRight}
+                          onClick={changeImg}
+                        />
+                      </div>
+                      <div className="product-container-left-content-images">
+                        <img
+                          className="product-details-img"
+                          src={item.image}
+                          alt={images}
+                        />
+                        <img src={image1} alt={item.name} onClick={changeImg} />
                         <img src={image2} alt={image2} onClick={changeImg} />
-                      </article>
-                    </aside>
-                    <div className="product-container-left-main-content">
-                      <img
-                        className="product-details-img"
-                        src={images}
-                        alt={images}
-                      />
+                        <img id="last-image" src={item.image} alt={images} />
+                      </div>
                     </div>
                   </div>
                   <div className="product-container-right">

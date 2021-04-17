@@ -347,6 +347,7 @@ function Home() {
       width: "100vw",
       left: "0",
       position: "fixed",
+      zIndex: "3",
       transition: { delay: 2.5, duration: 2, ease: Power2.easeInOut },
     },
   };

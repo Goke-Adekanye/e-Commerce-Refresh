@@ -25,3 +25,10 @@
   width: 10rem !important;
   height: 10rem !important;
 }
+
+@media only screen and (max-width: 550px) {
+  .MuiCircularProgress-root {
+    width: 5rem !important;
+    height: 5rem !important;
+  }
+}

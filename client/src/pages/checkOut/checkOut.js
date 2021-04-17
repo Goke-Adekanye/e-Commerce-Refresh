@@ -9,6 +9,7 @@ import { CLEAR_CART } from "../../redux/cart/actions";
 import Cities from "../../utils/cities";
 import { apiInstance } from "../../utils/utils";
 import { Power2, gsap } from "gsap";
+import { motion } from "framer-motion";
 const config = {
   reference: new Date().getTime(),
   email: "",
@@ -100,9 +101,22 @@ function CheckOut({ total }) {
         ease: Power2.easeInOut,
       });
   };
+  const nextPageMask = {
+    exit: {
+      width: "100vw",
+      left: "0",
+      position: "fixed",
+      zIndex: "3",
+      transition: { duration: 2, ease: Power2.easeInOut },
+    },
+  };
   return (
     <div className="container">
-      <div className="mask"></div>
+      <motion.div
+        variants={nextPageMask}
+        exit="exit"
+        className="mask"
+      ></motion.div>
       <Navbar />
 
       <div className="payment-details">
