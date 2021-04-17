@@ -41,7 +41,7 @@ function ProductDetails({ match }) {
   const imageContainer = document.querySelector(
     ".product-container-left-content-images"
   );
-  const imgWidth = productImages[1].offsetWidth;
+
   const body = document.querySelector("body");
   const filter = match.params.filterType;
   const style = match.params.productType;
@@ -149,6 +149,7 @@ function ProductDetails({ match }) {
     addItem();
   };
   const changeImg = (e) => {
+    const imgWidth = productImages[1].offsetWidth;
     if (counter >= productImages.length - 1) return;
     counter++;
     imageContainer.style.transform = `translateX(-${imgWidth * counter}px)`;
