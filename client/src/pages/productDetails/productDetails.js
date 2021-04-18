@@ -148,7 +148,7 @@ function ProductDetails({ match }) {
     cartFun();
     addItem();
   };
-  const changeImg = (e) => {
+  const nextImg = () => {
     const imgWidth = productImages[1].offsetWidth;
     if (counter >= productImages.length - 1) return;
     counter++;
@@ -161,8 +161,25 @@ function ProductDetails({ match }) {
         imageContainer.style.transform = `translateX(-${imgWidth * counter}px)`;
       }
     });
+    console.log(counter);
   };
+  const prevImg = () => {
+    const imgWidth = productImages[1].offsetWidth;
+    if (counter == 0) return;
+    counter--;
 
+    imageContainer.style.transform = `translateX(-${imgWidth * counter}px)`;
+    imageContainer.style.transition = `all 0.4s ease`;
+    imageContainer.addEventListener("transitionend", () => {
+      if (productImages[counter].id === "first-image") {
+        counter = counter + 3;
+        imageContainer.style.transition = `none`;
+        imageContainer.style.transform = `translateX(-${imgWidth * counter}px)`;
+      }
+    });
+
+    console.log(counter);
+  };
   return (
     <div className="container">
       <motion.div
@@ -189,23 +206,24 @@ function ProductDetails({ match }) {
                       <div className="next-image-left">
                         <FontAwesomeIcon
                           icon={faChevronLeft}
-                          onClick={changeImg}
+                          onClick={prevImg}
                         />
                       </div>
                       <div className="next-image-right">
                         <FontAwesomeIcon
                           icon={faChevronRight}
-                          onClick={changeImg}
+                          onClick={nextImg}
                         />
                       </div>
                       <div className="product-container-left-content-images">
                         <img
+                          id="first-image"
                           className="product-details-img"
                           src={item.image}
                           alt={images}
                         />
-                        <img src={image1} alt={item.name} onClick={changeImg} />
-                        <img src={image2} alt={image2} onClick={changeImg} />
+                        <img src={image1} alt={item.name} />
+                        <img src={image2} alt={image2} />
                         <img id="last-image" src={item.image} alt={images} />
                       </div>
                     </div>
