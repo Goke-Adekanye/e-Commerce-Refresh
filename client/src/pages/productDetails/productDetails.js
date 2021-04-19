@@ -5,6 +5,7 @@ import Footer from "../../components/footer/footer";
 import Navbar from "../../components/navbar/navbar";
 import MiniNav from "../../components/miniNav/miniNav";
 import Cart from "../../components/cart/cart";
+import Carousel from "../../components/carousel/carousel";
 import AddButton from "../../components/buttons/button";
 import useFullPageLoader from "../../hooks/useFullPageLoader";
 import useCart from "../../hooks/useCart";
@@ -13,15 +14,8 @@ import { ADD } from "../../redux/cart/actions";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import { motion } from "framer-motion";
-import image2 from "../../assets/twist.jpg";
-import image1 from "../../assets/locs.jpg";
 import { Power2, gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faChevronRight,
-  faChevronLeft,
-} from "@fortawesome/free-solid-svg-icons";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -31,22 +25,11 @@ function ProductDetails({ match }) {
   const [cart, showCart, hideCart] = useCart();
   const [displayCart, setDisplayCart] = useState(true);
   const [items, setItems] = useState([]);
-  const [images, setImages] = useState();
   const [related, setRelated] = useState([]);
-
-  const productImages = document.querySelectorAll(
-    ".product-container-left-content img"
-  );
-
-  const imageContainer = document.querySelector(
-    ".product-container-left-content-images"
-  );
-
   const body = document.querySelector("body");
   const filter = match.params.filterType;
   const style = match.params.productType;
   const level = "2";
-  let counter = 0;
   let from;
 
   useEffect(() => {
@@ -68,7 +51,6 @@ function ProductDetails({ match }) {
       )
       .then((response) => {
         setItems([response.data]);
-        setImages(response.data.image);
         hideLoader();
       });
   }
@@ -135,7 +117,6 @@ function ProductDetails({ match }) {
     } else {
       hideCartFun();
     }
-    console.log(displayCart);
   };
   const hideCartFun = () => {
     setDisplayCart(true);
@@ -147,38 +128,6 @@ function ProductDetails({ match }) {
   const btnFun = () => {
     cartFun();
     addItem();
-  };
-  const nextImg = () => {
-    const imgWidth = productImages[1].offsetWidth;
-    if (counter >= productImages.length - 1) return;
-    counter++;
-    imageContainer.style.transform = `translateX(-${imgWidth * counter}px)`;
-    imageContainer.style.transition = `all 0.4s ease`;
-    imageContainer.addEventListener("transitionend", () => {
-      if (productImages[counter].id === "last-image") {
-        counter = counter - 3;
-        imageContainer.style.transition = `none`;
-        imageContainer.style.transform = `translateX(-${imgWidth * counter}px)`;
-      }
-    });
-    console.log(counter);
-  };
-  const prevImg = () => {
-    const imgWidth = productImages[1].offsetWidth;
-    if (counter == 0) return;
-    counter--;
-
-    imageContainer.style.transform = `translateX(-${imgWidth * counter}px)`;
-    imageContainer.style.transition = `all 0.4s ease`;
-    imageContainer.addEventListener("transitionend", () => {
-      if (productImages[counter].id === "first-image") {
-        counter = counter + 3;
-        imageContainer.style.transition = `none`;
-        imageContainer.style.transform = `translateX(-${imgWidth * counter}px)`;
-      }
-    });
-
-    console.log(counter);
   };
   return (
     <div className="container">
@@ -201,33 +150,7 @@ function ProductDetails({ match }) {
             return (
               <div className="product-container" key={item._id}>
                 <div className="product-container-top" key={item._id}>
-                  <div className="product-container-left">
-                    <div className="product-container-left-content">
-                      <div className="next-image-left">
-                        <FontAwesomeIcon
-                          icon={faChevronLeft}
-                          onClick={prevImg}
-                        />
-                      </div>
-                      <div className="next-image-right">
-                        <FontAwesomeIcon
-                          icon={faChevronRight}
-                          onClick={nextImg}
-                        />
-                      </div>
-                      <div className="product-container-left-content-images">
-                        <img
-                          id="first-image"
-                          className="product-details-img"
-                          src={item.image}
-                          alt={images}
-                        />
-                        <img src={image1} alt={item.name} />
-                        <img src={image2} alt={image2} />
-                        <img id="last-image" src={item.image} alt={images} />
-                      </div>
-                    </div>
-                  </div>
+                  <Carousel productImage1={item.image} />
                   <div className="product-container-right">
                     <div className="product-name"> {item.name} </div>
                     <div className="product-price"> Price : ₦{item.price} </div>

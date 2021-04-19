@@ -22,7 +22,6 @@ function Type({ match }) {
   const [page, setPage] = useState([]);
   const [click, setClick] = useState("noMore");
   const [displayCart, setDisplayCart] = useState(true);
-  const [oddnum, setOddnum] = useState(false);
   const [loader, showLoader, hideLoader] = useFullPageLoader();
   const [cart, showCart, hideCart] = useCart();
   const [clickButton, setClickButton] = useState(true);
@@ -56,7 +55,6 @@ function Type({ match }) {
         setPage(response.data.next.page);
         setItems(response.data.results);
         setClick("More");
-        oddChecker();
         hideLoader();
       });
   }
@@ -159,30 +157,6 @@ function Type({ match }) {
   } else if (filter === "lowHigh") {
     filterName = "Low to High";
   }
-
-  const oddChecker = () => {
-    items.map((item, index) => {
-      if (index % 2 !== 0) {
-        setOddnum(true);
-        console.log(index);
-      } else {
-        setOddnum(false);
-      }
-    });
-    // odd ? "console.log(odd)" : "noo";
-    // console.log(index);
-    // if (index % 2 !== 0) {
-    //   setOddnum(true);
-    // } else {
-    //   setOddnum(false);
-    // }
-    // if (oddnum) {
-    //   console.log("odd");
-    // } else {
-    //   console.log("even");
-    // }
-    // odd ? "console.log(odd)" : "noo";
-  };
 
   const cartFun = () => {
     displayCart ? setDisplayCart(false) : setDisplayCart(true);
