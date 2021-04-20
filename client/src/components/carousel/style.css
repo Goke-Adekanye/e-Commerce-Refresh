@@ -59,7 +59,29 @@
 
 @media screen and (max-width: 1600px) {
 }
-
+@media screen and (max-width: 1030px) {
+  .carousel {
+    padding: 0 0 0 0;
+  }
+  .carousel-content {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    width: 80vw;
+    height: 60vh;
+  }
+  .carousel-content-images {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .carousel-content-images > img {
+    width: 85vw;
+    height: 60vh;
+  }
+}
 @media only screen and (max-width: 550px) {
   .carousel {
     padding: 0 0 0 0;
@@ -82,11 +104,22 @@
     width: 85vw;
     height: 60vh;
   }
-
   .next-image-left,
   .next-image-right {
+    position: absolute;
+    font-size: 3rem;
+    color: rgb(51, 51, 51);
+    display: flex;
     width: 50%;
     height: 100%;
+  }
+  .next-image-left {
+    left: 0;
+    padding-left: 0.5rem;
+  }
+  .next-image-right {
+    right: 0;
+    padding-right: 0.5rem;
   }
   .fa-chevron-right,
   .fa-chevron-left {

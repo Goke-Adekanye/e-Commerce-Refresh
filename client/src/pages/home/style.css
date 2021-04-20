@@ -448,9 +448,134 @@
   }
 }
 
+@media screen and (max-width: 1030px) {
+  .welcome-text {
+    padding: 2rem 0 0 0;
+  }
+  .welcome-text h3 {
+    font-size: 4.7rem;
+  }
+  .mask-revealer {
+    position: absolute;
+    top: 0;
+    background-color: white;
+    height: 80vh;
+    width: 80vw;
+  }
+  .categories {
+    min-height: 450vh;
+    padding: 20rem 0 0 0;
+  }
+  .categories-bottom {
+    min-height: 425vh;
+  }
+  .categories-section {
+    min-height: 400vh;
+  }
+  .locs-type,
+  .weaves-type,
+  .braids-type,
+  .twists-type {
+    top: 5%;
+  }
+  .locs-container,
+  .weaves-container,
+  .braids-container,
+  .twists-container {
+    width: 35rem;
+    height: 50rem;
+    top: 12%;
+  }
+  .shrinker {
+    width: 35rem;
+    height: 50rem;
+  }
+  .locs-img,
+  .weaves-img,
+  .braids-img,
+  .twists-img {
+    width: 35rem;
+    height: 50rem;
+  }
+  .locs-go,
+  .weaves-go,
+  .twists-go,
+  .braids-go {
+    min-height: 10vh;
+    width: 35rem;
+  }
+  .locs-go,
+  .weaves-go {
+    right: 8rem;
+    bottom: 16%;
+  }
+  .twists-go,
+  .braids-go {
+    left: 8rem;
+    bottom: 16%;
+  }
+}
+@media screen and (max-width: 770px) {
+  .welcome-text h3 {
+    font-size: 3.5rem;
+  }
+  .categories {
+    min-height: 450vh;
+    padding: 15rem 0 0 0;
+  }
+  .categories-section {
+    min-height: 470vh;
+  }
+  .categories-bottom {
+    min-height: 500vh;
+  }
+  .locs-type,
+  .weaves-type,
+  .braids-type,
+  .twists-type {
+    font-size: 4rem;
+  }
+  .locs-container,
+  .weaves-container,
+  .braids-container,
+  .twists-container {
+    width: 30rem;
+    height: 45rem;
+    top: 12%;
+  }
+  .shrinker {
+    width: 30rem;
+    height: 45rem;
+  }
+  .locs-img,
+  .weaves-img,
+  .braids-img,
+  .twists-img {
+    width: 30rem;
+    height: 45rem;
+  }
+  .locs-go,
+  .weaves-go,
+  .twists-go,
+  .braids-go {
+    min-height: 13vh;
+    width: 35rem;
+  }
+  .locs-go,
+  .weaves-go {
+    right: 4rem;
+    bottom: 0%;
+  }
+  .twists-go,
+  .braids-go {
+    left: 4rem;
+    bottom: 0%;
+  }
+}
 @media only screen and (max-width: 550px) {
   .categories {
     min-height: 540vh;
+    padding: 0 0 0 0;
   }
   .welcome-image img {
     height: 100%;
@@ -523,6 +648,8 @@
     position: relative;
     bottom: 0%;
     width: 20rem;
+    right: 0;
+    left: 0;
   }
   .locs-write,
   .weaves-write,

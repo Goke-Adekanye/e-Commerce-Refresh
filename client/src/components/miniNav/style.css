@@ -25,10 +25,17 @@
     font-size: 0.9rem;
   }
 }
+@media screen and (max-width: 1030px) {
+  .mini-nav {
+    padding: 2rem 0;
+  }
+  .mini-nav h3 {
+    font-size: 1rem;
+  }
+}
 @media screen and (max-width: 550px) {
   .mini-nav {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding: 2rem 0;
   }
   .mini-nav h3 {
     font-size: 0.7rem;

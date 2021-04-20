@@ -16,7 +16,7 @@
   min-height: 50vh;
   font-weight: 200;
   color: rgb(0, 0, 0);
-
+  padding-bottom: 1rem;
   border-top: 2px solid #000;
 }
 .bottom-container {
@@ -196,7 +196,29 @@
     font-size: 0.9rem;
   }
 }
-
+@media screen and (max-width: 1030px) {
+  .bottom,
+  .bottom-container {
+    min-height: 35vh;
+  }
+  .contact-head {
+    min-height: 10vh;
+    font-size: 2rem;
+  }
+  .contact-body {
+    min-height: 12vh;
+  }
+  .contact-num-head,
+  .contact-add-head {
+    min-height: 4vh;
+  }
+}
+@media screen and (max-width: 770px) {
+  .contact-head {
+    min-height: 10vh;
+    font-size: 1.7rem;
+  }
+}
 @media only screen and (max-width: 550px) {
   .bottom-container {
     display: flex;

@@ -393,7 +393,7 @@ function Home() {
           </div>
           <div className="categories-bottom">
             <div className="categories-section">
-              <div className="  locs">
+              <div className="locs">
                 <motion.div
                   variants={nextPage}
                   exit="exit"

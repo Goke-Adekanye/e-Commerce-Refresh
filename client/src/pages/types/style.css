@@ -249,6 +249,35 @@
   }
 }
 
+@media screen and (max-width: 1030px) {
+  .type-container {
+    padding-bottom: 10vh;
+  }
+  .type-section-head {
+    padding: 1rem 0;
+  }
+  .type-section-body {
+    padding: 3vh 0;
+    min-height: 27vh;
+  }
+  .type-product-container {
+    min-height: 25vh;
+  }
+  .product-img {
+    width: 15vw;
+    height: 12vh;
+    margin: 1.875rem 0px;
+  }
+}
+@media screen and (max-width: 770px) {
+  .type-product-name {
+    font-size: 0.8rem;
+  }
+  .type-product-price {
+    font-size: 0.7rem;
+  }
+}
+
 @media screen and (max-width: 550px) {
   .type-collection {
     font-size: 2rem;
