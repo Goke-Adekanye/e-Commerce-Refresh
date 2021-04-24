@@ -367,7 +367,7 @@
   color: white;
   transition: 1s;
 }
-
+/* Desktop 15 inches */
 @media screen and (max-width: 1600px) {
   .categories {
     min-height: 550vh;
@@ -447,7 +447,7 @@
     padding: 0 1rem;
   }
 }
-
+/* iPad  Pro*/
 @media screen and (max-width: 1030px) {
   .welcome-text {
     padding: 2rem 0 0 0;
@@ -515,6 +515,7 @@
     bottom: 16%;
   }
 }
+/* iPad */
 @media screen and (max-width: 770px) {
   .welcome-text h3 {
     font-size: 3.5rem;
@@ -572,6 +573,7 @@
     bottom: 0%;
   }
 }
+/* Surface Duo */
 @media only screen and (max-width: 550px) {
   .categories {
     min-height: 540vh;
@@ -671,5 +673,203 @@
     height: 2.5rem;
     font-size: 0.8rem;
     padding: 0 0.7rem;
+  }
+}
+/* iPhone 6-8 plus */
+@media only screen and (max-width: 415px) {
+}
+/* Pixel 2 XL */
+@media only screen and (max-width: 412px) and (min-height: 822px) {
+  .categories {
+    min-height: 450vh;
+    padding: 5rem 0 5rem 0;
+  }
+  .categories-section {
+    min-height: 430vh;
+  }
+  .categories-bottom {
+    min-height: 450vh;
+  }
+  .locs,
+  .weaves,
+  .braids,
+  .twists {
+    height: 87.5vh;
+  }
+  .locs-go,
+  .weaves-go,
+  .twists-go,
+  .braids-go {
+    min-height: 15vh;
+    position: relative;
+    bottom: 0%;
+    width: 20rem;
+    right: 0;
+    left: 0;
+  }
+}
+/* Pixel 2 */
+@media only screen and (max-width: 412px) {
+}
+/* iPhone 6-8 */
+@media only screen and (max-width: 380px) {
+  .welcome-text {
+    top: 12%;
+  }
+  .categories {
+    min-height: 540vh;
+    padding: 0 0 15vh 0;
+  }
+  .categories-bottom {
+    min-height: 530vh;
+  }
+  .categories-section {
+    min-height: 500vh;
+  }
+  .locs,
+  .weaves,
+  .braids,
+  .twists {
+    height: 105vh;
+  }
+  .locs-container,
+  .weaves-container,
+  .braids-container,
+  .twists-container {
+    width: 18rem;
+    height: 30rem;
+    top: 12%;
+  }
+  .shrinker {
+    width: 18rem;
+    height: 30rem;
+  }
+  .shrink {
+    width: 14rem;
+    height: 29rem;
+  }
+  .locs-img,
+  .weaves-img,
+  .braids-img,
+  .twists-img {
+    width: 18rem;
+    height: 30rem;
+  }
+  .locs-go,
+  .weaves-go,
+  .twists-go,
+  .braids-go {
+    bottom: 0%;
+    width: 18rem;
+  }
+  .locs-write,
+  .weaves-write,
+  .twists-write,
+  .braids-write {
+    font-size: 0.8rem;
+    line-height: 1.1rem;
+  }
+  .locs-write h2,
+  .weaves-write h2,
+  .twists-write h2,
+  .braids-write h2 {
+    font-size: 1rem;
+  }
+}
+/* Galaxy s5 */
+@media only screen and (max-width: 362px) {
+  .locs,
+  .weaves,
+  .braids,
+  .twists {
+    height: 110vh;
+  }
+}
+/* iPhone 5 */
+@media only screen and (max-width: 322px) {
+  .welcome-text h3 {
+    font-size: 3.5rem;
+  }
+  .locs,
+  .weaves,
+  .braids,
+  .twists {
+    height: 105vh;
+  }
+  .locs-container,
+  .weaves-container,
+  .braids-container,
+  .twists-container {
+    width: 16rem;
+    height: 25rem;
+    top: 12%;
+  }
+  .shrinker {
+    width: 16rem;
+    height: 25rem;
+  }
+  .shrink {
+    width: 14rem;
+    height: 23rem;
+  }
+  .locs-type,
+  .weaves-type,
+  .braids-type,
+  .twists-type {
+    font-size: 1.9rem;
+    top: 6%;
+  }
+  .locs-img,
+  .weaves-img,
+  .braids-img,
+  .twists-img {
+    width: 16rem;
+    height: 25rem;
+  }
+
+  .locs-go,
+  .weaves-go,
+  .twists-go,
+  .braids-go {
+    bottom: 0%;
+    width: 16rem;
+  }
+  .locs-write,
+  .weaves-write,
+  .twists-write,
+  .braids-write {
+    font-size: 0.7rem;
+    line-height: 0.9rem;
+  }
+  .locs-write h2,
+  .weaves-write h2,
+  .twists-write h2,
+  .braids-write h2 {
+    font-size: 0.9rem;
+  }
+  .locs-button,
+  .weaves-button,
+  .twists-button,
+  .braids-button {
+    height: 2.25rem;
+    font-size: 0.7rem;
+    padding: 0 0.7rem;
+  }
+}
+
+/* Galaxy Fold */
+@media only screen and (max-width: 282px) {
+  .locs,
+  .weaves,
+  .braids,
+  .twists {
+    height: 93vh;
+  }
+  .locs-type,
+  .weaves-type,
+  .braids-type,
+  .twists-type {
+    font-size: 1.6rem;
+    top: 6%;
   }
 }

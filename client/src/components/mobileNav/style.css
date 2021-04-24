@@ -1,0 +1,76 @@
+/* mobile-nav */
+
+/* iPad */
+.mobile-nav {
+  display: none;
+}
+/* iPad */
+@media screen and (max-width: 770px) {
+  .mobile-nav {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    position: fixed;
+    z-index: 3;
+    background-color: #edeae4;
+    transform: translateX(100vw);
+  }
+  .mobile-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    height: 60%;
+    font-family: Athene, serif;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .mobile-links li {
+    list-style: none;
+    font-size: 4.5rem;
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  .mobile-links li:hover {
+    background-color: black;
+  }
+}
+/* Surface Duo */
+@media only screen and (max-width: 550px) {
+  .mobile-links li {
+    font-size: 3rem;
+  }
+}
+/* iPhone 6-8 plus */
+@media only screen and (max-width: 415px) {
+  .mobile-links li {
+    font-size: 2.5rem;
+  }
+}
+/* Pixel 2 */
+@media only screen and (max-width: 412px) {
+}
+/* iPhone 6-8 */
+@media only screen and (max-width: 380px) {
+  .mobile-links li {
+    font-size: 2.5rem;
+  }
+}
+/* Galaxy s5 */
+@media only screen and (max-width: 362px) {
+  .mobile-links li {
+    font-size: 2.25rem;
+  }
+}
+/* iPhone 5 */
+@media only screen and (max-width: 322px) {
+  .mobile-links li {
+    font-size: 2rem;
+  }
+}
+/* Galaxy Fold */
+@media only screen and (max-width: 282px) {
+}

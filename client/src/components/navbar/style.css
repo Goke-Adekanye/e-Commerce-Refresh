@@ -6,15 +6,6 @@ header {
   flex-direction: row;
   width: 100%;
 }
-/* .nav1 {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  height: 10vh;
-  padding: 0 150px;
-  color: white;
-} */
 .nav {
   display: flex;
   flex-direction: row;
@@ -22,16 +13,11 @@ header {
   align-items: center;
   height: 10vh;
   width: 80vw;
-
-  /* box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.2); */
   color: black;
   font-size: 1.6rem;
-  /* font-family: 'Arima Madurai', cursive;
-  font-family: Athene,serif; */
 }
 .nav a {
   color: rgb(0, 0, 0);
-  /* color:  #d3b7a3; */
 }
 .nav-links {
   display: flex;
@@ -41,13 +27,16 @@ header {
   list-style: none;
   position: relative;
   width: 100%;
-  z-index: 2;
+  z-index: 4;
 }
 .nav-links li,
 .nav-links a {
   text-decoration: none;
-
   list-style: none;
+}
+.nav-right {
+  display: flex;
+  flex-direction: row;
 }
 .cart-icon {
   display: flex;
@@ -68,11 +57,9 @@ header {
   right: -12px;
   font-size: 0.6em;
   color: black;
-  /* background-color: black; */
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  /* box-shadow:0 0 1px #333; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -91,19 +78,107 @@ header {
 .noClick {
   pointer-events: none;
 }
-
+/* Desktop 15 inches */
 @media screen and (max-width: 1600px) {
   .nav {
     font-size: 1.4rem;
   }
 }
+/* iPad  Pro*/
 @media screen and (max-width: 1030px) {
   .nav {
     font-size: 1.9rem;
   }
 }
+/* iPad */
+@media screen and (max-width: 770px) {
+  .nav-right {
+    width: 15%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+  }
+  .nav-toggle div {
+    position: absolute;
+    width: 2.5rem;
+    height: 0.25rem;
+    background-color: black;
+    border-radius: 2px;
+    transition: 1s ease 1s;
+    position: absolute;
+  }
+  .nav-bottom {
+    transform: translateY(0.5rem);
+  }
+  .nav-top {
+    transform: translateY(-0.5rem);
+  }
+  .close-nav .nav-top {
+    transform: rotate(45deg);
+  }
+  .close-nav .nav-bottom {
+    transform: rotate(-45deg);
+  }
+}
+
+/* Surface Duo */
 @media only screen and (max-width: 550px) {
   .nav {
     font-size: 1.2rem;
+  }
+  .nav-toggle div {
+    width: 1.5rem;
+    height: 0.2rem;
+  }
+  .nav-bottom {
+    transform: translateY(0.25rem);
+  }
+  .nav-top {
+    transform: translateY(-0.25rem);
+  }
+}
+/* iPhone 6-8 */
+@media only screen and (max-width: 380px) {
+  .nav {
+    font-size: 1.1rem;
+  }
+  .nav-toggle div {
+    width: 1.5rem;
+    height: 0.2rem;
+  }
+}
+/* Galaxy s5 */
+@media only screen and (max-width: 362px) {
+  .nav-toggle div {
+    width: 1.5rem;
+    height: 0.2rem;
+  }
+}
+/* iPhone 5 */
+@media only screen and (max-width: 322px) {
+  .nav {
+    font-size: 1rem;
+  }
+  .nav-right {
+    width: 18%;
+  }
+  .nav-toggle div {
+    width: 1.1rem;
+    height: 0.15rem;
+  }
+}
+/* Galaxy Fold */
+@media only screen and (max-width: 282px) {
+  .nav {
+    font-size: 0.9rem;
   }
 }

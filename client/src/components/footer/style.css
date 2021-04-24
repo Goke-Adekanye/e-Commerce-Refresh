@@ -25,7 +25,6 @@
   justify-content: space-around;
   align-items: flex-start;
   min-height: 55vh;
-  /* width: 100%; */
 }
 .contact-head {
   min-height: 15vh;
@@ -117,7 +116,7 @@
   bottom: 0;
   font-size: 1rem;
 }
-
+/* Desktop 15 inches */
 @media screen and (max-width: 1600px) {
   .bottom-container {
     min-height: 50vh;
@@ -196,6 +195,7 @@
     font-size: 0.9rem;
   }
 }
+/* iPad  Pro*/
 @media screen and (max-width: 1030px) {
   .bottom,
   .bottom-container {
@@ -213,12 +213,14 @@
     min-height: 4vh;
   }
 }
+/* iPad */
 @media screen and (max-width: 770px) {
   .contact-head {
     min-height: 10vh;
     font-size: 1.7rem;
   }
 }
+/* Surface Duo */
 @media only screen and (max-width: 550px) {
   .bottom-container {
     display: flex;
@@ -272,3 +274,56 @@
     font-size: 0.8rem;
   }
 }
+/* Pixel 2 XL */
+@media only screen and (max-width: 412px) and (min-height: 822px) {
+  .bottom-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    min-height: 45vh;
+  }
+  .contact-head {
+    font-size: 1.1rem;
+  }
+}
+/* Pixel 2 */
+@media only screen and (max-width: 412px) {
+  .contact-head {
+    font-size: 1.1rem;
+  }
+}
+/* iPhone 6-8 */
+@media only screen and (max-width: 380px) {
+  .contact-head {
+    font-size: 1.05rem;
+  }
+  .rights {
+    padding: 2vh 0 0 0;
+  }
+}
+/* iPhone 5 */
+@media only screen and (max-width: 322px) {
+  .bottom-container {
+    min-height: 60vh;
+  }
+  .contact-head {
+    font-size: 0.9rem;
+  }
+  .contact-body h2 {
+    font-size: 0.6rem;
+  }
+  .contact-body h3 {
+    font-size: 1rem;
+  }
+  .socials li {
+    font-size: 0.8rem;
+  }
+}
+/* Galaxy Fold */
+@media only screen and (max-width: 282px) {
+  .contact-head {
+      font-size: 0.8rem;
+  }
+}
+

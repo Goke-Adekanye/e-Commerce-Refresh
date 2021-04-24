@@ -1,5 +1,6 @@
 /* Cart*/
-.cart-overlay {
+.overlay,
+.overlay2 {
   height: 100vh;
   width: 100vw;
   background-color: white;
@@ -7,7 +8,7 @@
   top: 0;
   opacity: 0;
   visibility: hidden;
-  z-index: 1;
+  z-index: 3;
 }
 .card-container {
   display: flex;
@@ -21,7 +22,7 @@
   top: 0;
   left: 0;
   transform: translateX(-100vw);
-  z-index: 1;
+  z-index: 3;
 }
 .card-main {
   display: flex;
@@ -237,7 +238,7 @@
 .mobile-card-details {
   display: none;
 }
-
+/* Desktop 15 inches */
 @media screen and (max-width: 1600px) {
   .card-main header h2 {
     font-size: 4rem;
@@ -260,6 +261,7 @@
     font-size: 1.1rem;
   }
 }
+/* iPad  Pro*/
 @media screen and (max-width: 1030px) {
   .card-main header h2 {
     font-size: 4rem;
@@ -408,6 +410,7 @@
     width: 100%;
   }
 }
+/* iPad */
 @media screen and (max-width: 770px) {
   .card-main header h2 {
     font-size: 3rem;
@@ -417,6 +420,7 @@
     font-size: 1.25rem;
   }
 }
+/* Surface Duo */
 @media only screen and (max-width: 550px) {
   .card-main header h2 {
     font-size: 2rem;
@@ -491,11 +495,12 @@
   }
   .remove-product {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     height: 100%;
     position: absolute;
-    padding: 0 0 0 0.1rem;
+    padding: 0 0 0 0.5rem;
+    font-size: 1rem;
   }
 
   .mobile-card-details {
@@ -563,5 +568,51 @@
   }
   .card-check-out {
     width: 100%;
+  }
+}
+/* Pixel 2 XL */
+@media only screen and (max-width: 412px) and (min-height: 822px) {
+  .remove-product {
+    padding: 0 0 0 0em;
+  }
+}
+/* iPhone 5 */
+@media only screen and (max-width: 322px) {
+  .card-main header h2 {
+    font-size: 1.7rem;
+  }
+  .mobile-card-details {
+    padding: 0 0.5rem;
+    font-size: 0.8rem;
+    line-height: 2rem;
+  }
+}
+
+/* Galaxy Fold */
+@media only screen and (max-width: 282px) {
+  .cart-body {
+    width: 70vw;
+  }
+  .card-body {
+    width: 50vw;
+    min-height: 45vh;
+    margin: 0 0 2.5rem 0;
+  }
+  .mobile-card-details {
+    padding: 0 0rem;
+    font-size: 0.65rem;
+    line-height: 2rem;
+  }
+  .mobile-card-name {
+    width: 100%;
+  }
+  .mobile-card-price {
+    width: 100%;
+  }
+  .mobile-card-quantity {
+    width: 100%;
+  }
+  .card-end {
+    font-size: 0.7rem;
   }
 }

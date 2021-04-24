@@ -1,18 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./style.css";
 import { Link, useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faOpencart } from "@fortawesome/free-brands-svg-icons";
-import { connect, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import MobileNav from "../mobileNav/mobileNav";
 import { selectCartItemsCount } from "../../redux/cart/cartSelector";
 
-const Navbar = ({ func }) => {
-  const { totalNumberCart } = useSelector(mapStateToProps);
+const mapState = (state) => {
+  return {
+    totalNumberCart: selectCartItemsCount(state),
+  };
+};
 
+const Navbar = ({ func, miniNav, mobileNavFunc1, mobileNavFunc2 }) => {
+  const { totalNumberCart } = useSelector(mapState);
+  const [close, setClose] = useState(true);
   const history = useHistory();
-
   let click = [];
   let numberCart = null;
+
+  useEffect(() => {
+    console.log(miniNav);
+  }, []);
+
   history.location.pathname === "/"
     ? click.push("noClick")
     : click.push("Click");
@@ -25,6 +36,7 @@ const Navbar = ({ func }) => {
 
   return (
     <div>
+      <MobileNav func={close} />
       <header>
         <nav className="nav">
           <ul className={`nav-links`}>
@@ -35,10 +47,22 @@ const Navbar = ({ func }) => {
               </Link>
             </li>
 
-            <li className="badge1" data-badge={numberCart}>
-              <div className={`cart-icon ${click}`}>
+            <li className="nav-right">
+              <div
+                className={`cart-icon ${click} badge1`}
+                data-badge={numberCart}
+              >
                 {" "}
                 <FontAwesomeIcon icon={faOpencart} onClick={func} />
+              </div>
+              <div
+                className={`nav-toggle ${
+                  mobileNavFunc2 ? "open-nav" : "close-nav"
+                }`}
+                onClick={mobileNavFunc1}
+              >
+                <div className="nav-top"></div>
+                <div className="nav-bottom"></div>
               </div>
             </li>
           </ul>
@@ -47,10 +71,5 @@ const Navbar = ({ func }) => {
     </div>
   );
 };
-const mapStateToProps = (state) => {
-  return {
-    number: state.cart.length,
-    totalNumberCart: selectCartItemsCount(state),
-  };
-};
-export default connect(mapStateToProps)(Navbar);
+
+export default Navbar;

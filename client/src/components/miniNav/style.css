@@ -19,12 +19,13 @@
 .specialText2 {
   color: #a85ec2;
 }
-
+/* Desktop 15 inches */
 @media screen and (max-width: 1600px) {
   .mini-nav h3 {
     font-size: 0.9rem;
   }
 }
+/* iPad  Pro*/
 @media screen and (max-width: 1030px) {
   .mini-nav {
     padding: 2rem 0;
@@ -33,11 +34,24 @@
     font-size: 1rem;
   }
 }
+/* Surface Duo */
 @media screen and (max-width: 550px) {
   .mini-nav {
     padding: 2rem 0;
   }
   .mini-nav h3 {
     font-size: 0.7rem;
+  }
+}
+/* iPhone 6-8 */
+@media only screen and (max-width: 380px) {
+  .mini-nav {
+    padding: 1.5rem 0;
+  }
+}
+/* iPhone 5 */
+@media only screen and (max-width: 322px) {
+  .mini-nav h3 {
+    font-size: 0.6rem;
   }
 }

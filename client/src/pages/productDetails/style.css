@@ -189,7 +189,7 @@
   font-style: italic;
   text-align: center;
 }
-
+/* Desktop 15 inches */
 @media screen and (max-width: 1600px) {
   .product-container {
     padding: 3.5rem 0rem;
@@ -240,6 +240,7 @@
     font-size: 1rem;
   }
 }
+/* iPad  Pro*/
 @media screen and (max-width: 1030px) {
   .product-main {
     padding-bottom: 10vh;
@@ -335,6 +336,7 @@
     font-size: 1.3rem;
   }
 }
+/* iPad */
 @media screen and (max-width: 770px) {
   .product-name {
     font-size: 1.9rem;
@@ -360,6 +362,7 @@
     font-size: 1.2rem;
   }
 }
+/* Surface Duo */
 @media only screen and (max-width: 550px) {
   .product-main {
     padding-bottom: 5vh;
@@ -450,5 +453,99 @@
   }
   .related-product-price {
     font-size: 0.7rem;
+  }
+}
+/* Pixel 2 XL */
+@media only screen and (max-width: 412px) and (min-height: 822px) {
+  .product-container-right {
+    min-height: 40vh;
+  }
+  .related-product-img {
+    width: 30vw;
+    height: 16vh;
+  }
+  .remove-product {
+    padding: 0 0 0 0em;
+  }
+}
+/* iPhone 6-8 */
+@media only screen and (max-width: 380px) {
+  .product-name {
+    font-size: 1.2rem;
+    min-height: 1vh;
+  }
+  .product-price {
+    font-size: 0.9rem;
+    min-height: 1vh;
+  }
+  .product-add {
+    width: 100%;
+    font-size: 0.9rem;
+    justify-content: flex-start;
+    min-height: 8vh;
+  }
+  .product-detail {
+    font-size: 0.9rem;
+    padding-top: 0.5rem;
+    line-height: 1.5rem;
+  }
+  .product-container-bottom {
+    padding: 5vh 0 0 10vw;
+  }
+  .related-products-head {
+    height: 100%;
+    width: 70vw;
+    font-size: 1.4em;
+  }
+  .related-product-name {
+    font-size: 0.7rem;
+  }
+  .related-product-price {
+    padding: 0 0 0 0;
+  }
+}
+/* iPhone 5 */
+@media only screen and (max-width: 322px) {
+  .product-container-right {
+    min-height: 50vh;
+    line-height: 2.25rem;
+  }
+  .product-name {
+    font-size: 1.1rem;
+  }
+  .product-price {
+    font-size: 0.9rem;
+  }
+  .product-add {
+    font-size: 0.9rem;
+    min-height: 8vh;
+  }
+  .product-detail {
+    font-size: 0.85rem;
+    padding-top: 0.5rem;
+    line-height: 1.5rem;
+  }
+  .type-product-section {
+    line-height: 1.4rem;
+  }
+  .related-product-img {
+    width: 40vw;
+    height: 21.5vh;
+    margin: 0.5rem 0px;
+  }
+  .related-products-head {
+    font-size: 1.2rem;
+  }
+  .related-product-name {
+    font-size: 0.7rem;
+  }
+  .related-product-price {
+    font-size: 0.6rem;
+  }
+}
+/* Galaxy Fold */
+@media only screen and (max-width: 282px) {
+  .related-products-head {
+      font-size: 1.1rem;
   }
 }

@@ -7,7 +7,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 const useCart = () => {
   const [showCart, setShowCart] = useState(false);
-
+  gsap.config({
+    nullTargetWarn: false,
+  });
   function show() {
     // Animation 13
     gsap
@@ -38,7 +40,7 @@ const useCart = () => {
           end: "bottom top",
         },
       })
-      .to(".cart-overlay", 1.6, {
+      .to(".overlay", 1.6, {
         width: "100vw",
         opacity: "1",
         visibility: "visible",
@@ -76,12 +78,12 @@ const useCart = () => {
           end: "bottom top",
         },
       })
-      .to(".cart-overlay", 2, {
+      .to(".overlay", 2, {
         opacity: "0",
         ease: Power2.easeInOut,
         delay: "1.3",
       })
-      .to(".cart-overlay", 0, {
+      .to(".overlay", 0, {
         visibility: "hidden",
       });
   }

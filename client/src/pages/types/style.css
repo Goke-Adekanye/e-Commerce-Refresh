@@ -221,7 +221,7 @@
 .load-more button:hover::after {
   top: 0%;
 }
-
+/* Desktop 15 inches */
 @media screen and (max-width: 1600px) {
   .type-collection {
     font-size: 3.2rem;
@@ -248,7 +248,7 @@
     font-size: 0.9rem;
   }
 }
-
+/* iPad  Pro*/
 @media screen and (max-width: 1030px) {
   .type-container {
     padding-bottom: 10vh;
@@ -269,6 +269,7 @@
     margin: 1.875rem 0px;
   }
 }
+/* iPad */
 @media screen and (max-width: 770px) {
   .type-product-name {
     font-size: 0.8rem;
@@ -277,7 +278,7 @@
     font-size: 0.7rem;
   }
 }
-
+/* Surface Duo */
 @media screen and (max-width: 550px) {
   .type-collection {
     font-size: 2rem;
@@ -357,3 +358,39 @@
     padding: 0.7rem;
   }
 }
+/* iPhone 6-8 plus */
+@media only screen and (max-width: 415px) {}
+/* Pixel 2 XL */
+@media only screen and (max-width: 412px) and (min-height: 822px) {
+  .odd {
+    margin-left: 1rem;
+  }
+}
+/* Pixel 2 */
+@media only screen and (max-width: 412px) {
+  .odd {
+    margin-left: 1rem;
+  }
+}
+/* iPhone 6-8 */
+@media only screen and (max-width: 380px) {
+  .odd {
+    margin-left: 1rem;
+  }
+}
+/* iPhone 5 */
+@media only screen and (max-width: 322px) {
+  .odd {
+    margin-left: 0.8rem;
+  }
+  .type-product-name {
+    font-size: 0.75rem;
+  }
+}
+/* Galaxy Fold */
+@media only screen and (max-width: 282px) {
+ .type-product-name {
+    font-size: 0.65rem;
+  }
+}
+

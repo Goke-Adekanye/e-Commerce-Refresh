@@ -6,18 +6,21 @@ import {
   faLongArrowAltRight,
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
-import { connect } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { REMOVE, ADD, DECREASE } from "../../redux/cart/actions";
 import { selectCartTotal } from "../../redux/cart/cartSelector";
 
-const Cart = ({ cart, total, quantity, match, func }) => {
-  const dispatch = useDispatch();
+const mapState = (store) => {
+  return { cart: store.cart, total: selectCartTotal(store) };
+};
 
+const Cart = ({ func }) => {
+  const dispatch = useDispatch();
+  const { cart, total } = useSelector(mapState);
   if (cart.length === 0) {
     return (
       <div>
-        <div className="cart-overlay" onClick={func}></div>
+        <div className="overlay" onClick={func}></div>
         <div className="card-container">
           <div className="card-main">
             <header>
@@ -48,7 +51,7 @@ const Cart = ({ cart, total, quantity, match, func }) => {
   } else {
     return (
       <div>
-        <div className="cart-overlay" onClick={func}></div>
+        <div className="overlay" onClick={func}></div>
         <div className="card-container">
           <div className="card-main">
             <header>
@@ -256,7 +259,5 @@ const Cart = ({ cart, total, quantity, match, func }) => {
     );
   }
 };
-function mapStateToProps(store) {
-  return { cart: store.cart, total: selectCartTotal(store), quantity: store };
-}
-export default connect(mapStateToProps)(Cart);
+
+export default Cart;

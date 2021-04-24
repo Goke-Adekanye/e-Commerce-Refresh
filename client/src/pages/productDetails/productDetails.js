@@ -9,7 +9,8 @@ import Carousel from "../../components/carousel/carousel";
 import AddButton from "../../components/buttons/button";
 import useFullPageLoader from "../../hooks/useFullPageLoader";
 import useCart from "../../hooks/useCart";
-import { connect } from "react-redux";
+import MobileNav from "../../components/mobileNav/mobileNav";
+import useMobileNav from "../../hooks/useMobileNav";
 import { ADD } from "../../redux/cart/actions";
 import { useDispatch } from "react-redux";
 import axios from "axios";
@@ -26,6 +27,9 @@ function ProductDetails({ match }) {
   const [displayCart, setDisplayCart] = useState(true);
   const [items, setItems] = useState([]);
   const [related, setRelated] = useState([]);
+  const [displayNav, hideNav] = useMobileNav();
+  const [showNav, setShowNav] = useState(true);
+
   const body = document.querySelector("body");
   const filter = match.params.filterType;
   const style = match.params.productType;
@@ -125,6 +129,11 @@ function ProductDetails({ match }) {
       body.style.overflow = "unset";
     }, 1000);
   };
+  const navFunc = () => {
+    showNav ? setShowNav(false) : setShowNav(true);
+    showNav ? displayNav() : hideNav();
+    console.log(showNav);
+  };
   const btnFun = () => {
     cartFun();
     addItem();
@@ -137,12 +146,14 @@ function ProductDetails({ match }) {
         className="mask"
       ></motion.div>
       {loader}
+      <MobileNav />
       <Navbar
         func={() => {
           cartFun();
         }}
+        mobileNavFunc1={navFunc}
+        mobileNavFunc2={showNav}
       />
-
       <div className="product-main">
         <MiniNav level={level} style={style} filter={filter} product={from} />
         <div className="product-body">
@@ -210,4 +221,4 @@ function ProductDetails({ match }) {
   );
 }
 
-export default connect()(ProductDetails);
+export default ProductDetails;

@@ -8,7 +8,7 @@ import {
   faChevronLeft,
 } from "@fortawesome/free-solid-svg-icons";
 
-function Carousel({ productImage1, productImage2, productImage3 }) {
+function Carousel({ productImage1 }) {
   const [imgSize, setImgSize] = useState("");
   const imageCon = useRef();
   const productImages = document.querySelectorAll(".carousel-content img");

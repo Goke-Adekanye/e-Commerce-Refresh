@@ -26,7 +26,7 @@
   opacity: 1;
   transition: 0.4s;
 }
-
+/* Desktop 15 inches */
 @media screen and (max-width: 1600px) {
   .add-button {
     font-size: 1.1rem;
@@ -48,6 +48,7 @@
     opacity: 1;
   }
 }
+/* iPad  Pro*/
 @media screen and (max-width: 1030px) {
   .add-button {
     font-size: 1.7rem;
@@ -58,6 +59,7 @@
     padding-right: 1.2rem;
   }
 }
+/* iPad */
 @media screen and (max-width: 770px) {
   .add-button {
     font-size: 1.3rem;
@@ -68,9 +70,18 @@
     padding-right: 1.2rem;
   }
 }
+/* Surface Duo */
 @media only screen and (max-width: 550px) {
   .add-button {
     font-size: 0.9rem;
+    padding: 0.5rem 0;
+    padding-left: 1rem;
+  }
+}
+/* Galaxy Fold */
+@media only screen and (max-width: 282px) {
+  .add-button {
+    font-size: 0.75rem;
     padding: 0.5rem 0;
     padding-left: 1rem;
   }

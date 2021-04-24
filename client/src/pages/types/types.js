@@ -8,6 +8,8 @@ import MiniNav from "../../components/miniNav/miniNav";
 import useFullPageLoader from "../../hooks/useFullPageLoader";
 import useCart from "../../hooks/useCart";
 import Navbar from "../../components/navbar/navbar";
+import MobileNav from "../../components/mobileNav/mobileNav";
+import useMobileNav from "../../hooks/useMobileNav";
 import axios from "axios";
 import { Power2, gsap } from "gsap";
 import { motion } from "framer-motion";
@@ -25,6 +27,8 @@ function Type({ match }) {
   const [loader, showLoader, hideLoader] = useFullPageLoader();
   const [cart, showCart, hideCart] = useCart();
   const [clickButton, setClickButton] = useState(true);
+  const [displayNav, hideNav] = useMobileNav();
+  const [showNav, setShowNav] = useState(true);
   const body = document.querySelector("body");
   const filter = match.params.filterType;
   const style = match.params.productType;
@@ -172,7 +176,11 @@ function Type({ match }) {
       body.style.overflow = "unset";
     }, 1000);
   };
-
+  const navFunc = () => {
+    showNav ? setShowNav(false) : setShowNav(true);
+    showNav ? displayNav() : hideNav();
+    console.log(showNav);
+  };
   return (
     <div className={`container ${click === "noMore" ? "body-overflow" : ""}`}>
       <motion.div
@@ -181,10 +189,13 @@ function Type({ match }) {
         className="mask"
       ></motion.div>
       {loader}
+      <MobileNav />
       <Navbar
         func={() => {
           cartFun();
         }}
+        mobileNavFunc1={navFunc}
+        mobileNavFunc2={showNav}
       />
       <div className="type-container">
         <MiniNav level={level} style={style} filter={filter} />

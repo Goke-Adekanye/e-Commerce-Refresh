@@ -5,6 +5,8 @@ import "./style.css";
 import { Link } from "react-router-dom";
 import Navbar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
+import MobileNav from "../../components/mobileNav/mobileNav";
+import useMobileNav from "../../hooks/useMobileNav";
 import { Power2, Power3, gsap } from "gsap";
 import { motion } from "framer-motion";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -13,6 +15,8 @@ import { Parallax } from "react-scroll-parallax";
 gsap.registerPlugin(ScrollTrigger);
 
 function Home() {
+  const [displayNav, hideNav] = useMobileNav();
+  const [showNav, setShowNav] = useState(true);
   const [enterLocs, setEnterLocs] = useState(false);
   const [enterTwist, setEnterTwist] = useState(false);
   const [enterWeaves, setEnterWeaves] = useState(false);
@@ -358,6 +362,12 @@ function Home() {
     },
   };
 
+  const navFunc = () => {
+    showNav ? setShowNav(false) : setShowNav(true);
+    showNav ? displayNav() : hideNav();
+    console.log(showNav);
+  };
+
   return (
     <div className="container">
       <motion.div
@@ -365,7 +375,9 @@ function Home() {
         exit="exit"
         className="mask"
       ></motion.div>
-      <Navbar />
+      <MobileNav />
+      <Navbar mobileNavFunc1={navFunc} mobileNavFunc2={showNav} />
+
       <div className="home-section-1">
         <div className="welcome">
           <div className="welcome-section">
