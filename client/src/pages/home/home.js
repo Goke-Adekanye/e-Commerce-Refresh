@@ -17,10 +17,12 @@ gsap.registerPlugin(ScrollTrigger);
 function Home() {
   const [displayNav, hideNav] = useMobileNav();
   const [showNav, setShowNav] = useState(true);
+  const [canScroll, setCanScroll] = useState(false);
   const [enterLocs, setEnterLocs] = useState(false);
   const [enterTwist, setEnterTwist] = useState(false);
   const [enterWeaves, setEnterWeaves] = useState(false);
   const [enterBraids, setEnterBraids] = useState(false);
+  const body = document.querySelector("body");
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -30,7 +32,14 @@ function Home() {
   }, []);
 
   useEffect(() => {
-    const body = document.querySelector("body");
+    if (canScroll === false) {
+      body.style.overflow = "hidden";
+    } else {
+      body.style.overflow = "unset";
+    }
+  }, [canScroll]);
+
+  useEffect(() => {
     ScrollTrigger.defaults({
       toggleActions: "play none none none",
       markers: false,
@@ -40,13 +49,14 @@ function Home() {
     gsap
       .timeline()
       .call(() => {
-        body.style.overflow = "hidden";
+        setCanScroll(false);
       })
       .to(".container", 1, { css: { visibility: "visible" } })
       .from([".welcome-text h3"], 1.4, {
         opacity: "0",
         transform: "scale(1.4) ",
         ease: Power2.easeInOut,
+        reversed: false,
       })
       .to(".mask", 1.4, { width: "0%", left: "0", ease: Power2.easeInOut })
       .to(".mask-revealer", 3, {
@@ -55,7 +65,7 @@ function Home() {
         delay: "-1",
       })
       .call(() => {
-        body.style.overflow = "unset";
+        setCanScroll(true);
       });
 
     // Animation 2
@@ -374,6 +384,8 @@ function Home() {
         variants={nextPageMask}
         exit="exit"
         className="mask"
+        onAnimationStart={() => setCanScroll(false)}
+        onAnimationComplete={() => setCanScroll(true)}
       ></motion.div>
       <MobileNav />
       <Navbar mobileNavFunc1={navFunc} mobileNavFunc2={showNav} />

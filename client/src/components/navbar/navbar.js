@@ -6,6 +6,7 @@ import { faOpencart } from "@fortawesome/free-brands-svg-icons";
 import { useSelector } from "react-redux";
 import MobileNav from "../mobileNav/mobileNav";
 import { selectCartItemsCount } from "../../redux/cart/cartSelector";
+import { Power2, gsap } from "gsap";
 
 const mapState = (state) => {
   return {
@@ -13,17 +14,34 @@ const mapState = (state) => {
   };
 };
 
-const Navbar = ({ func, miniNav, mobileNavFunc1, mobileNavFunc2 }) => {
+const Navbar = ({
+  func,
+  miniNav,
+  mobileNavFunc1,
+  mobileNavFunc2,
+  mobileNavFunc3,
+}) => {
   const { totalNumberCart } = useSelector(mapState);
   const [close, setClose] = useState(true);
+  const [navFixed, setNavFixed] = useState();
   const history = useHistory();
   let click = [];
   let numberCart = null;
 
   useEffect(() => {
-    console.log(miniNav);
-  }, []);
+    setNavFixed(mobileNavFunc3);
 
+    if (navFixed === true) {
+      show();
+      setNavFixed(false);
+    } else {
+      hide();
+      setNavFixed(true);
+    }
+  }, [mobileNavFunc3]);
+  gsap.config({
+    nullTargetWarn: false,
+  });
   history.location.pathname === "/"
     ? click.push("noClick")
     : click.push("Click");
@@ -33,12 +51,31 @@ const Navbar = ({ func, miniNav, mobileNavFunc1, mobileNavFunc2 }) => {
   } else {
     numberCart = totalNumberCart;
   }
+  function show() {
+    // Animation 13
+    gsap.timeline().to(".nav-links", 2, {
+      position: "fixed",
+      delay: "0.7",
+    });
+  }
+  function hide() {
+    // Animation 13
+    gsap
+      .timeline()
+      .to(".nav-links", 2, {
+        // opacity: 0,
+        ease: Power2.easeInOut,
+      })
+      .to(".nav-links", 0.1, {
+        position: "relative",
+      });
+  }
 
   return (
     <div>
       <MobileNav func={close} />
       <header>
-        <nav className="nav">
+        <nav className={`nav `}>
           <ul className={`nav-links`}>
             <li>
               <Link to={`/`}>

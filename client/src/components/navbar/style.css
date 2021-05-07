@@ -25,9 +25,10 @@ header {
   align-items: center;
   text-decoration: none;
   list-style: none;
-  position: relative;
-  width: 100%;
+  width: 80vw;
   z-index: 4;
+  z-index: 7;
+  opacity: 1;
 }
 .nav-links li,
 .nav-links a {

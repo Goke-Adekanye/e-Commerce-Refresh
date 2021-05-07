@@ -153,6 +153,7 @@ function ProductDetails({ match }) {
         }}
         mobileNavFunc1={navFunc}
         mobileNavFunc2={showNav}
+        mobileNavFunc3={displayCart}
       />
       <div className="product-main">
         <MiniNav level={level} style={style} filter={filter} product={from} />

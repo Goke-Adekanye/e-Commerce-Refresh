@@ -258,7 +258,7 @@
   }
   .type-section-body {
     padding: 3vh 0;
-    min-height: 27vh;
+    /* min-height: 27vh; */
   }
   .type-product-container {
     min-height: 25vh;
@@ -325,7 +325,7 @@
   }
   .type-section-body {
     width: 80vw;
-    min-height: 10vh;
+    /* min-height: 10vh; */
     padding-bottom: 1.5rem;
   }
   .type-product-container {
@@ -359,7 +359,8 @@
   }
 }
 /* iPhone 6-8 plus */
-@media only screen and (max-width: 415px) {}
+@media only screen and (max-width: 415px) {
+}
 /* Pixel 2 XL */
 @media only screen and (max-width: 412px) and (min-height: 822px) {
   .odd {
@@ -389,8 +390,7 @@
 }
 /* Galaxy Fold */
 @media only screen and (max-width: 282px) {
- .type-product-name {
+  .type-product-name {
     font-size: 0.65rem;
   }
 }
-

@@ -179,7 +179,6 @@ function Type({ match }) {
   const navFunc = () => {
     showNav ? setShowNav(false) : setShowNav(true);
     showNav ? displayNav() : hideNav();
-    console.log(showNav);
   };
   return (
     <div className={`container ${click === "noMore" ? "body-overflow" : ""}`}>
