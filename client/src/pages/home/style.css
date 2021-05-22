@@ -873,3 +873,373 @@
     top: 6%;
   }
 }
+
+@media screen and (max-width: 1369px) and (orientation: landscape) {
+  .welcome-text h3 {
+    font-size: 6rem;
+  }
+  .locs-go,
+  .weaves-go,
+  .twists-go,
+  .braids-go {
+    min-height: 15vh;
+    bottom: 30%;
+  }
+  .locs-container,
+  .weaves-container,
+  .braids-container,
+  .twists-container {
+    width: 30rem;
+    height: 50rem;
+  }
+  .shrinker {
+    width: 30rem;
+    height: 50rem;
+  }
+  .locs-img,
+  .weaves-img,
+  .braids-img,
+  .twists-img {
+    width: 30rem;
+    height: 50rem;
+  }
+}
+
+@media only screen and (max-width: 1025px) and (orientation: landscape) {
+  .welcome-text h3 {
+    font-size: 4.5rem;
+  }
+  .categories-bottom {
+    min-height: 475vh;
+    padding: 8rem 0 0 0;
+  }
+
+  .locs,
+  .weaves,
+  .braids,
+  .twists {
+    height: 200vh;
+  }
+  .locs-go,
+  .weaves-go,
+  .twists-go,
+  .braids-go {
+    min-height: 17vh;
+    bottom: 25%;
+  }
+  .locs-go,
+  .weaves-go {
+    right: 11rem;
+  }
+  .twists-go,
+  .braids-go {
+    left: 11rem;
+  }
+}
+@media only screen and (max-width: 824px) and (orientation: landscape) {
+  .welcome-text {
+    /* padding: 0 0 0 0; */
+  }
+  .welcome-text h3 {
+    font-size: 3.6rem;
+  }
+  .categories {
+    min-height: 850vh;
+    padding: 7rem 0 0 0;
+  }
+  .categories-top h1 {
+    font-size: 2rem;
+  }
+  .headTitle {
+    height: 2px;
+    width: 3rem;
+    background-color: black;
+    border-radius: 20px;
+  }
+  .locs,
+  .weaves,
+  .braids,
+  .twists {
+    width: 80vw;
+    height: unset;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    margin: 0 0 8rem 0;
+  }
+  .locs-num,
+  .weaves-num,
+  .braids-num,
+  .twists-num {
+    position: relative;
+    padding: 0 0 2rem 0;
+    align-self: flex-start;
+    font-size: 1.2rem;
+  }
+  .locs-type,
+  .weaves-type,
+  .braids-type,
+  .twists-type {
+    font-size: 2.9rem;
+    top: 8%;
+  }
+  .locs-container,
+  .weaves-container,
+  .braids-container,
+  .twists-container {
+    width: 20rem;
+    height: 27rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: all 1.5s;
+    z-index: 1;
+    position: relative;
+    margin: 3rem 0 0 0;
+  }
+  .shrinker {
+    width: 20rem;
+    height: 27rem;
+  }
+  .shrink {
+    width: 19rem;
+    height: 26rem;
+  }
+  .locs-img,
+  .weaves-img,
+  .braids-img,
+  .twists-img {
+    width: 20rem;
+    height: 27rem;
+  }
+  .locs-go,
+  .weaves-go,
+  .twists-go,
+  .braids-go {
+    min-height: 35vh;
+    position: relative;
+    justify-content: flex-start;
+    bottom: 0%;
+    width: 20rem;
+    right: 0;
+    left: 0;
+    padding: 2rem 0 0 0;
+  }
+  .locs-write,
+  .weaves-write,
+  .twists-write,
+  .braids-write {
+    line-height: 1.1rem;
+    font-size: 0.9rem;
+  }
+  .locs-write h2,
+  .weaves-write h2,
+  .twists-write h2,
+  .braids-write h2 {
+    font-size: 1.1rem;
+  }
+  .locs-shop,
+  .weaves-shop,
+  .braids-shop,
+  .twists-shop {
+    padding: 1.1rem 0 0 0;
+  }
+}
+@media only screen and (max-width: 740px) and (orientation: landscape) {
+  .welcome-text h3 {
+    font-size: 3rem;
+  }
+  .categories-top h1 {
+    font-size: 2rem;
+  }
+  .headTitle {
+    height: 2px;
+    width: 2.2rem;
+    background-color: black;
+    border-radius: 20px;
+  }
+  .locs-num,
+  .weaves-num,
+  .braids-num,
+  .twists-num {
+    font-size: 1.2rem;
+  }
+  .locs-type,
+  .weaves-type,
+  .braids-type,
+  .twists-type {
+    font-size: 2.2rem;
+    /* top: 6%; */
+  }
+  .locs-container,
+  .weaves-container,
+  .braids-container,
+  .twists-container {
+    width: 20rem;
+    height: 26rem;
+  }
+  .shrinker {
+    width: 20rem;
+    height: 26rem;
+  }
+  .shrink {
+    width: 19rem;
+    height: 25rem;
+  }
+  .locs-img,
+  .weaves-img,
+  .braids-img,
+  .twists-img {
+    width: 20rem;
+    height: 26rem;
+  }
+  .locs-go,
+  .weaves-go,
+  .twists-go,
+  .braids-go {
+    min-height: 30vh;
+    position: relative;
+    bottom: 0%;
+    width: 20rem;
+    right: 0;
+    left: 0;
+  }
+  .locs-write,
+  .weaves-write,
+  .twists-write,
+  .braids-write {
+    line-height: 1.2rem;
+    font-size: 0.9rem;
+  }
+  .locs-write h2,
+  .weaves-write h2,
+  .twists-write h2,
+  .braids-write h2 {
+    font-size: 1.1rem;
+  }
+  .locs-button,
+  .weaves-button,
+  .twists-button,
+  .braids-button {
+    height: 2.5rem;
+    font-size: 0.8rem;
+    padding: 0 0.7rem;
+  }
+}
+@media only screen and (max-width: 720px) and (max-height: 545px) and (orientation: landscape) {
+  .categories {
+    min-height: 550vh;
+    padding: 12rem 0 0 0;
+  }
+}
+@media only screen and (max-width: 668px) and (orientation: landscape) {
+  .welcome-text h3 {
+    font-size: 2.7rem;
+  }
+  .categories {
+    min-height: 850vh;
+    padding: 10rem 0 0 0;
+  }
+  .categories-bottom {
+    min-height: 730vh;
+    padding: 5rem 0 0 0;
+  }
+  .categories-section {
+    min-height: 720vh;
+  }
+  .categories-top h1 {
+    font-size: 1.5rem;
+  }
+  .headTitle {
+    width: 1.6rem;
+  }
+}
+/* Restructure Code */
+@media only screen and (max-width: 569px) and (orientation: landscape) {
+  .welcome-text {
+    padding: 0 0 0 0;
+  }
+  .welcome-text h3 {
+    font-size: 2.5rem;
+  }
+  .categories {
+    min-height: 850vh;
+    padding: 7rem 0 0 0;
+  }
+  .locs,
+  .weaves,
+  .braids,
+  .twists {
+    width: 80vw;
+    height: unset;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    margin: 0 0 8rem 0;
+  }
+  .locs-num,
+  .weaves-num,
+  .braids-num,
+  .twists-num {
+    position: relative;
+    padding: 0 0 2rem 0;
+    align-self: flex-start;
+  }
+  .locs-type,
+  .weaves-type,
+  .braids-type,
+  .twists-type {
+    font-size: 2.2rem;
+    top: 7%;
+  }
+  .locs-container,
+  .weaves-container,
+  .braids-container,
+  .twists-container {
+    width: 20rem;
+    height: 30rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: all 1.5s;
+    z-index: 1;
+    position: relative;
+    padding: 4.5rem 0 0 0;
+  }
+  .locs-go,
+  .weaves-go,
+  .twists-go,
+  .braids-go {
+    min-height: 35vh;
+    position: relative;
+    justify-content: flex-start;
+    bottom: 0%;
+    width: 20rem;
+    right: 0;
+    left: 0;
+    padding: 2rem 0 0 0;
+  }
+  .locs-write,
+  .weaves-write,
+  .twists-write,
+  .braids-write {
+    line-height: 1.1rem;
+    font-size: 0.9rem;
+  }
+  .locs-shop,
+  .weaves-shop,
+  .braids-shop,
+  .twists-shop {
+    padding: 1.1rem 0 0 0;
+  }
+}

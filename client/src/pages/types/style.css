@@ -394,3 +394,6 @@
     font-size: 0.65rem;
   }
 }
+
+@media only screen and (max-width: 282px) and (orientation: landscape) {
+}

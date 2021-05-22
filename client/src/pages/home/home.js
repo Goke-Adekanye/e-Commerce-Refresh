@@ -427,34 +427,6 @@ function Home() {
                 </motion.div>
 
                 <motion.div
-                  variants={nextPage}
-                  exit="exit"
-                  className={`locs-go`}
-                >
-                  <div className={`locs-write`}>
-                    <h2>View our collection of Locs Wigs</h2>
-                    <br />
-                    Choose from our variety of unique styles
-                  </div>
-                  <div className="locs-shop">
-                    <Link to="/locs/newIn">
-                      <button
-                        className="locs-button"
-                        type="button"
-                        onMouseEnter={() => {
-                          setEnterLocs(true);
-                        }}
-                        onMouseLeave={() => {
-                          setEnterLocs(false);
-                        }}
-                      >
-                        <span>Shop Now</span>
-                      </button>
-                    </Link>
-                  </div>
-                </motion.div>
-
-                <motion.div
                   variants={nextPageFont}
                   exit="exit"
                   className="locs-type"
@@ -505,6 +477,34 @@ function Home() {
                     </div>
                   </Link>
                 </div>
+
+                <motion.div
+                  variants={nextPage}
+                  exit="exit"
+                  className={`locs-go`}
+                >
+                  <div className={`locs-write`}>
+                    <h2>View our collection of Locs Wigs</h2>
+                    <br />
+                    Choose from our variety of unique styles
+                  </div>
+                  <div className="locs-shop">
+                    <Link to="/locs/newIn">
+                      <button
+                        className="locs-button"
+                        type="button"
+                        onMouseEnter={() => {
+                          setEnterLocs(true);
+                        }}
+                        onMouseLeave={() => {
+                          setEnterLocs(false);
+                        }}
+                      >
+                        <span>Shop Now</span>
+                      </button>
+                    </Link>
+                  </div>
+                </motion.div>
               </div>
 
               <div className=" twists">
@@ -514,34 +514,6 @@ function Home() {
                   className="twists-num"
                 >
                   2 <span>- 4</span>
-                </motion.div>
-
-                <motion.div
-                  variants={nextPage}
-                  exit="exit"
-                  className={`twists-go`}
-                >
-                  <div className={`twists-write`}>
-                    <h2>View our collection of Twists Wigs</h2>
-                    <br />
-                    Choose from our variety of unique styles
-                  </div>
-                  <div className="twists-shop">
-                    <Link to="/twists/newIn">
-                      <button
-                        className="twists-button"
-                        type="button"
-                        onMouseEnter={() => {
-                          setEnterTwist(true);
-                        }}
-                        onMouseLeave={() => {
-                          setEnterTwist(false);
-                        }}
-                      >
-                        <span>Shop Now</span>
-                      </button>
-                    </Link>
-                  </div>
                 </motion.div>
 
                 <motion.div
@@ -600,6 +572,33 @@ function Home() {
                     </div>
                   </Link>
                 </div>
+                <motion.div
+                  variants={nextPage}
+                  exit="exit"
+                  className={`twists-go`}
+                >
+                  <div className={`twists-write`}>
+                    <h2>View our collection of Twists Wigs</h2>
+                    <br />
+                    Choose from our variety of unique styles
+                  </div>
+                  <div className="twists-shop">
+                    <Link to="/twists/newIn">
+                      <button
+                        className="twists-button"
+                        type="button"
+                        onMouseEnter={() => {
+                          setEnterTwist(true);
+                        }}
+                        onMouseLeave={() => {
+                          setEnterTwist(false);
+                        }}
+                      >
+                        <span>Shop Now</span>
+                      </button>
+                    </Link>
+                  </div>
+                </motion.div>
               </div>
 
               <div className=" weaves">
@@ -609,34 +608,6 @@ function Home() {
                   className="weaves-num"
                 >
                   3 <span>- 4</span>
-                </motion.div>
-
-                <motion.div
-                  variants={nextPage}
-                  exit="exit"
-                  className={`weaves-go`}
-                >
-                  <div className={`weaves-write`}>
-                    <h2>View our collection of Weaves Wigs</h2>
-                    <br />
-                    Choose from our variety of unique styles
-                  </div>
-                  <div className="weaves-shop">
-                    <Link to="/weaves/newIn">
-                      <button
-                        className="weaves-button"
-                        type="button"
-                        onMouseEnter={() => {
-                          setEnterWeaves(true);
-                        }}
-                        onMouseLeave={() => {
-                          setEnterWeaves(false);
-                        }}
-                      >
-                        <span>Shop Now</span>
-                      </button>
-                    </Link>
-                  </div>
                 </motion.div>
 
                 <motion.div
@@ -695,6 +666,33 @@ function Home() {
                     </div>
                   </Link>
                 </div>
+                <motion.div
+                  variants={nextPage}
+                  exit="exit"
+                  className={`weaves-go`}
+                >
+                  <div className={`weaves-write`}>
+                    <h2>View our collection of Weaves Wigs</h2>
+                    <br />
+                    Choose from our variety of unique styles
+                  </div>
+                  <div className="weaves-shop">
+                    <Link to="/weaves/newIn">
+                      <button
+                        className="weaves-button"
+                        type="button"
+                        onMouseEnter={() => {
+                          setEnterWeaves(true);
+                        }}
+                        onMouseLeave={() => {
+                          setEnterWeaves(false);
+                        }}
+                      >
+                        <span>Shop Now</span>
+                      </button>
+                    </Link>
+                  </div>
+                </motion.div>
               </div>
 
               <div className=" braids">
@@ -704,33 +702,6 @@ function Home() {
                   className="braids-num"
                 >
                   4 <span>- 4</span>
-                </motion.div>
-                <motion.div
-                  variants={nextPage}
-                  exit="exit"
-                  className={`braids-go`}
-                >
-                  <div className={`braids-write`}>
-                    <h2>View our collection of Braids Wigs</h2>
-                    <br />
-                    Choose from our variety of unique styles
-                  </div>
-                  <div className="braids-shop">
-                    <Link to="/braids/newIn">
-                      <button
-                        className="braids-button"
-                        type="button"
-                        onMouseEnter={() => {
-                          setEnterBraids(true);
-                        }}
-                        onMouseLeave={() => {
-                          setEnterBraids(false);
-                        }}
-                      >
-                        <span>Shop Now</span>
-                      </button>
-                    </Link>
-                  </div>
                 </motion.div>
 
                 <motion.div
@@ -789,6 +760,33 @@ function Home() {
                     </div>
                   </Link>
                 </div>
+                <motion.div
+                  variants={nextPage}
+                  exit="exit"
+                  className={`braids-go`}
+                >
+                  <div className={`braids-write`}>
+                    <h2>View our collection of Braids Wigs</h2>
+                    <br />
+                    Choose from our variety of unique styles
+                  </div>
+                  <div className="braids-shop">
+                    <Link to="/braids/newIn">
+                      <button
+                        className="braids-button"
+                        type="button"
+                        onMouseEnter={() => {
+                          setEnterBraids(true);
+                        }}
+                        onMouseLeave={() => {
+                          setEnterBraids(false);
+                        }}
+                      >
+                        <span>Shop Now</span>
+                      </button>
+                    </Link>
+                  </div>
+                </motion.div>
               </div>
             </div>
           </div>
