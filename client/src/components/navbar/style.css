@@ -65,9 +65,6 @@ header {
   align-items: center;
   justify-content: center;
 }
-.searchP {
-  display: none;
-}
 .logo {
   display: flex;
   text-decoration: none;
@@ -79,6 +76,23 @@ header {
 .noClick {
   pointer-events: none;
 }
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+.nav-toggle div {
+  position: absolute;
+  width: 2.5rem;
+  height: 0.25rem;
+  background-color: black;
+  border-radius: 2px;
+  transition: 1s ease 1s;
+}
+
 /* Desktop 15 inches */
 @media screen and (max-width: 1600px) {
   .nav {
@@ -102,20 +116,6 @@ header {
   }
   .nav-toggle {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    position: relative;
-  }
-  .nav-toggle div {
-    position: absolute;
-    width: 2.5rem;
-    height: 0.25rem;
-    background-color: black;
-    border-radius: 2px;
-    transition: 1s ease 1s;
-    position: absolute;
   }
   .nav-bottom {
     transform: translateY(0.5rem);
@@ -130,7 +130,6 @@ header {
     transform: rotate(-45deg);
   }
 }
-
 /* Surface Duo */
 @media only screen and (max-width: 550px) {
   .nav {
@@ -181,5 +180,95 @@ header {
 @media only screen and (max-width: 282px) {
   .nav {
     font-size: 0.9rem;
+  }
+}
+
+/* Landscape View */
+
+/* Pixel 2 XL - IPhone X */
+@media only screen and (max-width: 824px) and (orientation: landscape) {
+  .nav {
+    font-size: 1.2rem;
+    height: 15vh;
+  }
+  .nav-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .nav-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    margin: 0 0 0 2rem;
+    width: 1.5rem;
+  }
+  .nav-toggle div {
+    position: absolute;
+    width: 1.5rem;
+    height: 0.2rem;
+  }
+  .nav-top {
+    transform: translateY(-0.25rem);
+  }
+  .nav-bottom {
+    transform: translateY(0.25rem);
+  }
+  .close-nav .nav-top {
+    transform: rotate(45deg);
+  }
+  .close-nav .nav-bottom {
+    transform: rotate(-45deg);
+  }
+}
+/* iPhone 6-8 plus - Pixel 2 */
+@media only screen and (max-width: 740px) and (orientation: landscape) {
+  .nav-right {
+    width: unset;
+  }
+}
+/* Surface Duo */
+@media only screen and (max-width: 721px) and (orientation: landscape) {
+}
+/* iPhone 6-8 */
+@media only screen and (max-width: 668px) and (orientation: landscape) {
+  .nav {
+    font-size: 1.1rem;
+  }
+}
+/* Galaxy Fold  */
+@media only screen and (max-width: 655px) and (orientation: landscape) {
+  .nav {
+    font-size: 0.9rem;
+  }
+  .nav-toggle {
+    margin: 0 0 0 1.5rem;
+  }
+  .nav-toggle div {
+    width: 1.1rem;
+    height: 0.15rem;
+  }
+}
+/* Galaxy s5 */
+@media only screen and (max-width: 641px) and (orientation: landscape) {
+  .nav {
+    font-size: 1.1rem;
+  }
+  .nav-toggle div {
+    width: 1.5rem;
+    height: 0.2rem;
+  }
+}
+/* iPhone 5 */
+@media only screen and (max-width: 569px) and (orientation: landscape) {
+  .nav {
+    font-size: 1rem;
+  }
+  .nav-toggle div {
+    width: 1.1rem;
+    height: 0.15rem;
   }
 }

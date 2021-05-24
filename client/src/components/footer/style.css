@@ -323,7 +323,74 @@
 /* Galaxy Fold */
 @media only screen and (max-width: 282px) {
   .contact-head {
-      font-size: 0.8rem;
+    font-size: 0.8rem;
   }
 }
 
+/* Landscape View */
+
+/* Pixel 2 XL - IPhone X */
+@media only screen and (max-width: 824px) and (orientation: landscape) {
+  .bottom-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    min-height: unset;
+    padding: 1.5rem 0;
+  }
+  .contact-head {
+    min-height: unset;
+    font-size: 1.1rem;
+    padding: 0 0 1rem 0;
+  }
+  .contact-body {
+    padding: 0 0 1.5rem 0.3rem;
+  }
+  .contact-body h2 {
+    font-size: 0.7rem;
+  }
+  .contact-body h3 {
+    font-size: 1.1rem;
+  }
+  .contact-num-head,
+  .contact-add-head {
+    min-height: unset;
+    padding: 0 0 1rem 0;
+  }
+  .contact-bottom {
+    padding: 0 0 0 0.3rem;
+  }
+  .socials li {
+    font-size: 0.9rem;
+    width: 10rem;
+  }
+  .rights {
+    font-size: 0.8rem;
+  }
+}
+/* iPhone 6-8 plus - Pixel 2 */
+@media only screen and (max-width: 740px) and (orientation: landscape) {
+  .contact-head {
+    font-size: 1.1rem;
+  }
+}
+/* Surface Duo */
+@media only screen and (max-width: 721px) and (orientation: landscape) {
+  .contact-num-head,
+  .contact-add-head {
+    padding: 0 0 0.5rem 0;
+  }
+}
+/* iPhone 6-8 - Galaxy Fold - Galaxy s5 */
+@media only screen and (max-width: 668px) and (orientation: landscape) {
+  .contact-head {
+    font-size: 1.1rem;
+  }
+}
+/* iPhone 5 */
+@media only screen and (max-width: 569px) and (orientation: landscape) {
+  .contact-head {
+    font-size: 1.1rem;
+  }
+}
