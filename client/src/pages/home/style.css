@@ -253,7 +253,7 @@
   flex-direction: column;
   position: absolute;
   min-height: 17vh;
-  z-index: 3;
+  z-index: 2;
   overflow: hidden;
 }
 .locs-go,
@@ -368,7 +368,7 @@
   transition: 1s;
 }
 /* Desktop 15 inches */
-@media screen and (max-width: 1600px) {
+@media only screen and (max-width: 1600px) {
   .categories {
     min-height: 550vh;
   }
@@ -448,7 +448,7 @@
   }
 }
 /* iPad  Pro*/
-@media screen and (max-width: 1030px) {
+@media only screen and (max-width: 1030px) {
   .welcome-text {
     padding: 2rem 0 0 0;
   }
@@ -516,7 +516,7 @@
   }
 }
 /* iPad */
-@media screen and (max-width: 770px) {
+@media only screen and (max-width: 770px) {
   .welcome-text h3 {
     font-size: 3.5rem;
   }
@@ -856,7 +856,6 @@
     padding: 0 0.7rem;
   }
 }
-
 /* Galaxy Fold */
 @media only screen and (max-width: 282px) {
   .locs,
@@ -876,7 +875,7 @@
 
 /* Landscape View */
 
-@media screen and (max-width: 1369px) and (orientation: landscape) {
+@media only screen and (max-width: 1369px) and (orientation: landscape) {
   .welcome-text h3 {
     font-size: 6rem;
   }

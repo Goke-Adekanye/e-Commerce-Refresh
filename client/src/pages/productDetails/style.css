@@ -289,16 +289,12 @@
     width: 80vw;
     font-size: 3em;
   }
-  .type-product-section {
-    width: 100%;
-  }
   .product-container-bottom {
     align-items: flex-start;
     min-height: 50vh;
     width: 100vw;
     padding: 0 0 0 10vw;
   }
-
   .related-products-body {
     display: flex;
     flex-direction: row;
