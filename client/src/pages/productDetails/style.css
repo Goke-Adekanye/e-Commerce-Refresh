@@ -262,8 +262,7 @@
     align-items: flex-start;
     max-width: 80vw;
     min-height: 45vh;
-    padding-left: 0rem;
-    padding-right: 0rem;
+    padding: 0rem;
     line-height: 2.5rem;
   }
   .product-name {
@@ -377,14 +376,6 @@
     width: 80vw;
   }
 
-  .product-container-right {
-    align-items: flex-start;
-    max-width: 80vw;
-    min-height: 45vh;
-    padding-left: 0rem;
-    padding-right: 0rem;
-    line-height: 2.5rem;
-  }
   .product-name {
     justify-content: flex-start;
     align-items: flex-start;
@@ -441,8 +432,8 @@
     font-size: 1.5em;
   }
   .related-product-img {
-    width: 30vw;
-    height: 17.5vh;
+    width: 25vw;
+    height: 19vh;
     margin: 1rem 0px;
   }
   .related-product-name {
@@ -500,6 +491,11 @@
   .related-product-price {
     padding: 0 0 0 0;
   }
+  .related-product-img {
+    width: 25vw;
+    height: 17vh;
+    margin: 1rem 0px;
+  }
 }
 /* iPhone 5 */
 @media only screen and (max-width: 322px) {
@@ -544,5 +540,313 @@
 @media only screen and (max-width: 282px) {
   .related-products-head {
     font-size: 1.1rem;
+  }
+}
+
+/* Landscape View */
+
+@media only screen and (max-width: 1369px) and (orientation: landscape) {
+  .product-main {
+    padding-bottom: 10vh;
+  }
+  .product-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 150vh;
+    padding: 3rem 0rem;
+  }
+  .product-container-top {
+    flex-direction: column;
+    width: 80vw;
+  }
+  .product-container-right {
+    align-items: flex-start;
+    max-width: 80vw;
+    min-height: 45vh;
+    padding: 0rem;
+    line-height: 5rem;
+  }
+  .product-name {
+    font-size: 2.5rem;
+  }
+  .product-price {
+    font-size: 1.7rem;
+  }
+  .product-add {
+    font-size: 1.9rem;
+  }
+  .product-detail {
+    font-size: 1.7rem;
+    padding-top: 1.5rem;
+  }
+
+  .product-container-bottom {
+    min-height: 50vh;
+    width: 80vw;
+  }
+  .related-products-head {
+    height: 10vh;
+    width: 80vw;
+    font-size: 3em;
+  }
+  .product-container-bottom {
+    align-items: flex-start;
+    min-height: 50vh;
+    width: 100vw;
+    padding: 0 0 0 10vw;
+  }
+  .related-products-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+    padding: 2.5vh 0 0 0;
+  }
+  .related-products {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 1rem 0 0;
+  }
+  .related-products-head {
+    height: 100%;
+    width: 70vw;
+    font-size: 3em;
+  }
+  .related-product-img {
+    width: 20vw;
+    height: 25vh;
+    margin: 1rem 0px;
+  }
+  .related-product-name {
+    font-size: 1.6rem;
+  }
+  .related-product-price {
+    padding: 1rem 0 0 0;
+    font-size: 1.3rem;
+  }
+}
+@media only screen and (max-width: 1025px) and (orientation: landscape) {
+  .product-name {
+    font-size: 1.9rem;
+  }
+  .product-price {
+    font-size: 1.4rem;
+  }
+  .product-detail {
+    font-size: 1.3rem;
+    padding-top: 1rem;
+  }
+  .product-container-right {
+    align-items: flex-start;
+    max-width: 80vw;
+    min-height: 45vh;
+    padding: 0rem;
+    line-height: 3.5rem;
+  }
+  .product-container-bottom {
+    padding: 5vh 0 0 10vw;
+  }
+  .related-products-head {
+    font-size: 2.5em;
+  }
+  .related-product-name {
+    font-size: 1.3rem;
+  }
+  .related-product-price {
+    padding: 0.5rem 0 0 0;
+    font-size: 1.2rem;
+  }
+}
+/* Pixel 2 XL - Iphone X */
+@media only screen and (orientation: landscape) and (max-width: 824px) {
+  .product-main {
+    padding-bottom: 5rem;
+  }
+
+  .product-container-right {
+    min-height: 65vh;
+  }
+  .product-add {
+    width: 100%;
+    margin: 0.4rem 0 0 0;
+  }
+  .related-products-body {
+    padding: 2rem 0 0 0;
+  }
+  .related-product-img {
+    width: 19vw;
+    height: 35vh;
+    margin: 1rem 0px;
+  }
+  .type-product-section {
+    margin: 0;
+    width: 100%;
+    line-height: 1.5rem;
+  }
+  .related-product-price {
+    padding: 0.5rem 0 0 0;
+  }
+}
+@media only screen and (orientation: landscape) and (max-width: 824px) {
+  .related-product-img {
+    width: 18vw;
+    height: 38vh;
+    margin: 1rem 0px;
+  }
+}
+/* iPhone 6-8 plus - Pixel 2 */
+@media only screen and (max-width: 740px) and (orientation: landscape) {
+}
+/* Surface Duo */
+@media only screen and (max-width: 721px) and (max-height: 545px) and (orientation: landscape) {
+  .product-main {
+    padding-bottom: 5vh;
+  }
+  .product-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 150vh;
+    padding: 1.5rem 0rem;
+  }
+  .product-container-top {
+    flex-direction: column;
+    width: 80vw;
+    padding: 0 0 4rem 0;
+  }
+  .product-container-right {
+    align-items: flex-start;
+    max-width: 80vw;
+    min-height: 45vh;
+    padding-left: 0rem;
+    padding-right: 0rem;
+    line-height: 2.5rem;
+  }
+  .product-name {
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-weight: 600;
+    font-size: 1.3rem;
+    min-height: 1vh;
+  }
+  .product-price {
+    font-size: 1rem;
+    min-height: 1vh;
+  }
+  .product-add {
+    width: 100%;
+    font-size: 0.9rem;
+    justify-content: flex-start;
+    min-height: 9vh;
+  }
+  .product-detail {
+    font-size: 0.9rem;
+    padding-top: 1rem;
+    line-height: 1.5rem;
+  }
+  .product-container-bottom {
+    align-items: flex-start;
+    min-height: 50vh;
+    width: 100vw;
+    padding: 0 0 0 10vw;
+  }
+  .related-products-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+    padding: 2vh 0 0 0;
+  }
+  .related-products {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 1rem 0 0;
+  }
+  .related-products-head {
+    height: 100%;
+    width: 70vw;
+    font-size: 1.5em;
+  }
+  .related-product-img {
+    width: 19vw;
+    height: 25vh;
+    margin: 1rem 0px;
+  }
+  .related-product-name {
+    font-size: 0.8rem;
+  }
+  .related-product-price {
+    font-size: 0.7rem;
+  }
+}
+/* iPhone 6-8 - Galaxy Fold - Galaxy s5 */
+@media only screen and (max-width: 668px) and (orientation: landscape) {
+  .product-container-right {
+    min-height: 65vh;
+  }
+  .related-product-img {
+    width: 19vw;
+    height: 32vh;
+    margin: 1rem 0px;
+  }
+}
+@media only screen and (max-width: 657px) and (orientation: landscape) {
+  .related-product-img {
+    width: 18vw;
+    height: 32vh;
+    margin: 1rem 0px;
+  }
+}
+/* iPhone 5 */
+@media only screen and (max-width: 569px) and (orientation: landscape) {
+  .product-container-right {
+    min-height: 80vh;
+    line-height: 2.25rem;
+  }
+  .product-name {
+    font-size: 1.1rem;
+  }
+  .product-price {
+    font-size: 0.9rem;
+  }
+  .product-add {
+    font-size: 0.9rem;
+    min-height: 8vh;
+  }
+  .product-detail {
+    font-size: 0.85rem;
+    padding-top: 0.5rem;
+    line-height: 1.5rem;
+  }
+  .type-product-section {
+    line-height: 1.4rem;
+  }
+  .related-products-head {
+    font-size: 1.2rem;
+  }
+  .related-product-name {
+    font-size: 0.7rem;
+  }
+  .related-product-price {
+    font-size: 0.6rem;
   }
 }

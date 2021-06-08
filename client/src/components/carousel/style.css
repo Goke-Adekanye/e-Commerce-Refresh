@@ -129,3 +129,67 @@
   }
 }
 
+/* Landscape View */
+
+@media only screen and (max-width: 1369px) and (orientation: landscape) {
+  .carousel {
+    padding: 0 0 0 0;
+  }
+  .carousel-content {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    width: 80vw;
+    height: 60vh;
+  }
+  .carousel-content-images {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .carousel-content {
+    height: 80vh;
+  }
+  .carousel-content-images > img {
+    width: 85vw;
+    height: 120vh;
+  }
+}
+@media only screen and (max-width: 1025px) and (orientation: landscape) {
+}
+/* Pixel 2 XL - Iphone X */
+@media only screen and (orientation: landscape) and (max-width: 824px) {
+  .carousel-content {
+    height: 120vh;
+  }
+  .carousel-content-images > img {
+    width: 85vw;
+    height: 120vh;
+  }
+}
+@media only screen and (orientation: landscape) and (max-width: 824px) {
+}
+/* iPhone 6-8 plus - Pixel 2 */
+@media only screen and (max-width: 740px) and (orientation: landscape) {
+}
+/* Surface Duo */
+@media only screen and (max-width: 721px) and (max-height: 545px) and (orientation: landscape) {
+  .carousel-content {
+    height: 100vh;
+  }
+  .carousel-content-images > img {
+    width: 85vw;
+    height: 100vh;
+  }
+}
+/* iPhone 6-8 - Galaxy Fold - Galaxy s5 */
+@media only screen and (max-width: 668px) and (orientation: landscape) {
+}
+@media only screen and (max-width: 657px) and (orientation: landscape) {
+}
+/* iPhone 5 */
+@media only screen and (max-width: 569px) and (orientation: landscape) {
+}

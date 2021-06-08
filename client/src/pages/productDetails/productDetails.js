@@ -169,9 +169,7 @@ function ProductDetails({ match }) {
                     <div className="product-add">
                       <AddButton func={btnFun} />
                     </div>
-                    <div className="product-detail" key={item._id}>
-                      {item.description}
-                    </div>
+                    <div className="product-detail">{item.description}</div>
                   </div>
                 </div>
                 <div className="product-container-bottom">

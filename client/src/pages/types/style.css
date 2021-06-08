@@ -256,29 +256,97 @@
   .type-section-head {
     padding: 1rem 0;
   }
+  .type-collection {
+    font-size: 2rem;
+  }
+  .filter-change {
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+  .filter-change-head {
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+  .filter-change-button {
+    height: 2.525rem;
+    font-size: 0.8rem;
+    min-width: 9rem;
+    padding: 0px 0.5rem;
+  }
+  .filter-change-button span {
+    right: 0.5rem;
+  }
+  .filter-change-body {
+    font-size: 0.8rem;
+    margin-top: 2vh;
+    top: 10%;
+  }
+  .filter-appear {
+    opacity: 1;
+  }
+  .filter-change-body li {
+    min-height: 3.525rem;
+    min-width: 8.75rem;
+  }
+  .type-section-head {
+    width: 80vw;
+    padding-bottom: 0.5rem;
+  }
+  .type-section-head-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    min-width: 80vw;
+    position: relative;
+  }
   .type-section-body {
-    padding: 3vh 0;
+    width: 80vw;
+    padding-bottom: 3rem;
   }
   .type-product-container {
-    min-height: 25vh;
+    width: 45.1%;
+    min-height: 20vh;
+    padding-top: 3rem;
+  }
+  .odd {
+    margin-left: 4.7rem;
+  }
+  .type-product-section {
+    margin: 0;
+    width: 100%;
+    line-height: 2rem;
+  }
+  .type-product-section a {
+    width: 100%;
   }
   .product-img {
-    width: 15vw;
-    height: 12vh;
-    margin: 1.875rem 0px;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    margin-bottom: 1rem;
+  }
+  .type-product-name {
+    font-size: 1.2rem;
+  }
+  .type-product-price {
+    font-size: 0.85rem;
+  }
+  .load-more button {
+    font-size: 0.9rem;
+    padding: 1rem;
   }
 }
 /* iPad */
 @media only screen and (max-width: 770px) {
-  .type-product-name {
-    font-size: 0.8rem;
-  }
-  .type-product-price {
-    font-size: 0.7rem;
+  .odd {
+    margin-left: 3.7rem;
   }
 }
 /* Surface Duo */
 @media only screen and (max-width: 550px) {
+  .type-section-body {
+    padding: 1rem 0 1.75rem 0;
+  }
   .type-collection {
     font-size: 2rem;
   }
@@ -322,10 +390,7 @@
     min-width: 80vw;
     position: relative;
   }
-  .type-section-body {
-    width: 80vw;
-    padding-bottom: 1.5rem;
-  }
+
   .type-product-container {
     width: 47.1%;
     min-height: 20vh;
@@ -392,15 +457,102 @@
     font-size: 0.65rem;
   }
 }
-
 @media only screen and (max-width: 282px) and (orientation: landscape) {
 }
 
 /* Landscape View */
 
 @media only screen and (max-width: 1369px) and (orientation: landscape) {
+  .type-container {
+    padding-bottom: 10vh;
+  }
+  .type-section-head {
+    padding: 1rem 0;
+  }
+  .type-collection {
+    font-size: 2rem;
+  }
+  .filter-change {
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+  .filter-change-head {
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+  .filter-change-button {
+    height: 2.525rem;
+    font-size: 0.8rem;
+    min-width: 9rem;
+    padding: 0px 0.5rem;
+  }
+  .filter-change-button span {
+    right: 0.5rem;
+  }
+  .filter-change-body {
+    font-size: 0.8rem;
+    margin-top: 2vh;
+    top: 10%;
+  }
+  .filter-appear {
+    opacity: 1;
+  }
+  .filter-change-body li {
+    min-height: 3.525rem;
+    min-width: 8.75rem;
+  }
+  .type-section-head {
+    width: 80vw;
+    padding-bottom: 0.5rem;
+  }
+  .type-section-head-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    min-width: 80vw;
+    position: relative;
+  }
+  .type-section-body {
+    width: 80vw;
+    padding-bottom: 3rem;
+  }
+  .type-product-container {
+    width: 45.1%;
+    min-height: 20vh;
+    padding-top: 3rem;
+  }
+  .odd {
+    margin-left: 6.6rem;
+  }
+  .type-product-section {
+    margin: 0;
+    width: 100%;
+    line-height: 2rem;
+  }
+  .type-product-section a {
+    width: 100%;
+  }
+  .product-img {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    margin-bottom: 1rem;
+  }
+  .type-product-name {
+    font-size: 1.2rem;
+  }
+  .type-product-price {
+    font-size: 0.85rem;
+  }
+  .load-more button {
+    font-size: 0.9rem;
+    padding: 1rem;
+  }
 }
 @media only screen and (max-width: 1025px) and (orientation: landscape) {
+  .odd {
+    margin-left: 5rem;
+  }
 }
 /* Pixel 2 XL - Iphone X */
 @media only screen and (orientation: landscape) and (max-width: 824px) {

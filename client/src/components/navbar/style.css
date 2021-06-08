@@ -94,21 +94,21 @@ header {
 }
 
 /* Desktop 15 inches */
-@media screen and (max-width: 1600px) {
+@media only screen and (max-width: 1600px) {
   .nav {
     font-size: 1.4rem;
   }
 }
 /* iPad  Pro*/
-@media screen and (max-width: 1030px) {
+@media only screen and (max-width: 1030px) {
   .nav {
     font-size: 1.9rem;
   }
 }
 /* iPad */
-@media screen and (max-width: 770px) {
+@media only screen and (max-width: 770px) {
   .nav-right {
-    width: 15%;
+    width: 20%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -116,6 +116,7 @@ header {
   }
   .nav-toggle {
     display: flex;
+    width: 2.5rem;
   }
   .nav-bottom {
     transform: translateY(0.5rem);
@@ -134,6 +135,13 @@ header {
 @media only screen and (max-width: 550px) {
   .nav {
     font-size: 1.2rem;
+  }
+  .nav-right {
+    width: 25%;
+  }
+  .nav-toggle {
+    display: flex;
+    width: 1.5rem;
   }
   .nav-toggle div {
     width: 1.5rem;
@@ -169,7 +177,7 @@ header {
     font-size: 1rem;
   }
   .nav-right {
-    width: 18%;
+    width: 25%;
   }
   .nav-toggle div {
     width: 1.1rem;
@@ -184,7 +192,36 @@ header {
 }
 
 /* Landscape View */
-
+@media only screen and (max-width: 1369px) and (orientation: landscape) {
+  .nav {
+    font-size: 1.9rem;
+  }
+}
+@media only screen and (max-width: 1025px) and (orientation: landscape) {
+  .nav-right {
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav-toggle {
+    display: flex;
+    width: 2.5rem;
+  }
+  .nav-bottom {
+    transform: translateY(0.5rem);
+  }
+  .nav-top {
+    transform: translateY(-0.5rem);
+  }
+  .close-nav .nav-top {
+    transform: rotate(45deg);
+  }
+  .close-nav .nav-bottom {
+    transform: rotate(-45deg);
+  }
+}
 /* Pixel 2 XL - IPhone X */
 @media only screen and (max-width: 824px) and (orientation: landscape) {
   .nav {

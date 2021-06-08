@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const useMobileNav = () => {
+  const body = document.querySelector("body");
   const show = () => {
     gsap
       .timeline({
@@ -13,6 +14,9 @@ const useMobileNav = () => {
           start: "top center",
           end: "bottom bottom",
         },
+      })
+      .call(() => {
+        body.style.overflow = "hidden";
       })
       .to(".mobile-nav", 1.6, { x: 0, ease: Power2.easeInOut })
       .staggerTo(
@@ -53,6 +57,7 @@ const useMobileNav = () => {
           end: "bottom bottom",
         },
       })
+
       .staggerTo(
         [
           ".mobile-locs",
@@ -69,6 +74,9 @@ const useMobileNav = () => {
         x: "100vw",
         ease: Power2.easeInOut,
         delay: "-0.5",
+      })
+      .call(() => {
+        body.style.overflow = "unset";
       });
 
     gsap
