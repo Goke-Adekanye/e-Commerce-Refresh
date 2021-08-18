@@ -13,7 +13,7 @@
     align-items: center;
     width: 100vw;
     position: fixed;
-    z-index: 3;
+    z-index: 4;
     background-color: #edeae4;
     transform: translateX(100vw);
   }
@@ -73,77 +73,4 @@
 }
 /* Galaxy Fold */
 @media only screen and (max-width: 282px) {
-}
-
-/* Landscape View */
-@media only screen and (max-width: 1369px) and (orientation: landscape) {
-}
-@media only screen and (max-width: 1025px) and (orientation: landscape) {
-  .mobile-nav {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    position: fixed;
-    z-index: 3;
-    background-color: #edeae4;
-    transform: translateX(100vw);
-  }
-  .mobile-links {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-    height: 60%;
-    font-family: Athene, serif;
-    text-transform: uppercase;
-    font-weight: 500;
-  }
-  .mobile-links li {
-    list-style: none;
-    font-size: 4.5rem;
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  .mobile-links li:hover {
-    background-color: black;
-  }
-}
-/* Pixel 2 XL - IPhone X */
-@media only screen and (max-width: 824px) and (orientation: landscape) {
-}
-/* iPhone 6-8 plus - Pixel 2 */
-@media only screen and (max-width: 740px) and (orientation: landscape) {
-  .mobile-links li {
-    font-size: 2.5rem;
-  }
-}
-/* Surface Duo */
-@media only screen and (max-width: 721px) and (orientation: landscape) {
-  .mobile-links li {
-    font-size: 3rem;
-  }
-}
-/* iPhone 6-8 */
-@media only screen and (max-width: 668px) and (orientation: landscape) {
-  .mobile-links li {
-    font-size: 2.5rem;
-  }
-}
-/* Galaxy Fold  */
-@media only screen and (max-width: 655px) and (orientation: landscape) {
-}
-/* Galaxy s5 */
-@media only screen and (max-width: 641px) and (orientation: landscape) {
-  .mobile-links li {
-    font-size: 2.25rem;
-  }
-}
-/* iPhone 5 */
-@media only screen and (max-width: 569px) and (orientation: landscape) {
-  .mobile-links li {
-    font-size: 2rem;
-  }
 }

@@ -5,8 +5,7 @@ import { faCopyright } from "@fortawesome/free-regular-svg-icons";
 
 function Footer() {
   return (
-    <div className="footer">
-      <div className="footer-bg"></div>
+    <>
       <footer>
         <div className="bottom">
           <div className="bottom-container">
@@ -45,7 +44,7 @@ function Footer() {
           </div>
         </div>
       </footer>
-    </div>
+    </>
   );
 }
 

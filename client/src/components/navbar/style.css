@@ -11,10 +11,12 @@ header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  height: 10vh;
+  height: 7rem;
   width: 80vw;
+  max-width: 100rem;
   color: black;
   font-size: 1.6rem;
+  z-index: 9;
 }
 .nav a {
   color: rgb(0, 0, 0);
@@ -25,9 +27,8 @@ header {
   align-items: center;
   text-decoration: none;
   list-style: none;
-  width: 80vw;
-  z-index: 4;
-  z-index: 7;
+  width: 100%;
+  z-index: 9;
   opacity: 1;
 }
 .nav-links li,
@@ -38,6 +39,7 @@ header {
 .nav-right {
   display: flex;
   flex-direction: row;
+  z-index: 9;
 }
 .cart-icon {
   display: flex;
@@ -86,8 +88,8 @@ header {
 }
 .nav-toggle div {
   position: absolute;
-  width: 2.5rem;
-  height: 0.25rem;
+  width: 1.5rem;
+  height: 0.2rem;
   background-color: black;
   border-radius: 2px;
   transition: 1s ease 1s;
@@ -101,9 +103,6 @@ header {
 }
 /* iPad  Pro*/
 @media only screen and (max-width: 1030px) {
-  .nav {
-    font-size: 1.9rem;
-  }
 }
 /* iPad */
 @media only screen and (max-width: 770px) {
@@ -119,10 +118,10 @@ header {
     width: 2.5rem;
   }
   .nav-bottom {
-    transform: translateY(0.5rem);
+    transform: translateY(0.25rem);
   }
   .nav-top {
-    transform: translateY(-0.5rem);
+    transform: translateY(-0.25rem);
   }
   .close-nav .nav-top {
     transform: rotate(45deg);
@@ -146,12 +145,6 @@ header {
   .nav-toggle div {
     width: 1.5rem;
     height: 0.2rem;
-  }
-  .nav-bottom {
-    transform: translateY(0.25rem);
-  }
-  .nav-top {
-    transform: translateY(-0.25rem);
   }
 }
 /* iPhone 6-8 */
@@ -192,12 +185,12 @@ header {
 }
 
 /* Landscape View */
-@media only screen and (max-width: 1369px) and (orientation: landscape) {
+/* @media only screen and (max-width: 1369px) and (orientation: landscape) {
   .nav {
     font-size: 1.9rem;
   }
-}
-@media only screen and (max-width: 1025px) and (orientation: landscape) {
+} */
+/* @media only screen and (max-width: 1025px) and (orientation: landscape) {
   .nav-right {
     width: 20%;
     display: flex;
@@ -221,9 +214,9 @@ header {
   .close-nav .nav-bottom {
     transform: rotate(-45deg);
   }
-}
+} */
 /* Pixel 2 XL - IPhone X */
-@media only screen and (max-width: 824px) and (orientation: landscape) {
+/* @media only screen and (max-width: 824px) and (orientation: landscape) {
   .nav {
     font-size: 1.2rem;
     height: 15vh;
@@ -260,24 +253,24 @@ header {
   .close-nav .nav-bottom {
     transform: rotate(-45deg);
   }
-}
+} */
 /* iPhone 6-8 plus - Pixel 2 */
-@media only screen and (max-width: 740px) and (orientation: landscape) {
+/* @media only screen and (max-width: 740px) and (orientation: landscape) {
   .nav-right {
     width: unset;
   }
-}
+} */
 /* Surface Duo */
 @media only screen and (max-width: 721px) and (orientation: landscape) {
 }
 /* iPhone 6-8 */
-@media only screen and (max-width: 668px) and (orientation: landscape) {
+/* @media only screen and (max-width: 668px) and (orientation: landscape) {
   .nav {
     font-size: 1.1rem;
   }
-}
+} */
 /* Galaxy Fold  */
-@media only screen and (max-width: 655px) and (orientation: landscape) {
+/* @media only screen and (max-width: 655px) and (orientation: landscape) {
   .nav {
     font-size: 0.9rem;
   }
@@ -288,9 +281,9 @@ header {
     width: 1.1rem;
     height: 0.15rem;
   }
-}
+} */
 /* Galaxy s5 */
-@media only screen and (max-width: 641px) and (orientation: landscape) {
+/* @media only screen and (max-width: 641px) and (orientation: landscape) {
   .nav {
     font-size: 1.1rem;
   }
@@ -298,9 +291,9 @@ header {
     width: 1.5rem;
     height: 0.2rem;
   }
-}
+} */
 /* iPhone 5 */
-@media only screen and (max-width: 569px) and (orientation: landscape) {
+/* @media only screen and (max-width: 569px) and (orientation: landscape) {
   .nav {
     font-size: 1rem;
   }
@@ -308,4 +301,4 @@ header {
     width: 1.1rem;
     height: 0.15rem;
   }
-}
+} */

@@ -1,10 +1,11 @@
 /* footer css */
 
-.footer {
+footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  max-height: 35rem;
 }
 .bottom {
   display: flex;
@@ -12,8 +13,8 @@
   justify-content: flex-start;
   align-items: flex-start;
   width: 80vw;
+  max-width: 100rem;
   position: relative;
-  min-height: 50vh;
   font-weight: 200;
   color: rgb(0, 0, 0);
   padding-bottom: 1rem;
@@ -24,11 +25,10 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: flex-start;
-  min-height: 55vh;
 }
 .contact-head {
-  min-height: 15vh;
-  width: 60vw;
+  padding: 2.5rem 0;
+  width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -44,7 +44,7 @@
   justify-content: space-between;
   align-items: flex-start;
   width: 60vw;
-  min-height: 25vh;
+  padding: 2.5rem 0;
 }
 .contact-body h2 {
   font-size: 1rem;
@@ -62,7 +62,7 @@
 .contact-num-head {
   display: flex;
   text-transform: uppercase;
-  min-height: 7vh;
+  padding: 1rem 0;
 }
 .contact-num-body {
   display: flex;
@@ -76,7 +76,7 @@
 .contact-add-head {
   display: flex;
   text-transform: uppercase;
-  min-height: 7vh;
+  padding: 1rem 0;
 }
 .contact-add-body {
   display: flex;
@@ -89,10 +89,13 @@
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: row;
-  width: 80vw;
+  width: 100%;
+  padding: 2.5rem 0;
 }
 .socials {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   flex-direction: row;
   width: 100%;
 }
@@ -100,7 +103,6 @@
   font-size: 1.2rem;
   list-style: none;
   cursor: pointer;
-  width: 10rem;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -118,19 +120,11 @@
 }
 /* Desktop 15 inches */
 @media screen and (max-width: 1600px) {
-  .bottom-container {
-    min-height: 50vh;
-  }
   .contact-head {
-    min-height: 13vh;
     font-size: 2rem;
   }
   .contact-head h1 {
     font-weight: 100;
-  }
-  .contact-body {
-    width: 60vw;
-    min-height: 20vh;
   }
   .contact-body h2 {
     font-size: 0.9rem;
@@ -148,7 +142,6 @@
   .contact-num-head {
     display: flex;
     text-transform: uppercase;
-    min-height: 7vh;
   }
   .contact-num-body {
     display: flex;
@@ -162,7 +155,6 @@
   .contact-add-head {
     display: flex;
     text-transform: uppercase;
-    min-height: 7vh;
   }
   .contact-add-body {
     display: flex;
@@ -170,15 +162,11 @@
     text-align: justify;
     text-transform: uppercase;
   }
-  .socials {
-    display: flex;
-    flex-direction: row;
-  }
+
   .socials li {
     font-size: 1rem;
     list-style: none;
     cursor: pointer;
-    width: 10rem;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -197,26 +185,13 @@
 }
 /* iPad  Pro*/
 @media screen and (max-width: 1030px) {
-  .bottom,
-  .bottom-container {
-    min-height: 35vh;
-  }
   .contact-head {
-    min-height: 10vh;
     font-size: 2rem;
-  }
-  .contact-body {
-    min-height: 12vh;
-  }
-  .contact-num-head,
-  .contact-add-head {
-    min-height: 4vh;
   }
 }
 /* iPad */
 @media screen and (max-width: 770px) {
   .contact-head {
-    min-height: 10vh;
     font-size: 1.7rem;
   }
 }
@@ -227,18 +202,17 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: flex-start;
-    min-height: 55vh;
   }
   .contact-head {
-    min-height: 0vh;
     width: 80vw;
     font-size: 1.25rem;
+    padding: 1.5rem 0;
   }
   .contact-body {
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    line-height: 5rem;
+    padding: 1.5rem 0;
   }
   .contact-body h2 {
     font-size: 0.7rem;
@@ -246,28 +220,29 @@
   .contact-body h3 {
     font-size: 1.1rem;
   }
-  .contact-num {
-    line-height: 2.5rem;
-  }
-  .contact-num-head {
-    display: flex;
-    text-transform: uppercase;
-    min-height: 0vh;
-  }
+  .contact-num,
   .contact-add {
-    line-height: 2.5rem;
+    padding: 1rem 0;
   }
+  .contact-num-head,
   .contact-add-head {
-    min-height: 0vh;
+    display: flex;
+    padding: 0.5rem 0;
   }
   .contact-add-body {
     display: flex;
     max-width: 50ch;
     text-align: left;
   }
+  .contact-bottom {
+    padding: 1.5rem 0;
+  }
+  .socials {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
   .socials li {
     font-size: 0.9rem;
-    width: 10rem;
   }
   .rights {
     align-self: center;
@@ -281,7 +256,6 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: flex-start;
-    min-height: 45vh;
   }
   .contact-head {
     font-size: 1.1rem;
@@ -304,9 +278,6 @@
 }
 /* iPhone 5 */
 @media only screen and (max-width: 322px) {
-  .bottom-container {
-    min-height: 60vh;
-  }
   .contact-head {
     font-size: 0.9rem;
   }
@@ -324,73 +295,5 @@
 @media only screen and (max-width: 282px) {
   .contact-head {
     font-size: 0.8rem;
-  }
-}
-
-/* Landscape View */
-
-/* Pixel 2 XL - IPhone X */
-@media only screen and (max-width: 824px) and (orientation: landscape) {
-  .bottom-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    min-height: unset;
-    padding: 1.5rem 0;
-  }
-  .contact-head {
-    min-height: unset;
-    font-size: 1.1rem;
-    padding: 0 0 2.5rem 0;
-  }
-  .contact-body {
-    padding: 0 0 1.5rem 0.3rem;
-  }
-  .contact-body h2 {
-    font-size: 0.7rem;
-  }
-  .contact-body h3 {
-    font-size: 1.1rem;
-  }
-  .contact-num-head,
-  .contact-add-head {
-    min-height: unset;
-    padding: 0 0 1rem 0;
-  }
-  .contact-bottom {
-    padding: 0 0 0 0.3rem;
-  }
-  .socials li {
-    font-size: 0.9rem;
-    width: 10rem;
-  }
-  .rights {
-    font-size: 0.8rem;
-  }
-}
-/* iPhone 6-8 plus - Pixel 2 */
-@media only screen and (max-width: 740px) and (orientation: landscape) {
-  .contact-head {
-    font-size: 1.1rem;
-  }
-}
-/* Surface Duo */
-@media only screen and (max-width: 721px) and (orientation: landscape) {
-  .contact-num-head,
-  .contact-add-head {
-    padding: 0 0 0.5rem 0;
-  }
-}
-/* iPhone 6-8 - Galaxy Fold - Galaxy s5 */
-@media only screen and (max-width: 668px) and (orientation: landscape) {
-  .contact-head {
-    font-size: 1.1rem;
-  }
-}
-/* iPhone 5 */
-@media only screen and (max-width: 569px) and (orientation: landscape) {
-  .contact-head {
-    font-size: 1.1rem;
   }
 }

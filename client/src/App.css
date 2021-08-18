@@ -37,15 +37,21 @@ body {
   background-color: white;
   /* font-family: 'Arima Madurai', cursive; */
   font-family: "Montserrat", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 100vw;
+  overflow: hidden;
 }
 button {
   font-family: "Montserrat", sans-serif;
 }
 .container {
-  /* visibility: hidden; */
   position: relative;
   display: flex;
+  justify-content: flex-start;
+  align-items: center;
   flex-direction: column;
   height: 100%;
-  width: 100%;
+  width: 100vw;
 }

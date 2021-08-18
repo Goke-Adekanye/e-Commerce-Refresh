@@ -15,7 +15,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100%;
   width: 80vw;
   background-color: #edeae4;
   position: fixed;
@@ -30,17 +30,19 @@
   justify-content: flex-start;
   flex-direction: column;
   width: 70vw;
-  min-height: 85vh;
+  height: 100%;
+  min-height: 100vh;
   overflow-x: hidden;
   transform: translateY(10vw);
   opacity: 0;
+  padding: 3rem 0;
 }
 .card-main header {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   width: 100%;
-  min-height: 20vh;
+  min-height: 10rem;
   text-align: left;
 }
 
@@ -56,7 +58,7 @@
   justify-content: space-between;
   align-items: center;
   width: 70vw;
-  height: 5vh;
+  height: 2.75rem;
   border-top: 2px solid black;
   border-bottom: 2px solid black;
   color: black;
@@ -84,8 +86,8 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  height: 100%;
-  max-height: 50vh;
+  min-height: 15rem;
+  max-height: 70vh;
   overflow-x: hidden;
 }
 .cart-body::-webkit-scrollbar-track {
@@ -111,29 +113,29 @@
 .card-body-left {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  min-width: 15vw;
-  min-height: 10vh;
+  justify-content: flex-start;
+  height: 6rem;
   text-align: left;
 }
 .card-img {
   display: flex;
   align-items: center;
-  width: 5vw;
-  height: 10vh;
+  width: 100%;
+  height: 100%;
 }
 .card-img > img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 .card-details {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   flex-direction: column;
-  min-width: 8vw;
+  min-width: 9rem;
   font-size: 1rem;
+  margin: 0 0 0 1rem;
 }
 .card-remove {
   cursor: pointer;
@@ -189,7 +191,6 @@
   flex-direction: row;
   justify-content: space-between;
   width: 28vw;
-  min-height: 5vh;
   padding: 1.25rem 0;
   padding-right: 0.625rem;
   font-weight: 100;
@@ -199,7 +200,7 @@
   justify-content: center;
   align-items: center;
   width: 27.5vw;
-  height: 10vh;
+  /* height: 4rem; */
 }
 .total,
 .total-price {
@@ -264,9 +265,6 @@
 }
 /* iPad  Pro*/
 @media only screen and (max-width: 1030px) {
-  .card-main header h2 {
-    font-size: 4rem;
-  }
   .empty-cart-top,
   .empty-cart-bottom {
     padding-top: 10vh;
@@ -286,92 +284,80 @@
     justify-content: flex-start;
     align-items: center;
     height: 100%;
-    max-height: 60vh;
     overflow-x: hidden;
   }
   .card-head {
     display: none;
   }
   .card-body {
-    display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    width: 70vw;
-    min-height: 45vh;
     max-height: unset;
     padding: 0;
     margin: 0 0 2.5rem 0;
-    font-size: 1.5rem;
     position: relative;
+    font-size: 0.9rem;
   }
   .card-body-left {
-    display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    height: 100%;
     min-width: 100%;
-    text-align: left;
+    display: grid;
+    grid-template-columns: 1fr;
   }
   .card-img {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 30vh;
-    position: relative;
+    align-self: center;
+    justify-self: center;
+    width: 17rem;
+    height: 17rem;
   }
   .card-details {
     display: none;
-    position: absolute;
-    justify-content: flex-start;
-    align-items: flex-end;
-    flex-direction: column;
-    min-width: 20vw;
-    bottom: 0;
-    right: 0;
   }
   .card-body-right {
     display: none;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 27.5vw;
   }
   .remove-product {
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-self: center;
+    align-self: center;
     height: 100%;
-    position: absolute;
-    padding: 0 0 0 0.1rem;
+    width: 80%;
     color: rgb(0, 0, 0);
+    height: 2rem;
+    font-size: 1rem;
   }
   .mobile-card-details {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    padding: 1rem 1rem;
-    font-size: 1.5rem;
+    justify-self: center;
+    align-self: center;
+    padding: 1rem 0;
     line-height: 2.5rem;
+    width: 17rem;
   }
   .mobile-card-name {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
-    width: 60%;
+    width: 100%;
   }
   .mobile-card-price {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 60%;
     flex-direction: row;
+    width: 100%;
   }
   .mobile-card-quantity {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 60%;
     flex-direction: row;
+    width: 100%;
   }
   .mobile-card-quantity-right {
     display: flex;
@@ -381,26 +367,21 @@
     flex-direction: row;
   }
   .card-end {
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
     padding: 0 0.15rem 0 0;
-    font-size: 1.5rem;
   }
   .card-end-line {
-    height: 2px;
     width: 80%;
-    background-color: black;
     z-index: 3;
   }
   .total-end {
     justify-content: space-between;
     width: 80%;
-    min-height: 5vh;
-    padding: 0.5rem 0 0 0;
-    padding-right: 0;
+    height: 3rem;
+    padding: 1.25rem 0;
+    height: 100%;
   }
   .total,
   .total-price {
@@ -414,10 +395,6 @@
 @media only screen and (max-width: 770px) {
   .card-main header h2 {
     font-size: 3rem;
-  }
-  .mobile-card-details,
-  .card-end {
-    font-size: 1.25rem;
   }
 }
 /* Surface Duo */
@@ -438,44 +415,11 @@
   .empty-cart-bottom {
     padding-top: 2.5vh;
   }
-  .cart-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    height: 100%;
-    max-height: 60vh;
-    overflow-x: hidden;
-  }
+
   .card-head {
     display: none;
   }
-  .card-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    width: 70vw;
-    min-height: 45vh;
-    max-height: unset;
-    padding: 0;
-    margin: 0 0 2.5rem 0;
-    font-size: 1.5rem;
-    position: relative;
-  }
-  .card-body-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    min-width: 100%;
-    text-align: left;
-  }
-  .card-img {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 30vh;
-    position: relative;
-  }
+
   .card-details {
     display: none;
     position: absolute;
@@ -493,72 +437,21 @@
     width: 27.5vw;
   }
   .remove-product {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    height: 100%;
-    position: absolute;
     padding: 0 0 0 0.5rem;
-    font-size: 1rem;
+    width: 100%;
   }
 
   .mobile-card-details {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-    padding: 0 0.5rem;
-    font-size: 0.9rem;
-    line-height: 2rem;
-  }
-  .mobile-card-name {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-    width: 80%;
-  }
-  .mobile-card-price {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 80%;
-    flex-direction: row;
-  }
-  .mobile-card-quantity {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 80%;
-    flex-direction: row;
-  }
-  .mobile-card-quantity-right {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 20%;
-    flex-direction: row;
+    /* width: 100%; */
   }
   .card-end {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
     font-size: 0.9rem;
-    padding: 0 0.15rem 0 0;
   }
   .card-end-line {
-    height: 2px;
-    width: 80%;
-    background-color: black;
-    z-index: 3;
+    width: 100%;
   }
   .total-end {
-    justify-content: space-between;
-    width: 80%;
-    min-height: 5vh;
-    padding: 0.5rem 0 0 0;
+    width: 100%;
   }
   .total,
   .total-price {
@@ -569,9 +462,16 @@
   }
 }
 /* Pixel 2 XL */
-@media only screen and (max-width: 412px) and (min-height: 822px) {
-  .remove-product {
-    padding: 0 0 0 0.3em;
+@media only screen and (max-width: 412px) {
+  .card-img {
+    align-self: center;
+    justify-self: center;
+    width: 100%;
+    height: 100%;
+  }
+  .mobile-card-details {
+    padding: 1rem 0.5rem;
+    width: 100%;
   }
 }
 /* iPhone 5 */
@@ -580,477 +480,18 @@
     font-size: 1.7rem;
   }
   .mobile-card-details {
-    padding: 0 0.5rem;
+    padding: 1rem 0.5rem;
     font-size: 0.8rem;
     line-height: 2rem;
   }
 }
 /* Galaxy Fold */
 @media only screen and (max-width: 282px) {
-  .cart-body {
-    width: 70vw;
-  }
-  .card-body {
-    width: 50vw;
-    min-height: 45vh;
-    margin: 0 0 2.5rem 0;
-  }
   .mobile-card-details {
-    padding: 0 0rem;
-    font-size: 0.65rem;
-    line-height: 2rem;
-  }
-  .mobile-card-name {
-    width: 100%;
-  }
-  .mobile-card-price {
-    width: 100%;
-  }
-  .mobile-card-quantity {
-    width: 100%;
+    /* padding: 0 0rem; */
+    font-size: 0.55rem;
   }
   .card-end {
     font-size: 0.7rem;
-  }
-}
-
-/* Landscape View */
-@media only screen and (max-width: 1369px) and (orientation: landscape) {
-  .card-main header h2 {
-    font-size: 4rem;
-  }
-  .empty-cart-top,
-  .empty-cart-bottom {
-    padding-top: 10vh;
-    line-height: 1.7rem;
-    font-size: 0.9rem;
-  }
-  .empty-cart-top h2 {
-    font-size: 1.3rem;
-    font-weight: 200;
-  }
-  .empty-cart-bottom {
-    padding-top: 2.5vh;
-  }
-  .cart-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    height: 100%;
-    max-height: 60vh;
-    overflow-x: hidden;
-  }
-  .card-head {
-    display: none;
-  }
-  .card-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    width: 70vw;
-    min-height: 45vh;
-    max-height: unset;
-    padding: 0;
-    margin: 0 0 2.5rem 0;
-    font-size: 1.5rem;
-    position: relative;
-  }
-  .card-body-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    min-width: 100%;
-    text-align: left;
-  }
-  .card-img {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 30vh;
-    position: relative;
-  }
-  .card-details {
-    display: none;
-    position: absolute;
-    justify-content: flex-start;
-    align-items: flex-end;
-    flex-direction: column;
-    min-width: 20vw;
-    bottom: 0;
-    right: 0;
-  }
-  .card-body-right {
-    display: none;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 27.5vw;
-  }
-  .remove-product {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    height: 100%;
-    position: absolute;
-    padding: 0 0 0 0.1rem;
-    color: rgb(0, 0, 0);
-  }
-  .mobile-card-details {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-    padding: 1rem 1rem;
-    font-size: 1.5rem;
-    line-height: 2.5rem;
-  }
-  .mobile-card-name {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-    width: 60%;
-  }
-  .mobile-card-price {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 60%;
-    flex-direction: row;
-  }
-  .mobile-card-quantity {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 60%;
-    flex-direction: row;
-  }
-  .mobile-card-quantity-right {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 20%;
-    flex-direction: row;
-  }
-  .card-end {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 0 0.15rem 0 0;
-    font-size: 1.5rem;
-  }
-  .card-end-line {
-    height: 2px;
-    width: 80%;
-    background-color: black;
-    z-index: 3;
-  }
-  .total-end {
-    justify-content: space-between;
-    width: 80%;
-    min-height: 5vh;
-    padding: 0.5rem 0 0 0;
-    padding-right: 0;
-  }
-  .total,
-  .total-price {
-    min-width: 1rem;
-  }
-  .card-check-out {
-    width: 100%;
-  }
-}
-@media only screen and (max-width: 1025px) and (orientation: landscape) {
-  .card-main header h2 {
-    font-size: 3rem;
-  }
-  .mobile-card-details,
-  .card-end {
-    font-size: 1.25rem;
-  }
-}
-/* Pixel 2 XL - IPhone X */
-@media only screen and (max-width: 824px) and (orientation: landscape) {
-  .card-container {
-    height: 100vh;
-    justify-content: flex-start;
-  }
-  .card-main {
-    padding: 4.5rem 0 0 0;
-    min-height: 100vh;
-  }
-  .card-main header {
-    padding: 0rem 0 2rem 0;
-  }
-  .card-main header h2 {
-    font-size: 2rem;
-  }
-  .empty-cart-top,
-  .empty-cart-bottom {
-    padding-top: 10vh;
-    line-height: 1.7rem;
-    font-size: 0.9rem;
-  }
-  .empty-cart-top h2 {
-    font-size: 1.3rem;
-    font-weight: 200;
-  }
-  .empty-cart-bottom {
-    padding-top: 2.5vh;
-  }
-  .cart-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    height: 100%;
-    max-height: 35vh;
-    overflow-x: hidden;
-  }
-  .card-head {
-    display: none;
-  }
-  .card-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 70vw;
-    min-height: 100vh;
-    padding: 0;
-    margin: 0 0 2.5rem 0;
-    font-size: 1.5rem;
-    position: relative;
-  }
-  .card-body-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    min-width: 15rem;
-  }
-  .card-img {
-    display: flex;
-    align-items: center;
-    width: 18rem;
-    height: 18rem;
-    position: relative;
-  }
-  .mobile-card-details {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-    padding: 0 0.5rem;
-    font-size: 0.9rem;
-    line-height: 2rem;
-    position: relative;
-  }
-  .card-details {
-    display: none;
-  }
-  .card-body-right {
-    display: none;
-  }
-  .remove-product {
-    font-size: 1rem;
-    top: 0;
-    left: 0rem;
-  }
-  .remove-product-mobile {
-    display: flex;
-    justify-content: flex-start;
-    font-size: 1rem;
-    width: 100%;
-  }
-  .mobile-card-name {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-    width: 18rem;
-  }
-  .mobile-card-price {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 18rem;
-    flex-direction: row;
-  }
-  .mobile-card-quantity {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 18rem;
-    flex-direction: row;
-  }
-  .mobile-card-quantity-right {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 20%;
-    flex-direction: row;
-  }
-  .card-end {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    font-size: 0.9rem;
-    padding: 0 0.15rem 0 0;
-  }
-  .card-end-line {
-    height: 2px;
-    width: 80%;
-    background-color: black;
-    z-index: 3;
-  }
-  .total-end {
-    justify-content: space-between;
-    width: 80%;
-    min-height: 5vh;
-    padding: 0.5rem 0 0 0;
-    padding-right: 0;
-  }
-  .total,
-  .total-price {
-    min-width: 1rem;
-  }
-  .card-check-out {
-    width: 100%;
-    padding: 1.5rem 0 0 0;
-  }
-}
-@media only screen and (max-width: 812px) and (orientation: landscape) {
-  .card-main {
-    padding: 4rem 0 0 0;
-  }
-}
-/* iPhone 6-8 plus - Pixel 2 */
-@media only screen and (max-width: 740px) and (orientation: landscape) {
-  .card-img {
-    width: 14rem;
-    height: 14rem;
-  }
-  .mobile-card-name {
-    width: 14rem;
-  }
-  .mobile-card-price {
-    width: 14rem;
-  }
-  .mobile-card-quantity {
-    width: 14rem;
-  }
-}
-/* Surface Duo */
-@media only screen and (max-width: 721px) and (orientation: landscape) {
-  .cart-body {
-    max-height: 47vh;
-  }
-  .card-body {
-    width: 70vw;
-    min-height: 65vh;
-    font-size: 1.5rem;
-  }
-  .card-main header h2 {
-    font-size: 2rem;
-  }
-  .empty-cart-top h2 {
-    font-size: 1.3rem;
-  }
-  .empty-cart-top,
-  .empty-cart-bottom {
-    padding-top: 10vh;
-    line-height: 1.7rem;
-    font-size: 0.9rem;
-  }
-  .remove-product {
-    font-size: 1rem;
-  }
-  .mobile-card-details {
-    font-size: 0.9rem;
-    line-height: 2rem;
-  }
-  .card-end {
-    font-size: 0.9rem;
-  }
-  .card-end-line {
-    height: 2px;
-    width: 80%;
-  }
-}
-/* iPhone 6-8 */
-@media only screen and (max-width: 668px) and (orientation: landscape) {
-  .cart-body {
-    max-height: 36vh;
-  }
-  .card-body {
-    width: 70vw;
-    min-height: 90vh;
-    font-size: 1.5rem;
-  }
-}
-/* Galaxy Fold  */
-@media only screen and (max-width: 655px) and (orientation: landscape) {
-  .card-main {
-    min-height: 100vh;
-  }
-  .cart-body {
-    max-height: 20vh;
-  }
-  .card-body {
-    width: 70vw;
-    min-height: 90vh;
-    font-size: 1.5rem;
-  }
-  .mobile-card-details {
-    font-size: 0.65rem;
-    line-height: 2rem;
-  }
-  .card-end {
-    font-size: 0.7rem;
-  }
-}
-/* Galaxy s5 */
-@media only screen and (max-width: 641px) and (orientation: landscape) {
-  .cart-body {
-    max-height: 35vh;
-  }
-  .card-body {
-    width: 70vw;
-    min-height: 90vh;
-    font-size: 1.5rem;
-  }
-  .mobile-card-details {
-    font-size: 0.9rem;
-    line-height: 2rem;
-  }
-  .card-end {
-    font-size: 0.9rem;
-  }
-}
-/* iPhone 5 */
-@media only screen and (max-width: 569px) and (orientation: landscape) {
-  .cart-body {
-    max-height: 30vh;
-  }
-  .card-body {
-    width: 70vw;
-    min-height: 100vh;
-    font-size: 1.5rem;
-  }
-  .card-main header h2 {
-    font-size: 1.7rem;
-  }
-  .mobile-card-details {
-    padding: 0 0.5rem;
-    font-size: 0.8rem;
-    line-height: 2rem;
-  }
-  .card-end {
-    font-size: 0.9rem;
   }
 }

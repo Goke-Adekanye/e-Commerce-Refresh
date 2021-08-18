@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 import Footer from "../../components/footer/footer";
@@ -9,6 +9,7 @@ import useFullPageLoader from "../../hooks/useFullPageLoader";
 import useCart from "../../hooks/useCart";
 import Navbar from "../../components/navbar/navbar";
 import MobileNav from "../../components/mobileNav/mobileNav";
+import ItemCard from "../../components/itemCard/itemCard";
 import useMobileNav from "../../hooks/useMobileNav";
 import axios from "axios";
 import { Power2, gsap } from "gsap";
@@ -48,7 +49,7 @@ function Type({ match }) {
     hideMask();
     showLoader();
     axios
-      .get(`http://localhost:3001/${style}/${filter}`, {
+      .get(`https://e-commerce-frugal.herokuapp.com/${style}/${filter}`, {
         params: {
           page: 1,
           limit: 4,
@@ -66,7 +67,7 @@ function Type({ match }) {
   async function fetchMore() {
     showLoader();
     const request = await axios.get(
-      `http://localhost:3001/${style}/${filter}`,
+      `https://e-commerce-frugal.herokuapp.com/${style}/${filter}`,
       {
         params: {
           page: page,
@@ -110,6 +111,9 @@ function Type({ match }) {
           start: "top center",
           end: "bottom top",
         },
+      })
+      .call(() => {
+        body.style.overflow = "unset";
       })
       .to(".mask", 2, {
         width: "0vw",
@@ -204,17 +208,9 @@ function Type({ match }) {
               <div className="type-section-head-content">
                 <div className="type-collection"> {style}</div>
                 <div className="filter-change">
-                  <div
-                    className="filter-change-head"
-                    // onMouseLeave={() => {
-                    //   setClickButton(true);
-                    // }}
-                  >
+                  <div className="filter-change-head">
                     <button
                       className="filter-change-button"
-                      // onMouseEnter={() => {
-                      //   setClickButton(false);
-                      // }}
                       onClick={handleChange}
                     >
                       {" "}
@@ -252,28 +248,11 @@ function Type({ match }) {
             <div className="type-section-body">
               {items.map((item, index) => {
                 return (
-                  <div
-                    className={`type-product-container ${
-                      index % 2 !== 0 ? "odd" : "even"
-                    }`}
+                  <ItemCard
+                    item={item}
+                    to={`/${style}/${filter}/${item._id}/details`}
                     key={item._id}
-                  >
-                    {}
-                    <div className="type-product-section">
-                      <Link to={`/${style}/${filter}/${item._id}/details`}>
-                        <div className="product-img">
-                          {" "}
-                          <img
-                            className="image3"
-                            src={item.image}
-                            alt={item.name}
-                          />{" "}
-                        </div>
-                      </Link>
-                      <div className="type-product-name"> {item.name} </div>
-                      <div className="type-product-price"> ₦{item.price} </div>
-                    </div>
-                  </div>
+                  />
                 );
               })}
             </div>

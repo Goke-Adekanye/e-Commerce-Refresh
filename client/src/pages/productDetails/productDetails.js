@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
-import { Link } from "react-router-dom";
 import Footer from "../../components/footer/footer";
 import Navbar from "../../components/navbar/navbar";
 import MiniNav from "../../components/miniNav/miniNav";
@@ -10,6 +9,7 @@ import AddButton from "../../components/buttons/button";
 import useFullPageLoader from "../../hooks/useFullPageLoader";
 import useCart from "../../hooks/useCart";
 import MobileNav from "../../components/mobileNav/mobileNav";
+import ItemCard from "../../components/itemCard/itemCard";
 import useMobileNav from "../../hooks/useMobileNav";
 import { ADD } from "../../redux/cart/actions";
 import { useDispatch } from "react-redux";
@@ -26,6 +26,7 @@ function ProductDetails({ match }) {
   const [cart, showCart, hideCart] = useCart();
   const [displayCart, setDisplayCart] = useState(true);
   const [items, setItems] = useState([]);
+  const [itemImg, setItemImg] = useState([]);
   const [related, setRelated] = useState([]);
   const [displayNav, hideNav] = useMobileNav();
   const [showNav, setShowNav] = useState(true);
@@ -51,10 +52,16 @@ function ProductDetails({ match }) {
     showLoader();
     axios
       .get(
-        `http://localhost:3001/${match.params.productType}/${match.params.productId}/details`
+        `https://e-commerce-frugal.herokuapp.com/${match.params.productType}/${match.params.productId}/details`
       )
       .then((response) => {
         setItems([response.data]);
+
+        items.map((item) => {
+          setItemImg([item.image]);
+          return items;
+        });
+        console.log(itemImg);
         hideLoader();
       });
   }
@@ -62,7 +69,7 @@ function ProductDetails({ match }) {
   function fetchRelated() {
     axios
       .get(
-        `http://localhost:3001/${match.params.productType}/${match.params.productId}/related`
+        `https://e-commerce-frugal.herokuapp.com/${match.params.productType}/${match.params.productId}/related`
       )
       .then((response) => {
         setRelated(response.data);
@@ -138,6 +145,7 @@ function ProductDetails({ match }) {
     cartFun();
     addItem();
   };
+
   return (
     <div className="container">
       <motion.div
@@ -162,7 +170,10 @@ function ProductDetails({ match }) {
             return (
               <div className="product-container" key={item._id}>
                 <div className="product-container-top" key={item._id}>
-                  <Carousel productImage1={item.image} />
+                  <div className="product-container-left">
+                    <Carousel slides={items} />
+                  </div>
+
                   <div className="product-container-right">
                     <div className="product-name"> {item.name} </div>
                     <div className="product-price"> Price : ₦{item.price} </div>
@@ -175,30 +186,13 @@ function ProductDetails({ match }) {
                 <div className="product-container-bottom">
                   <div className="related-products-head">Related Products</div>
                   <div className="related-products-body">
-                    {related.map((relatedItem) => {
+                    {related.map((item) => {
                       return (
-                        <div className="related-products" key={relatedItem._id}>
-                          <div className="type-product-section">
-                            <Link
-                              key={relatedItem._id}
-                              to={`/${relatedItem.type}/newIn/${relatedItem._id}/details`}
-                            >
-                              <div className="related-product-img">
-                                {" "}
-                                <img
-                                  className="image3"
-                                  src={relatedItem.image}
-                                  alt={relatedItem.name}
-                                />
-                              </div>
-                            </Link>
-                            <div className="related-product-name">
-                              {relatedItem.name}
-                            </div>
-                            <div className="related-product-price">
-                              ₦{relatedItem.price}
-                            </div>
-                          </div>
+                        <div className="related-product-item" key={item._id}>
+                          <ItemCard
+                            item={item}
+                            to={`/${item.type}/newIn/${item._id}/details`}
+                          />
                         </div>
                       );
                     })}

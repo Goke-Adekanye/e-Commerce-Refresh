@@ -76,30 +76,31 @@ const Cart = ({ func }) => {
                 return (
                   <div key={item.name} className="card-body">
                     <div className="card-body-left">
+                      <div className="remove-product">
+                        {" "}
+                        <span
+                          onClick={() => {
+                            dispatch({
+                              type: REMOVE,
+                              payload: {
+                                name: item.name,
+                                price: item.price,
+                                description: item.description,
+                                item_img: item.item_img,
+                              },
+                            });
+                          }}
+                        >
+                          <FontAwesomeIcon icon={faTimes} />
+                        </span>
+                      </div>
+
                       <div className="card-img">
                         <img
                           className="image1"
                           src={item.item_img}
                           alt="Locs"
                         />
-                        <div className="remove-product">
-                          {" "}
-                          <span
-                            onClick={() => {
-                              dispatch({
-                                type: REMOVE,
-                                payload: {
-                                  name: item.name,
-                                  price: item.price,
-                                  description: item.description,
-                                  item_img: item.item_img,
-                                },
-                              });
-                            }}
-                          >
-                            <FontAwesomeIcon icon={faTimes} />
-                          </span>
-                        </div>
                       </div>
                       <div className="mobile-card-details">
                         <div className="mobile-card-name">

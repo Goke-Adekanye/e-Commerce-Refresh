@@ -4,7 +4,7 @@
   width: 100vw;
   background-color: black;
   position: absolute;
-  z-index: 2;
+  z-index: 3;
 }
 
 .home-section-1 {
@@ -12,11 +12,13 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  width: 80vw;
+  max-width: 100rem;
+  max-height: 65rem;
 }
-
 .welcome {
   display: flex;
-  height: 90vh;
+  min-height: 90vh;
   width: 100%;
   position: relative;
   align-items: center;
@@ -27,8 +29,8 @@
 }
 .welcome-section {
   display: flex;
-  height: 80vh;
-  width: 80vw;
+  min-height: 80vh;
+  width: 100%;
   position: relative;
   align-items: center;
   justify-content: center;
@@ -40,10 +42,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: absolute;
 }
 .welcome-image {
-  position: absolute;
-  height: 80vh;
+  height: 50rem;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -54,8 +57,9 @@
   position: absolute;
   top: 0;
   background-color: white;
-  height: 50rem;
-  width: 35rem;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
 }
 .welcome-image img {
   height: 100%;
@@ -63,18 +67,18 @@
   object-fit: contain;
 }
 .welcome-text {
-  text-align: left;
+  text-align: center;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
-  height: 40%;
+  height: 100%;
 }
 .welcome-text h3 {
   font-size: 7.6rem;
   font-weight: 100;
   color: rgb(248, 248, 248);
   mix-blend-mode: difference;
-  z-index: 2;
+  z-index: 3;
 }
 
 /* Shop Css */
@@ -82,18 +86,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 80vw;
+  max-width: 100rem;
 }
 .categories {
-  min-height: 590vh;
-  width: 70vw;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding-top: 20px;
-  color: #d3b7a3;
   color: #000;
   text-align: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 10rem 0;
 }
 .categories-top {
   display: flex;
@@ -101,13 +106,13 @@
   justify-content: center;
   flex-direction: column;
   overflow: hidden;
+  margin: 5rem 0;
 }
 .categories-top h1 {
   margin: 0;
   padding: 0.9rem 0;
-
   text-transform: uppercase;
-  font-size: 4rem;
+  font-size: 2.5rem;
   font-weight: 100;
 }
 .headTitle {
@@ -121,85 +126,52 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  min-height: 520vh;
+  height: 100%;
+  width: 100%;
 }
 .categories-section {
-  min-height: 470vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
-  width: 80vw;
+  height: 100%;
+  width: 100%;
   position: relative;
-}
-.shrinker {
-  width: 37rem;
-  height: 47rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  transition: all 1.5s;
-  z-index: 1;
-}
-.locs-img,
-.weaves-img,
-.braids-img,
-.twists-img {
-  width: 37rem;
-  height: 47rem;
-  object-fit: cover;
-  z-index: 2;
-}
-.shrink {
-  width: 36rem;
-  height: 46rem;
 }
 
 .locs,
 .weaves,
 .braids,
 .twists {
-  width: 80vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
   text-align: center;
   transition: all 1.5s;
   position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: start;
+  align-items: start;
+  height: 100%;
+  margin: 10rem 0;
 }
 
-.locs-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
 .locs-container,
 .weaves-container,
 .braids-container,
 .twists-container {
-  width: 40rem;
-  height: 50rem;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  flex-direction: column;
   transition: all 1.5s;
   z-index: 1;
-  position: absolute;
-  top: 10%;
-}
-
-.locs-container,
-.weaves-container,
-.braids-container,
-.twist-container {
-  z-index: 0;
+  position: relative;
+  padding: 8rem 0 0 0;
   overflow: unset;
 }
+
 .locs-type,
 .weaves-type,
 .braids-type,
@@ -234,6 +206,7 @@
   top: 0;
   font-size: 2.8rem;
   font-family: Athene, serif;
+  position: relative;
 }
 .locs-num,
 .weaves-num {
@@ -242,6 +215,8 @@
 .braids-num,
 .twists-num {
   right: 0;
+  justify-self: end;
+  align-self: start;
 }
 
 .locs-go,
@@ -249,26 +224,25 @@
 .twists-go,
 .braids-go {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-direction: column;
-  position: absolute;
-  min-height: 17vh;
   z-index: 2;
   overflow: hidden;
+  position: relative;
+  margin-bottom: 10rem;
 }
+
 .locs-go,
 .weaves-go {
-  right: 0;
-  bottom: 25%;
   text-align: right;
-  align-items: flex-end;
+  justify-self: end;
+  align-self: end;
 }
 .twists-go,
 .braids-go {
-  left: 0;
-  bottom: 20%;
   text-align: left;
-  align-items: flex-start;
+  justify-self: start;
+  align-self: end;
 }
 .locs-write,
 .weaves-write,
@@ -293,6 +267,14 @@
   font-size: 1.5rem;
   font-weight: 600;
 }
+
+.locs-write p,
+.weaves-write p,
+.twists-write p,
+.braids-write p {
+  padding: 1.5rem 0 0 0;
+}
+
 .locs-write,
 .weaves-write {
   text-align: right;
@@ -309,7 +291,55 @@
 .twists-shop,
 .braids-shop {
   position: relative;
+  padding: 1.7rem 0 0 0;
 }
+.shrinker-locs,
+.shrinker-weaves,
+.shrinker-twists,
+.shrinker-braids {
+  width: 37rem;
+  height: 47rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+}
+.shrinker {
+  width: 37rem;
+  height: 47rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: all 1.5s;
+  z-index: 1;
+}
+.parallax-inner,
+.parallax-outer {
+  width: 37rem;
+  height: 47rem;
+}
+.shrink {
+  width: 34rem;
+  height: 44rem;
+}
+/* .parallax-inner,
+.parallax-outer {
+  height: 100%;
+}
+.parallax-outer {
+  height: 130%;
+} */
+.locs-img,
+.weaves-img,
+.braids-img,
+.twists-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
+}
+
 .locs-button,
 .weaves-button,
 .twists-button,
@@ -367,10 +397,12 @@
   color: white;
   transition: 1s;
 }
+/* test */
+
 /* Desktop 15 inches */
-@media only screen and (max-width: 1600px) {
-  .categories {
-    min-height: 550vh;
+@media only screen and (max-width: 1650px) {
+  .welcome-image {
+    height: 40rem;
   }
   .welcome-image img {
     height: 100%;
@@ -381,8 +413,20 @@
     font-size: 6.5rem;
   }
   .categories-top h1 {
-    font-size: 2.9rem;
+    font-size: 2rem;
     font-weight: 100;
+  }
+  .headTitle {
+    width: 2.7rem;
+  }
+  .categories-top {
+    margin: 5rem 0 2.5rem 0;
+  }
+  .locs,
+  .weaves,
+  .braids,
+  .twists {
+    margin: 10rem 0;
   }
   .locs-num,
   .weaves-num,
@@ -396,34 +440,16 @@
   .twists-type {
     font-size: 4.8rem;
   }
-  .locs-container,
-  .weaves-container,
-  .braids-container,
-  .twists-container {
-    width: 30rem;
-    height: 40rem;
-  }
-  .shrinker {
+
+  .shrinker,
+  .parallax-inner,
+  .parallax-outer {
     width: 30rem;
     height: 40rem;
   }
   .shrink {
     width: 29rem;
     height: 39rem;
-  }
-  .locs-img,
-  .weaves-img,
-  .braids-img,
-  .twists-img {
-    width: 30rem;
-    height: 40rem;
-  }
-  .locs-go,
-  .weaves-go,
-  .twists-go,
-  .braids-go {
-    min-height: 18vh;
-    bottom: 20%;
   }
   .locs-write,
   .weaves-write,
@@ -446,6 +472,71 @@
     font-size: 0.9rem;
     padding: 0 1rem;
   }
+
+  .shrinker-locs,
+  .shrinker-weaves,
+  .shrinker-twists,
+  .shrinker-braids {
+    width: 30rem;
+    height: 40rem;
+  }
+  .locs-write p,
+  .weaves-write p,
+  .twists-write p,
+  .braids-write p {
+    padding: 1.5rem 0 0 0;
+  }
+  .locs-shop,
+  .weaves-shop,
+  .twists-shop,
+  .braids-shop {
+    position: relative;
+    padding: 1.7rem 0 0 0;
+  }
+  .locs-container,
+  .weaves-container,
+  .braids-container,
+  .twists-container {
+    padding: 5rem 0 0 0;
+  }
+}
+
+@media only screen and (max-width: 1450px) {
+  .locs,
+  .weaves {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "num container ."
+      ". go .";
+  }
+  .braids,
+  .twists {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      ". container num"
+      ". go .";
+  }
+  .locs-num,
+  .weaves-num,
+  .braids-num,
+  .twists-num {
+    grid-area: num;
+  }
+  .locs-container,
+  .weaves-container,
+  .braids-container,
+  .twists-container {
+    grid-area: container;
+    padding: 5rem 0 3rem 0;
+  }
+  .locs-go,
+  .weaves-go,
+  .twists-go,
+  .braids-go {
+    grid-area: go;
+  }
 }
 /* iPad  Pro*/
 @media only screen and (max-width: 1030px) {
@@ -462,73 +553,77 @@
     height: 80vh;
     width: 80vw;
   }
-  .categories {
-    min-height: 450vh;
-    padding: 20rem 0 0 0;
+  .headTitle {
+    width: 2.7rem;
   }
-  .categories-bottom {
-    min-height: 425vh;
+  .categories-top {
+    margin: 2.5rem 0;
   }
-  .categories-section {
-    min-height: 400vh;
+  .locs,
+  .weaves,
+  .braids,
+  .twists {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "num"
+      "container"
+      "go ";
+    margin: 10rem 0;
+    min-height: 60vh;
   }
-  .locs-type,
-  .weaves-type,
-  .braids-type,
-  .twists-type {
-    top: 5%;
-  }
+
   .locs-container,
   .weaves-container,
   .braids-container,
   .twists-container {
-    width: 35rem;
-    height: 50rem;
-    top: 12%;
+    justify-self: center;
+    align-self: center;
   }
-  .shrinker {
+  .shrinker,
+  .parallax-inner,
+  .parallax-outer {
     width: 35rem;
-    height: 50rem;
+    height: 40rem;
   }
   .locs-img,
   .weaves-img,
   .braids-img,
   .twists-img {
-    width: 35rem;
-    height: 50rem;
+    width: 100%;
+    height: 100%;
   }
   .locs-go,
   .weaves-go,
   .twists-go,
   .braids-go {
-    min-height: 10vh;
-    width: 35rem;
+    width: 30rem;
+    justify-self: center;
+    align-self: end;
   }
   .locs-go,
   .weaves-go {
-    right: 8rem;
-    bottom: 16%;
+    text-align: right;
   }
   .twists-go,
   .braids-go {
-    left: 8rem;
-    bottom: 16%;
+    text-align: left;
   }
 }
 /* iPad */
-@media only screen and (max-width: 770px) {
-  .welcome-text h3 {
-    font-size: 3.5rem;
+@media only screen and (max-width: 800px) {
+  .home-section-1 {
+    width: 80vw;
+    max-width: 100rem;
   }
-  .categories {
-    min-height: 450vh;
-    padding: 15rem 0 0 0;
+  .categories-top {
+    margin: 0 0;
   }
-  .categories-section {
-    min-height: 470vh;
-  }
-  .categories-bottom {
-    min-height: 500vh;
+  .locs,
+  .weaves,
+  .braids,
+  .twists {
+    margin: 10rem 0;
   }
   .locs-type,
   .weaves-type,
@@ -536,15 +631,9 @@
   .twists-type {
     font-size: 4rem;
   }
-  .locs-container,
-  .weaves-container,
-  .braids-container,
-  .twists-container {
-    width: 30rem;
-    height: 45rem;
-    top: 12%;
-  }
-  .shrinker {
+  .shrinker,
+  .parallax-inner,
+  .parallax-outer {
     width: 30rem;
     height: 45rem;
   }
@@ -552,59 +641,93 @@
   .weaves-img,
   .braids-img,
   .twists-img {
+    width: 100%;
+    height: 100%;
+  }
+}
+@media only screen and (max-width: 770px) {
+  .locs-type,
+  .weaves-type,
+  .braids-type,
+  .twists-type {
+    font-size: 3.5rem;
+  }
+  .locs-img-container,
+  .weaves-img-container,
+  .braids-img-container,
+  .twists-img-container {
+    height: 100%;
+    width: unset;
+  }
+  .shrinker-locs,
+  .shrinker-weaves,
+  .shrinker-twists,
+  .shrinker-braids {
     width: 30rem;
     height: 45rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .locs-container,
+  .weaves-container,
+  .braids-container,
+  .twists-container {
+    width: unset;
+  }
+
+  .shrinker-locs,
+  .shrinker-weaves,
+  .shrinker-twists,
+  .shrinker-braids {
+    height: 35rem;
+    width: unset;
+  }
+  .shrinker,
+  .parallax-inner,
+  .parallax-outer {
+    width: 100%;
+    height: 35rem;
+    width: unset;
+  }
+  .shrink {
+    width: 19rem;
+    height: 29rem;
+  }
+  .locs-img,
+  .weaves-img,
+  .braids-img,
+  .twists-img {
+    width: 100%;
+    height: 100%;
   }
   .locs-go,
   .weaves-go,
   .twists-go,
   .braids-go {
-    min-height: 13vh;
-    width: 35rem;
-  }
-  .locs-go,
-  .weaves-go {
-    right: 4rem;
-    bottom: 0%;
-  }
-  .twists-go,
-  .braids-go {
-    left: 4rem;
-    bottom: 0%;
+    width: 100%;
   }
 }
 /* Surface Duo */
 @media only screen and (max-width: 550px) {
-  .categories {
-    min-height: 540vh;
-    padding: 0 0 0 0;
-  }
   .welcome-image img {
     height: 100%;
     width: 100%;
     object-fit: contain;
   }
-  .welcome-text {
-    position: absolute;
-    top: 20%;
-  }
   .welcome-text h3 {
     font-size: 4.5rem;
-    text-align: center;
   }
-  .categories-top h1 {
-    font-size: 2rem;
-    font-weight: 100;
+  .headTitle {
+    width: 2.7rem;
   }
-  .categories-bottom {
-    min-height: 500vh;
+  .categories-top {
+    margin: 0 0;
   }
   .locs,
   .weaves,
   .braids,
   .twists {
-    justify-content: flex-end;
-    align-items: center;
+    margin: 6rem 0;
   }
   .locs-num,
   .weaves-num,
@@ -619,16 +742,16 @@
     font-size: 2.2rem;
     top: 6%;
   }
-  .locs-container,
-  .weaves-container,
-  .braids-container,
-  .twists-container {
-    width: 20rem;
+
+  .shrinker-locs,
+  .shrinker-weaves,
+  .shrinker-twists,
+  .shrinker-braids {
     height: 30rem;
-    top: 12%;
   }
-  .shrinker {
-    width: 20rem;
+  .shrinker,
+  .parallax-inner,
+  .parallax-outer {
     height: 30rem;
   }
   .shrink {
@@ -639,19 +762,14 @@
   .weaves-img,
   .braids-img,
   .twists-img {
-    width: 20rem;
-    height: 30rem;
+    width: 100%;
+    height: 100%;
   }
   .locs-go,
   .weaves-go,
   .twists-go,
   .braids-go {
-    min-height: 17vh;
-    position: relative;
-    bottom: 0%;
-    width: 20rem;
-    right: 0;
-    left: 0;
+    width: 100%;
   }
   .locs-write,
   .weaves-write,
@@ -680,69 +798,43 @@
 }
 /* Pixel 2 XL */
 @media only screen and (max-width: 412px) and (min-height: 822px) {
-  .categories {
-    min-height: 450vh;
-    padding: 5rem 0 5rem 0;
-  }
-  .categories-section {
-    min-height: 430vh;
-  }
-  .categories-bottom {
-    min-height: 450vh;
-  }
-  .locs,
-  .weaves,
-  .braids,
-  .twists {
-    height: 87.5vh;
-  }
-  .locs-go,
-  .weaves-go,
-  .twists-go,
-  .braids-go {
-    min-height: 15vh;
-    position: relative;
-    bottom: 0%;
-    width: 20rem;
-    right: 0;
-    left: 0;
-  }
 }
 /* Pixel 2 */
 @media only screen and (max-width: 412px) {
+  .categories {
+    padding: 5rem 0 5rem 0;
+  }
+  .shrinker-locs,
+  .shrinker-weaves,
+  .shrinker-twists,
+  .shrinker-braids {
+    height: 30rem;
+  }
+  .shrinker,
+  .parallax-inner,
+  .parallax-outer {
+    height: 30rem;
+  }
+  .shrink {
+    width: 19rem;
+    height: 29rem;
+  }
 }
 /* iPhone 6-8 */
 @media only screen and (max-width: 380px) {
-  .welcome-text {
-    top: 12%;
-  }
   .categories {
-    min-height: 540vh;
     padding: 0 0 15vh 0;
   }
-  .categories-bottom {
-    min-height: 530vh;
+  .shrinker-locs,
+  .shrinker-weaves,
+  .shrinker-twists,
+  .shrinker-braids {
+    height: 25rem;
   }
-  .categories-section {
-    min-height: 500vh;
-  }
-  .locs,
-  .weaves,
-  .braids,
-  .twists {
-    height: 105vh;
-  }
-  .locs-container,
-  .weaves-container,
-  .braids-container,
-  .twists-container {
-    width: 18rem;
-    height: 30rem;
-    top: 12%;
-  }
-  .shrinker {
-    width: 18rem;
-    height: 30rem;
+  .shrinker,
+  .parallax-inner,
+  .parallax-outer {
+    height: 25rem;
   }
   .shrink {
     width: 14rem;
@@ -752,15 +844,8 @@
   .weaves-img,
   .braids-img,
   .twists-img {
-    width: 18rem;
-    height: 30rem;
-  }
-  .locs-go,
-  .weaves-go,
-  .twists-go,
-  .braids-go {
-    bottom: 0%;
-    width: 18rem;
+    width: 100%;
+    height: 100%;
   }
   .locs-write,
   .weaves-write,
@@ -778,34 +863,15 @@
 }
 /* Galaxy s5 */
 @media only screen and (max-width: 362px) {
-  .locs,
-  .weaves,
-  .braids,
-  .twists {
-    height: 110vh;
-  }
 }
 /* iPhone 5 */
 @media only screen and (max-width: 322px) {
   .welcome-text h3 {
     font-size: 3.5rem;
   }
-  .locs,
-  .weaves,
-  .braids,
-  .twists {
-    height: 105vh;
-  }
-  .locs-container,
-  .weaves-container,
-  .braids-container,
-  .twists-container {
-    width: 16rem;
-    height: 25rem;
-    top: 12%;
-  }
-  .shrinker {
-    width: 16rem;
+  .shrinker,
+  .parallax-inner,
+  .parallax-outer {
     height: 25rem;
   }
   .shrink {
@@ -823,16 +889,8 @@
   .weaves-img,
   .braids-img,
   .twists-img {
-    width: 16rem;
-    height: 25rem;
-  }
-
-  .locs-go,
-  .weaves-go,
-  .twists-go,
-  .braids-go {
-    bottom: 0%;
-    width: 16rem;
+    width: 100%;
+    height: 100%;
   }
   .locs-write,
   .weaves-write,
@@ -869,323 +927,5 @@
   .braids-type,
   .twists-type {
     font-size: 1.6rem;
-    top: 6%;
-  }
-}
-
-/* Landscape View */
-
-@media only screen and (max-width: 1369px) and (orientation: landscape) {
-  .welcome-text h3 {
-    font-size: 6rem;
-  }
-  .locs-go,
-  .weaves-go,
-  .twists-go,
-  .braids-go {
-    min-height: 15vh;
-    bottom: 30%;
-  }
-  .locs-container,
-  .weaves-container,
-  .braids-container,
-  .twists-container {
-    width: 30rem;
-    height: 50rem;
-  }
-  .shrinker {
-    width: 30rem;
-    height: 50rem;
-  }
-  .locs-img,
-  .weaves-img,
-  .braids-img,
-  .twists-img {
-    width: 30rem;
-    height: 50rem;
-  }
-}
-@media only screen and (max-width: 1025px) and (orientation: landscape) {
-  .welcome-text h3 {
-    font-size: 4.5rem;
-  }
-  .categories-bottom {
-    min-height: 475vh;
-    padding: 8rem 0 0 0;
-  }
-
-  .locs,
-  .weaves,
-  .braids,
-  .twists {
-    height: 200vh;
-  }
-  .locs-go,
-  .weaves-go,
-  .twists-go,
-  .braids-go {
-    min-height: 17vh;
-    bottom: 25%;
-  }
-  .locs-go,
-  .weaves-go {
-    right: 11rem;
-  }
-  .twists-go,
-  .braids-go {
-    left: 11rem;
-  }
-}
-/* Pixel 2 XL - Iphone X */
-@media only screen and (max-width: 824px) and (orientation: landscape) {
-  .welcome-text h3 {
-    font-size: 3.6rem;
-  }
-  .categories {
-    min-height: 850vh;
-    padding: 7rem 0 0 0;
-  }
-  .categories-top h1 {
-    font-size: 2rem;
-  }
-  .headTitle {
-    height: 2px;
-    width: 3rem;
-    background-color: black;
-    border-radius: 20px;
-  }
-  .locs,
-  .weaves,
-  .braids,
-  .twists {
-    width: 80vw;
-    height: unset;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    margin: 0 0 8rem 0;
-  }
-  .locs-num,
-  .weaves-num,
-  .braids-num,
-  .twists-num {
-    position: relative;
-    padding: 0 0 2rem 0;
-    align-self: flex-start;
-    font-size: 1.2rem;
-  }
-  .locs-type,
-  .weaves-type,
-  .braids-type,
-  .twists-type {
-    font-size: 2.9rem;
-    top: 8%;
-  }
-  .locs-container,
-  .weaves-container,
-  .braids-container,
-  .twists-container {
-    width: 20rem;
-    height: 27rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    transition: all 1.5s;
-    z-index: 1;
-    position: relative;
-    margin: 3.5rem 0 0 0;
-  }
-  .shrinker {
-    width: 20rem;
-    height: 27rem;
-  }
-  .shrink {
-    width: 19rem;
-    height: 26rem;
-  }
-  .locs-img,
-  .weaves-img,
-  .braids-img,
-  .twists-img {
-    width: 20rem;
-    height: 27rem;
-  }
-  .locs-go,
-  .weaves-go,
-  .twists-go,
-  .braids-go {
-    min-height: 35vh;
-    position: relative;
-    justify-content: flex-start;
-    bottom: 0%;
-    width: 20rem;
-    right: 0;
-    left: 0;
-    padding: 2rem 0 0 0;
-  }
-  .locs-write,
-  .weaves-write,
-  .twists-write,
-  .braids-write {
-    line-height: 1.1rem;
-    font-size: 0.9rem;
-  }
-  .locs-write h2,
-  .weaves-write h2,
-  .twists-write h2,
-  .braids-write h2 {
-    font-size: 1.1rem;
-  }
-  .locs-shop,
-  .weaves-shop,
-  .braids-shop,
-  .twists-shop {
-    padding: 1.1rem 0 0 0;
-  }
-}
-/* iPhone 6-8 plus - Pixel 2 */
-@media only screen and (max-width: 740px) and (orientation: landscape) {
-  .welcome-text h3 {
-    font-size: 3rem;
-  }
-  .categories-top h1 {
-    font-size: 2rem;
-  }
-  .headTitle {
-    height: 2px;
-    width: 2.2rem;
-    background-color: black;
-    border-radius: 20px;
-  }
-  .locs-num,
-  .weaves-num,
-  .braids-num,
-  .twists-num {
-    font-size: 1.2rem;
-  }
-  .locs-type,
-  .weaves-type,
-  .braids-type,
-  .twists-type {
-    font-size: 2.2rem;
-    /* top: 6%; */
-  }
-  .locs-container,
-  .weaves-container,
-  .braids-container,
-  .twists-container {
-    width: 20rem;
-    height: 26rem;
-    margin: 2.5rem 0 0 0;
-  }
-  .shrinker {
-    width: 20rem;
-    height: 26rem;
-  }
-  .shrink {
-    width: 19rem;
-    height: 25rem;
-  }
-  .locs-img,
-  .weaves-img,
-  .braids-img,
-  .twists-img {
-    width: 20rem;
-    height: 26rem;
-  }
-  .locs-go,
-  .weaves-go,
-  .twists-go,
-  .braids-go {
-    min-height: 30vh;
-    position: relative;
-    bottom: 0%;
-    width: 20rem;
-    right: 0;
-    left: 0;
-  }
-  .locs-write,
-  .weaves-write,
-  .twists-write,
-  .braids-write {
-    line-height: 1.2rem;
-    font-size: 0.9rem;
-  }
-  .locs-write h2,
-  .weaves-write h2,
-  .twists-write h2,
-  .braids-write h2 {
-    font-size: 1.1rem;
-  }
-  .locs-button,
-  .weaves-button,
-  .twists-button,
-  .braids-button {
-    height: 2.5rem;
-    font-size: 0.8rem;
-    padding: 0 0.7rem;
-  }
-}
-/* Surface Duo */
-@media only screen and (max-width: 721px) and (max-height: 545px) and (orientation: landscape) {
-  .categories {
-    min-height: 550vh;
-    padding: 12rem 0 0 0;
-  }
-}
-/* iPhone 6-8 - Galaxy Fold - Galaxy s5 */
-@media only screen and (max-width: 668px) and (orientation: landscape) {
-  .welcome-text h3 {
-    font-size: 2.7rem;
-  }
-  .categories {
-    min-height: 850vh;
-    padding: 10rem 0 0 0;
-  }
-  .categories-bottom {
-    min-height: 730vh;
-    padding: 5rem 0 0 0;
-  }
-  .categories-section {
-    min-height: 720vh;
-  }
-  .categories-top h1 {
-    font-size: 1.5rem;
-  }
-  .headTitle {
-    width: 1.6rem;
-  }
-}
-/* iPhone 5 */
-@media only screen and (max-width: 569px) and (orientation: landscape) {
-  .welcome-text {
-    padding: 0 0 0 0;
-  }
-  .welcome-text h3 {
-    font-size: 2.5rem;
-  }
-
-  .locs-container,
-  .weaves-container,
-  .braids-container,
-  .twists-container {
-    margin: 2.5rem 0 0 0;
-  }
-  .locs-write,
-  .weaves-write,
-  .twists-write,
-  .braids-write {
-    line-height: 1.1rem;
-  }
-  .locs-shop,
-  .weaves-shop,
-  .braids-shop,
-  .twists-shop {
-    padding: 1.1rem 0 0 0;
   }
 }

@@ -22,7 +22,6 @@ const Navbar = ({
   mobileNavFunc3,
 }) => {
   const { totalNumberCart } = useSelector(mapState);
-  const [close, setClose] = useState(true);
   const [navFixed, setNavFixed] = useState();
   const history = useHistory();
   let click = [];
@@ -38,7 +37,7 @@ const Navbar = ({
       hide();
       setNavFixed(true);
     }
-  }, [mobileNavFunc3]);
+  }, [mobileNavFunc3]); // eslint-disable-line react-hooks/exhaustive-deps
   gsap.config({
     nullTargetWarn: false,
   });
@@ -53,27 +52,27 @@ const Navbar = ({
   }
   function show() {
     // Animation 13
-    gsap.timeline().to(".nav-links", 2, {
+    gsap.timeline().to(".nav", 2, {
       position: "fixed",
-      delay: "0.7",
+      top: "0rem",
+      delay: "1",
     });
   }
   function hide() {
     // Animation 13
     gsap
       .timeline()
-      .to(".nav-links", 2, {
-        // opacity: 0,
+      .to(".nav", 1, {
         ease: Power2.easeInOut,
       })
-      .to(".nav-links", 0.1, {
+      .to(".nav", 0.1, {
         position: "relative",
       });
   }
 
   return (
-    <div>
-      <MobileNav func={close} />
+    <>
+      <MobileNav />
       <header>
         <nav className={`nav `}>
           <ul className={`nav-links`}>
@@ -105,7 +104,7 @@ const Navbar = ({
           </ul>
         </nav>
       </header>
-    </div>
+    </>
   );
 };
 

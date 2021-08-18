@@ -1,4 +1,3 @@
-import React from "react";
 import { Power2, gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -20,13 +19,7 @@ const useMobileNav = () => {
       })
       .to(".mobile-nav", 1.6, { x: 0, ease: Power2.easeInOut })
       .staggerTo(
-        [
-          ".mobile-locs",
-          ".mobile-twists",
-          ,
-          ".mobile-weaves",
-          ".mobile-braids",
-        ],
+        [".mobile-locs", ".mobile-twists", ".mobile-weaves", ".mobile-braids"],
         1.5,
         { opacity: 1, y: 0, ease: Power2.easeInOut, delay: "-0.5" },
         0.2
@@ -59,13 +52,7 @@ const useMobileNav = () => {
       })
 
       .staggerTo(
-        [
-          ".mobile-locs",
-          ".mobile-twists",
-          ,
-          ".mobile-weaves",
-          ".mobile-braids",
-        ],
+        [".mobile-locs", ".mobile-twists", ".mobile-weaves", ".mobile-braids"],
         1.5,
         { y: -40, opacity: 0, ease: Power2.easeInOut },
         0.2
@@ -97,7 +84,7 @@ const useMobileNav = () => {
       });
   };
 
-  return [() => show(), () => hide()];
+  return [() => show(), () => hide()]; // eslint-disable-line react-hooks/exhaustive-deps
 };
 
 export default useMobileNav;

@@ -24,7 +24,10 @@ function Test() {
     data.append("itemDescription", description);
 
     async function uploadData() {
-      const request = await axios.post(`http://localhost:3001/${type}/`, data);
+      const request = await axios.post(
+        `https://e-commerce-frugal.herokuapp.com/${type}/`,
+        data
+      );
       console.log(request);
       setItems([request.data]);
     }

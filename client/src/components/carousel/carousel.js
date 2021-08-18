@@ -1,79 +1,53 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import "./style.css";
-import image2 from "../../assets/twist.jpg";
-import image1 from "../../assets/braids.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronRight,
   faChevronLeft,
 } from "@fortawesome/free-solid-svg-icons";
 
-function Carousel({ productImage1 }) {
-  const [imgSize, setImgSize] = useState("");
-  const imageCon = useRef();
-  const productImages = document.querySelectorAll(".carousel-content img");
-  const imageContainer = document.querySelector(".carousel-content-images");
-
-  let counter = 1;
+function Carousel({ slides }) {
   useEffect(() => {
-    onLoad();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+    console.log(slides);
+  }, [slides]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const onLoad = () => {
-    const imageContainer = document.querySelector(".carousel-content-images");
-    const imgWidth = imageCon.current.offsetWidth;
-    imageContainer.style.transform = `translateX(-${imgWidth * counter}px)`;
-    setImgSize(imgWidth);
+  const [current, setCurrent] = useState(0);
+  const length = slides.length;
+
+  const nextSlide = () => {
+    setCurrent(current === length - 1 ? 0 : current + 1);
   };
 
-  const nextImg = () => {
-    if (counter >= productImages.length - 1) return;
-    counter++;
-    imageContainer.style.transform = `translateX(-${imgSize * counter}px)`;
-    imageContainer.style.transition = `all 0.4s ease`;
-    imageContainer.addEventListener("transitionend", () => {
-      if (productImages[counter].id === "last-image") {
-        counter = counter - 3;
-        imageContainer.style.transition = `none`;
-        imageContainer.style.transform = `translateX(-${imgSize * counter}px)`;
-      }
-    });
+  const prevSlide = () => {
+    setCurrent(current === 0 ? length - 1 : current - 1);
   };
 
-  const prevImg = () => {
-    if (counter <= 0) return;
-    counter--;
-    imageContainer.style.transform = `translateX(-${imgSize * counter}px)`;
-    imageContainer.style.transition = `all 0.4s ease`;
-    imageContainer.addEventListener("transitionend", () => {
-      if (productImages[counter].id === "first-image") {
-        counter = counter + 3;
-        imageContainer.style.transition = `none`;
-        imageContainer.style.transform = `translateX(-${imgSize * counter}px)`;
-      }
-    });
-  };
+  if (!Array.isArray(slides) || slides.length <= 0) {
+    return null;
+  }
 
   return (
-    <div className="container">
-      <div className="carousel">
-        <div className="carousel-content">
-          <div className="next-image-left" onClick={prevImg}>
-            <FontAwesomeIcon icon={faChevronLeft} />
+    <section className="slider">
+      {slides.map((slide, index) => {
+        return (
+          <div
+            className={`${"slide"} ${index === current ? "active" : null}`}
+            key={index}
+          >
+            <div className="icon_left" onClick={prevSlide}>
+              {" "}
+              <FontAwesomeIcon icon={faChevronLeft} className="icon " />
+            </div>
+            <div className="icon_right " onClick={nextSlide}>
+              <FontAwesomeIcon icon={faChevronRight} className="icon" />
+            </div>
+            {index === current && (
+              <img src={slide.image} alt="product" className="image" />
+            )}
           </div>
-          <div className="next-image-right" onClick={nextImg}>
-            <FontAwesomeIcon icon={faChevronRight} />
-          </div>
-          <div className="carousel-content-images">
-            <img id="first-image" src={image2} alt={image2} />
-            <img src={productImage1} alt={productImage1} />
-            <img src={image1} alt={image1} ref={imageCon} />
-            <img src={image2} alt={image2} />
-            <img id="last-image" src={productImage1} alt={productImage1} />
-          </div>
-        </div>
-      </div>
-    </div>
+        );
+      })}
+    </section>
   );
 }
 

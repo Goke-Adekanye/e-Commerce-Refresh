@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import Home from "./pages/home/home";
 import Types from "./pages/types/types";
@@ -12,6 +12,8 @@ import { Provider } from "react-redux";
 import { persistStore } from "redux-persist";
 import CheckOut from "./pages/checkOut/checkOut";
 import { AnimatePresence } from "framer-motion";
+import ReactGa from "react-ga";
+
 //initial store
 const initialStore = {
   cart: [],
@@ -25,6 +27,11 @@ const store = createStore(
 );
 
 const App = () => {
+  useEffect(() => {
+    ReactGa.initialize("UA-202544851-2");
+    ReactGa.pageview("/");
+  }, []);
+
   const location = useLocation();
   return (
     <div className="App">

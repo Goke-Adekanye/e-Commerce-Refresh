@@ -7,7 +7,7 @@ import Navbar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
 import MobileNav from "../../components/mobileNav/mobileNav";
 import useMobileNav from "../../hooks/useMobileNav";
-import { Power2, Power3, gsap } from "gsap";
+import { Power1, Power2, Power3, gsap } from "gsap";
 import { motion } from "framer-motion";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Parallax } from "react-scroll-parallax";
@@ -19,9 +19,13 @@ function Home() {
   const [showNav, setShowNav] = useState(true);
   const [canScroll, setCanScroll] = useState(false);
   const [enterLocs, setEnterLocs] = useState(false);
-  const [enterTwist, setEnterTwist] = useState(false);
+  const [enterTwists, setEnterTwists] = useState(false);
   const [enterWeaves, setEnterWeaves] = useState(false);
   const [enterBraids, setEnterBraids] = useState(false);
+  const [nextLocs, setNextLocs] = useState(false);
+  const [nextTwists, setNextTwists] = useState(false);
+  const [nextWeaves, setNextWeaves] = useState(false);
+  const [nextBraids, setNextBraids] = useState(false);
   const body = document.querySelector("body");
 
   useEffect(() => {
@@ -37,7 +41,7 @@ function Home() {
     } else {
       body.style.overflow = "unset";
     }
-  }, [canScroll]);
+  }, [canScroll]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     ScrollTrigger.defaults({
@@ -52,9 +56,10 @@ function Home() {
         setCanScroll(false);
       })
       .to(".container", 1, { css: { visibility: "visible" } })
+      .to(".welcome-text h3", 0.1, { css: { mixBlendMode: "difference" } })
       .from([".welcome-text h3"], 1.4, {
         opacity: "0",
-        transform: "scale(1.4) ",
+        transform: "scale(1.4)",
         ease: Power2.easeInOut,
         reversed: false,
       })
@@ -79,7 +84,7 @@ function Home() {
         },
       })
       .fromTo(
-        [".categories-top h1", ".headTitle"],
+        ".categories-top h1",
         1.5,
         {
           y: "200",
@@ -90,7 +95,11 @@ function Home() {
           y: "0",
           opacity: 1,
         }
-      );
+      )
+      .from(".headTitle", 2, {
+        opacity: 0,
+        ease: Power3.easeOut,
+      });
 
     // Animation 3
 
@@ -130,23 +139,16 @@ function Home() {
         },
         0.2
       )
-      .from(".locs-container", 0.4, {
+      .from(".shrinker-locs", 1.0, {
         opacity: "0",
         y: "100",
-        ease: Power2.easeInOut,
+        ease: Power1.easeInOut,
       })
-      .from(".locs-write", 1.0, {
+      .from([".locs-write", ".locs-shop"], 1.0, {
         opacity: "0",
-        x: "50vw",
         ease: Power2.easeOut,
-        delay: 0.7,
-      })
-      .from(".locs-shop", 1, {
-        opacity: "0",
-        ease: Power2.easeInOut,
-        delay: "-0.4",
+        delay: 0.3,
       });
-
     // Animation 5
 
     gsap
@@ -191,21 +193,16 @@ function Home() {
         },
         -0.2
       )
-      .from(".twists-container", 0.4, {
+      .from(".shrinker-twists", 1.0, {
         opacity: "0",
         y: "100",
-        ease: Power2.easeInOut,
+        ease: Power1.easeInOut,
       })
-      .from(".twists-write", 1.0, {
+      .from([".twists-write", ".twists-shop"], 1.0, {
         opacity: "0",
-        x: "-50vw",
+
         ease: Power2.easeOut,
-        delay: 0.7,
-      })
-      .from(".twists-shop", 1, {
-        opacity: "0",
-        ease: Power2.easeInOut,
-        delay: "-0.4",
+        delay: 0.3,
       });
 
     // Animation 7
@@ -252,21 +249,16 @@ function Home() {
         },
         0.2
       )
-      .from(".weaves-container", 0.4, {
+      .from(".shrinker-weaves", 1.0, {
         opacity: "0",
         y: "100",
-        ease: Power2.easeInOut,
+        ease: Power1.easeInOut,
       })
-      .from(".weaves-write", 1.0, {
+      .from([".weaves-write", ".weaves-shop"], 1.0, {
         opacity: "0",
-        x: "50vw",
+
         ease: Power2.easeOut,
-        delay: 0.7,
-      })
-      .from(".weaves-shop", 1, {
-        opacity: "0",
-        ease: Power2.easeInOut,
-        delay: "-0.4",
+        delay: 0.3,
       });
 
     // Animation 9
@@ -313,21 +305,15 @@ function Home() {
         },
         -0.2
       )
-      .from(".braids-container", 0.4, {
+      .from(".shrinker-braids", 1.0, {
         opacity: "0",
         y: "100",
-        ease: Power2.easeInOut,
+        ease: Power1.easeInOut,
       })
-      .from(".braids-write", 1.0, {
+      .from([".braids-write", ".braids-shop"], 1.0, {
         opacity: "0",
-        x: "-50vw",
         ease: Power2.easeOut,
-        delay: 0.7,
-      })
-      .from(".braids-shop", 1, {
-        opacity: "0",
-        ease: Power2.easeInOut,
-        delay: "-0.4",
+        delay: 0.3,
       });
   }, []);
 
@@ -393,9 +379,9 @@ function Home() {
       <div className="home-section-1">
         <div className="welcome">
           <div className="welcome-section">
+            <div className="mask-revealer"></div>
             <div className={`welcome-image`}>
               <img className="" src={welImg} alt="logo" />
-              <div className="mask-revealer"></div>
             </div>
 
             <div className="welcome-content">
@@ -420,73 +406,81 @@ function Home() {
               <div className="locs">
                 <motion.div
                   variants={nextPage}
-                  exit="exit"
+                  exit={nextLocs ? "exit" : null}
                   className="locs-num"
                 >
                   1 <span>- 4</span>
                 </motion.div>
 
-                <motion.div
-                  variants={nextPageFont}
-                  exit="exit"
-                  className="locs-type"
-                >
-                  {" "}
-                  <h1
-                    onMouseEnter={() => {
-                      setEnterLocs(true);
-                    }}
-                    onMouseLeave={() => {
-                      setEnterLocs(false);
-                    }}
+                <div className={`locs-container`}>
+                  <motion.div
+                    variants={nextPageFont}
+                    exit={nextLocs ? "exit" : null}
+                    className="locs-type"
                   >
                     {" "}
-                    <motion.span variants={letter} className="locs1">
-                      l
-                    </motion.span>
-                    <motion.span variants={letter} className="locs2">
-                      o
-                    </motion.span>
-                    <motion.span variants={letter} className="locs3">
-                      c
-                    </motion.span>
-                    <motion.span variants={letter} className="locs4">
-                      s
-                    </motion.span>{" "}
-                  </h1>{" "}
-                </motion.div>
+                    <h1
+                      onMouseEnter={() => {
+                        setEnterLocs(true);
+                      }}
+                      onMouseLeave={() => {
+                        setEnterLocs(false);
+                      }}
+                    >
+                      {" "}
+                      <motion.span variants={letter} className="locs1">
+                        l
+                      </motion.span>
+                      <motion.span variants={letter} className="locs2">
+                        o
+                      </motion.span>
+                      <motion.span variants={letter} className="locs3">
+                        c
+                      </motion.span>
+                      <motion.span variants={letter} className="locs4">
+                        s
+                      </motion.span>
+                    </h1>{" "}
+                  </motion.div>
 
-                <div className={`locs-container`}>
-                  <Link to="/locs/newIn">
-                    <div className={`shrinker ${enterLocs ? "shrink" : ""} `}>
-                      <Parallax y={[-20, 20]}>
-                        <motion.img
-                          variants={nextPageImg}
-                          exit="exit"
-                          className="locs-img"
-                          src={image1}
-                          alt="Locs"
-                          onMouseEnter={() => {
-                            setEnterLocs(true);
-                          }}
-                          onMouseLeave={() => {
-                            setEnterLocs(false);
-                          }}
-                        />
-                      </Parallax>
-                    </div>
-                  </Link>
+                  <div className="locs-img-container">
+                    <Link to="/locs/newIn">
+                      <div className={`shrinker-locs`}>
+                        <div
+                          className={`shrinker ${enterLocs ? "shrink" : ""} `}
+                        >
+                          <Parallax y={[-20, 20]}>
+                            <motion.img
+                              variants={nextPageImg}
+                              exit={nextLocs ? "exit" : null}
+                              className="locs-img"
+                              src={image1}
+                              alt="Locs"
+                              onMouseEnter={() => {
+                                setEnterLocs(true);
+                              }}
+                              onMouseLeave={() => {
+                                setEnterLocs(false);
+                              }}
+                              onClick={() => {
+                                setNextLocs(true);
+                              }}
+                            />
+                          </Parallax>
+                        </div>
+                      </div>
+                    </Link>
+                  </div>
                 </div>
-
                 <motion.div
                   variants={nextPage}
-                  exit="exit"
+                  exit={nextLocs ? "exit" : null}
                   className={`locs-go`}
                 >
                   <div className={`locs-write`}>
                     <h2>View our collection of Locs Wigs</h2>
-                    <br />
-                    Choose from our variety of unique styles
+
+                    <p>Choose from our variety of unique styles</p>
                   </div>
                   <div className="locs-shop">
                     <Link to="/locs/newIn">
@@ -499,6 +493,9 @@ function Home() {
                         onMouseLeave={() => {
                           setEnterLocs(false);
                         }}
+                        onClick={() => {
+                          setNextLocs(true);
+                        }}
                       >
                         <span>Shop Now</span>
                       </button>
@@ -510,77 +507,13 @@ function Home() {
               <div className=" twists">
                 <motion.div
                   variants={nextPage}
-                  exit="exit"
-                  className="twists-num"
-                >
-                  2 <span>- 4</span>
-                </motion.div>
-
-                <motion.div
-                  variants={nextPageFont}
-                  exit="exit"
-                  className="twists-type"
-                >
-                  <h1
-                    onMouseEnter={() => {
-                      setEnterTwist(true);
-                    }}
-                    onMouseLeave={() => {
-                      setEnterTwist(false);
-                    }}
-                  >
-                    {" "}
-                    <motion.span variants={letter} className="twists1">
-                      t
-                    </motion.span>
-                    <motion.span variants={letter} className="twists2">
-                      w
-                    </motion.span>
-                    <motion.span variants={letter} className="twists3">
-                      i
-                    </motion.span>
-                    <motion.span variants={letter} className="twists4">
-                      s
-                    </motion.span>
-                    <motion.span variants={letter} className="twists5">
-                      t
-                    </motion.span>
-                    <motion.span variants={letter} className="twists6">
-                      s
-                    </motion.span>{" "}
-                  </h1>
-                </motion.div>
-
-                <div className={`twists-container  `}>
-                  <Link to="/twists/newIn">
-                    <div className={`shrinker ${enterTwist ? "shrink" : ""}`}>
-                      <Parallax y={[-20, 20]}>
-                        <motion.img
-                          variants={nextPageImg}
-                          exit="exit"
-                          className="twists-img"
-                          src={image1}
-                          alt="Twists"
-                          onMouseEnter={() => {
-                            setEnterTwist(true);
-                          }}
-                          onMouseLeave={() => {
-                            setEnterTwist(false);
-                          }}
-                        />
-                      </Parallax>
-                    </div>
-                  </Link>
-                </div>
-                <motion.div
-                  variants={nextPage}
-                  exit="exit"
+                  exit={nextTwists ? "exit" : null}
                   className={`twists-go`}
                 >
                   <div className={`twists-write`}>
                     <h2>View our collection of Twists Wigs</h2>
-                    <br />
-                    Choose from our variety of unique styles
+
+                    <p>Choose from our variety of unique styles</p>
                   </div>
                   <div className="twists-shop">
                     <Link to="/twists/newIn">
@@ -588,10 +521,19 @@ function Home() {
                         className="twists-button"
                         type="button"
                         onMouseEnter={() => {
-                          setEnterTwist(true);
+                          setEnterTwists(true);
                         }}
                         onMouseLeave={() => {
-                          setEnterTwist(false);
+                          setEnterTwists(false);
+                        }}
+                        onClick={() => {
+                          setNextTwists(true);
+                          console.log(
+                            nextTwists,
+                            nextLocs,
+                            nextWeaves,
+                            nextBraids
+                          );
                         }}
                       >
                         <span>Shop Now</span>
@@ -599,82 +541,163 @@ function Home() {
                     </Link>
                   </div>
                 </motion.div>
+
+                <div className={`twists-container  `}>
+                  <motion.div
+                    variants={nextPageFont}
+                    exit={nextTwists ? "exit" : null}
+                    className="twists-type"
+                  >
+                    <h1
+                      onMouseEnter={() => {
+                        setEnterTwists(true);
+                      }}
+                      onMouseLeave={() => {
+                        setEnterTwists(false);
+                      }}
+                    >
+                      {" "}
+                      <motion.span variants={letter} className="twists1">
+                        t
+                      </motion.span>
+                      <motion.span variants={letter} className="twists2">
+                        w
+                      </motion.span>
+                      <motion.span variants={letter} className="twists3">
+                        i
+                      </motion.span>
+                      <motion.span variants={letter} className="twists4">
+                        s
+                      </motion.span>
+                      <motion.span variants={letter} className="twists5">
+                        t
+                      </motion.span>
+                      <motion.span variants={letter} className="twists6">
+                        s
+                      </motion.span>{" "}
+                    </h1>
+                  </motion.div>
+                  <div className="twists-img-container">
+                    <Link to="/twists/newIn">
+                      <div className={`shrinker-twists`}>
+                        <div
+                          className={`shrinker ${enterTwists ? "shrink" : ""}`}
+                        >
+                          <Parallax y={[-20, 20]}>
+                            <motion.img
+                              variants={nextPageImg}
+                              exit={nextTwists ? "exit" : null}
+                              className="twists-img"
+                              src={image1}
+                              alt="Twists"
+                              onMouseEnter={() => {
+                                setEnterTwists(true);
+                              }}
+                              onMouseLeave={() => {
+                                setEnterTwists(false);
+                              }}
+                              onClick={() => {
+                                setNextTwists(true);
+                              }}
+                            />
+                          </Parallax>
+                        </div>
+                      </div>
+                    </Link>
+                  </div>
+                </div>
+
+                <motion.div
+                  variants={nextPage}
+                  exit={nextTwists ? "exit" : null}
+                  className="twists-num"
+                >
+                  2 <span>- 4</span>
+                </motion.div>
               </div>
 
               <div className=" weaves">
                 <motion.div
                   variants={nextPage}
-                  exit="exit"
+                  exit={nextWeaves ? "exit" : null}
                   className="weaves-num"
                 >
                   3 <span>- 4</span>
                 </motion.div>
 
-                <motion.div
-                  variants={nextPageFont}
-                  exit="exit"
-                  className="weaves-type"
-                >
-                  <h1
-                    onMouseEnter={() => {
-                      setEnterWeaves(true);
-                    }}
-                    onMouseLeave={() => {
-                      setEnterWeaves(false);
-                    }}
-                  >
-                    {" "}
-                    <motion.span variants={letter} className="weaves1">
-                      w
-                    </motion.span>
-                    <motion.span variants={letter} className="weaves2">
-                      e
-                    </motion.span>
-                    <motion.span variants={letter} className="weaves3">
-                      a
-                    </motion.span>
-                    <motion.span variants={letter} className="weaves4">
-                      v
-                    </motion.span>
-                    <motion.span variants={letter} className="weaves5">
-                      e
-                    </motion.span>
-                    <motion.span variants={letter} className="weaves6">
-                      s
-                    </motion.span>{" "}
-                  </h1>
-                </motion.div>
-
                 <div className={`weaves-container `}>
-                  <Link to="/weaves/newIn">
-                    <div className={`shrinker ${enterWeaves ? "shrink" : ""}`}>
-                      <Parallax y={[-20, 20]}>
-                        <motion.img
-                          variants={nextPageImg}
-                          exit="exit"
-                          className="weaves-img"
-                          src={image1}
-                          alt="Weaves"
-                          onMouseEnter={() => {
-                            setEnterWeaves(true);
-                          }}
-                          onMouseLeave={() => {
-                            setEnterWeaves(false);
-                          }}
-                        />
-                      </Parallax>
-                    </div>
-                  </Link>
+                  <motion.div
+                    variants={nextPageFont}
+                    exit={nextWeaves ? "exit" : null}
+                    className="weaves-type"
+                  >
+                    <h1
+                      onMouseEnter={() => {
+                        setEnterWeaves(true);
+                      }}
+                      onMouseLeave={() => {
+                        setEnterWeaves(false);
+                      }}
+                    >
+                      {" "}
+                      <motion.span variants={letter} className="weaves1">
+                        w
+                      </motion.span>
+                      <motion.span variants={letter} className="weaves2">
+                        e
+                      </motion.span>
+                      <motion.span variants={letter} className="weaves3">
+                        a
+                      </motion.span>
+                      <motion.span variants={letter} className="weaves4">
+                        v
+                      </motion.span>
+                      <motion.span variants={letter} className="weaves5">
+                        e
+                      </motion.span>
+                      <motion.span variants={letter} className="weaves6">
+                        s
+                      </motion.span>{" "}
+                    </h1>
+                  </motion.div>
+                  <div className="weaves-img-container">
+                    <Link to="/weaves/newIn">
+                      <div className={`shrinker-weaves`}>
+                        <div
+                          className={`shrinker ${enterWeaves ? "shrink" : ""}`}
+                        >
+                          <Parallax y={[-20, 20]}>
+                            <motion.img
+                              variants={nextPageImg}
+                              exit={nextWeaves ? "exit" : null}
+                              className="weaves-img"
+                              src={image1}
+                              alt="Weaves"
+                              onMouseEnter={() => {
+                                setEnterWeaves(true);
+                              }}
+                              onMouseLeave={() => {
+                                setEnterWeaves(false);
+                              }}
+                              onClick={() => {
+                                setNextWeaves(true);
+                              }}
+                            />
+                          </Parallax>
+                        </div>
+                      </div>
+                    </Link>
+                  </div>
                 </div>
                 <motion.div
                   variants={nextPage}
-                  exit="exit"
+                  exit={nextWeaves ? "exit" : null}
                   className={`weaves-go`}
                 >
                   <div className={`weaves-write`}>
                     <h2>View our collection of Weaves Wigs</h2>
-                    <br />
-                    Choose from our variety of unique styles
+
+                    <p>Choose from our variety of unique styles</p>
                   </div>
                   <div className="weaves-shop">
                     <Link to="/weaves/newIn">
@@ -687,6 +710,9 @@ function Home() {
                         onMouseLeave={() => {
                           setEnterWeaves(false);
                         }}
+                        onClick={() => {
+                          setNextWeaves(true);
+                        }}
                       >
                         <span>Shop Now</span>
                       </button>
@@ -698,77 +724,13 @@ function Home() {
               <div className=" braids">
                 <motion.div
                   variants={nextPage}
-                  exit="exit"
-                  className="braids-num"
-                >
-                  4 <span>- 4</span>
-                </motion.div>
-
-                <motion.div
-                  variants={nextPageFont}
-                  exit="exit"
-                  className="braids-type"
-                >
-                  <h1
-                    onMouseEnter={() => {
-                      setEnterBraids(true);
-                    }}
-                    onMouseLeave={() => {
-                      setEnterBraids(false);
-                    }}
-                  >
-                    {" "}
-                    <motion.span variants={letter} className="braids1">
-                      b
-                    </motion.span>
-                    <motion.span variants={letter} className="braids2">
-                      r
-                    </motion.span>
-                    <motion.span variants={letter} className="braids3">
-                      a
-                    </motion.span>
-                    <motion.span variants={letter} className="braids4">
-                      i
-                    </motion.span>
-                    <motion.span variants={letter} className="braids5">
-                      d
-                    </motion.span>
-                    <motion.span variants={letter} className="braids6">
-                      s
-                    </motion.span>{" "}
-                  </h1>
-                </motion.div>
-
-                <div className={`braids-container `}>
-                  <Link to="/braids/newIn">
-                    <div className={`shrinker ${enterBraids ? "shrink" : ""}`}>
-                      <Parallax y={[-20, 20]}>
-                        <motion.img
-                          variants={nextPageImg}
-                          exit="exit"
-                          className="braids-img"
-                          src={image1}
-                          alt="Braids"
-                          onMouseEnter={() => {
-                            setEnterBraids(true);
-                          }}
-                          onMouseLeave={() => {
-                            setEnterBraids(false);
-                          }}
-                        />
-                      </Parallax>
-                    </div>
-                  </Link>
-                </div>
-                <motion.div
-                  variants={nextPage}
-                  exit="exit"
+                  exit={nextBraids ? "exit" : null}
                   className={`braids-go`}
                 >
                   <div className={`braids-write`}>
                     <h2>View our collection of Braids Wigs</h2>
-                    <br />
-                    Choose from our variety of unique styles
+
+                    <p>Choose from our variety of unique styles</p>
                   </div>
                   <div className="braids-shop">
                     <Link to="/braids/newIn">
@@ -781,11 +743,87 @@ function Home() {
                         onMouseLeave={() => {
                           setEnterBraids(false);
                         }}
+                        onClick={() => {
+                          setNextBraids(true);
+                        }}
                       >
                         <span>Shop Now</span>
                       </button>
                     </Link>
                   </div>
+                </motion.div>
+
+                <div className={`braids-container `}>
+                  <motion.div
+                    variants={nextPageFont}
+                    exit={nextBraids ? "exit" : null}
+                    className="braids-type"
+                  >
+                    <h1
+                      onMouseEnter={() => {
+                        setEnterBraids(true);
+                      }}
+                      onMouseLeave={() => {
+                        setEnterBraids(false);
+                      }}
+                    >
+                      {" "}
+                      <motion.span variants={letter} className="braids1">
+                        b
+                      </motion.span>
+                      <motion.span variants={letter} className="braids2">
+                        r
+                      </motion.span>
+                      <motion.span variants={letter} className="braids3">
+                        a
+                      </motion.span>
+                      <motion.span variants={letter} className="braids4">
+                        i
+                      </motion.span>
+                      <motion.span variants={letter} className="braids5">
+                        d
+                      </motion.span>
+                      <motion.span variants={letter} className="braids6">
+                        s
+                      </motion.span>{" "}
+                    </h1>
+                  </motion.div>
+                  <div className="braids-img-container">
+                    <Link to="/braids/newIn">
+                      <div className={`shrinker-braids`}>
+                        <div
+                          className={`shrinker ${enterBraids ? "shrink" : ""}`}
+                        >
+                          <Parallax y={[-20, 20]}>
+                            <motion.img
+                              variants={nextPageImg}
+                              exit={nextBraids ? "exit" : null}
+                              className="braids-img"
+                              src={image1}
+                              alt="Braids"
+                              onMouseEnter={() => {
+                                setEnterBraids(true);
+                              }}
+                              onMouseLeave={() => {
+                                setEnterBraids(false);
+                              }}
+                              onClick={() => {
+                                setNextBraids(true);
+                              }}
+                            />
+                          </Parallax>
+                        </div>
+                      </div>
+                    </Link>
+                  </div>
+                </div>
+
+                <motion.div
+                  variants={nextPage}
+                  exit={nextBraids ? "exit" : null}
+                  className="braids-num"
+                >
+                  4 <span>- 4</span>
                 </motion.div>
               </div>
             </div>

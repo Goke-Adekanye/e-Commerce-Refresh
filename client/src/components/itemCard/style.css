@@ -1,0 +1,99 @@
+.type-product-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.type-product-section {
+  margin: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: left;
+  flex-direction: column;
+  line-height: 2rem;
+}
+.product-img {
+  width: 100%;
+  height: 100%;
+  margin: 1.875rem 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.type-product-name {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+.type-product-price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: rgb(82, 81, 81);
+  font-style: italic;
+  text-align: center;
+}
+.product-img > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.9s ease-in-out;
+}
+.product-img > img:hover {
+  transform: scale(1.025);
+}
+.load-more-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70vw;
+}
+
+/* iPad  Pro*/
+@media only screen and (max-width: 1030px) {
+  .type-product-section {
+    margin: 0;
+    width: 100%;
+    line-height: 2rem;
+  }
+  .type-product-section a {
+    width: 100%;
+  }
+  .product-img {
+    width: 100%;
+    height: 100%;
+  }
+  .type-product-name {
+    font-size: 1rem;
+  }
+  .type-product-price {
+    font-size: 0.85rem;
+  }
+}
+
+/* Surface Duo */
+@media only screen and (max-width: 550px) {
+  .type-product-section {
+    margin: 0;
+    width: 100%;
+    line-height: 1.5rem;
+  }
+  .product-img {
+    width: 100%;
+    height: 100%;
+    margin: 0 0 1rem 0;
+  }
+  .type-product-name {
+    font-size: 0.8rem;
+  }
+  .type-product-price {
+    font-size: 0.7rem;
+  }
+}
