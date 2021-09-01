@@ -444,12 +444,10 @@ function Home() {
                   </motion.div>
 
                   <div className="locs-img-container">
-                    <Link to="/locs/newIn">
-                      <div className={`shrinker-locs`}>
-                        <div
-                          className={`shrinker ${enterLocs ? "shrink" : ""} `}
-                        >
-                          <Parallax y={[-20, 20]}>
+                    <div className={`shrinker-locs`}>
+                      <div className={`shrinker ${enterLocs ? "shrink" : ""} `}>
+                        <Parallax y={[-20, 20]}>
+                          <Link to="/locs/newIn">
                             <motion.img
                               variants={nextPageImg}
                               exit={nextLocs ? "exit" : null}
@@ -466,12 +464,13 @@ function Home() {
                                 setNextLocs(true);
                               }}
                             />
-                          </Parallax>
-                        </div>
+                          </Link>
+                        </Parallax>
                       </div>
-                    </Link>
+                    </div>
                   </div>
                 </div>
+
                 <motion.div
                   variants={nextPage}
                   exit={nextLocs ? "exit" : null}
@@ -578,12 +577,12 @@ function Home() {
                     </h1>
                   </motion.div>
                   <div className="twists-img-container">
-                    <Link to="/twists/newIn">
-                      <div className={`shrinker-twists`}>
-                        <div
-                          className={`shrinker ${enterTwists ? "shrink" : ""}`}
-                        >
-                          <Parallax y={[-20, 20]}>
+                    <div className={`shrinker-twists`}>
+                      <div
+                        className={`shrinker ${enterTwists ? "shrink" : ""}`}
+                      >
+                        <Parallax y={[-20, 20]}>
+                          <Link to="/twists/newIn">
                             <motion.img
                               variants={nextPageImg}
                               exit={nextTwists ? "exit" : null}
@@ -600,10 +599,10 @@ function Home() {
                                 setNextTwists(true);
                               }}
                             />
-                          </Parallax>
-                        </div>
+                          </Link>
+                        </Parallax>
                       </div>
-                    </Link>
+                    </div>
                   </div>
                 </div>
 
@@ -661,12 +660,12 @@ function Home() {
                     </h1>
                   </motion.div>
                   <div className="weaves-img-container">
-                    <Link to="/weaves/newIn">
-                      <div className={`shrinker-weaves`}>
-                        <div
-                          className={`shrinker ${enterWeaves ? "shrink" : ""}`}
-                        >
-                          <Parallax y={[-20, 20]}>
+                    <div className={`shrinker-weaves`}>
+                      <div
+                        className={`shrinker ${enterWeaves ? "shrink" : ""}`}
+                      >
+                        <Parallax y={[-20, 20]}>
+                          <Link to="/weaves/newIn">
                             <motion.img
                               variants={nextPageImg}
                               exit={nextWeaves ? "exit" : null}
@@ -683,10 +682,10 @@ function Home() {
                                 setNextWeaves(true);
                               }}
                             />
-                          </Parallax>
-                        </div>
+                          </Link>
+                        </Parallax>
                       </div>
-                    </Link>
+                    </div>
                   </div>
                 </div>
                 <motion.div
@@ -789,12 +788,12 @@ function Home() {
                     </h1>
                   </motion.div>
                   <div className="braids-img-container">
-                    <Link to="/braids/newIn">
-                      <div className={`shrinker-braids`}>
-                        <div
-                          className={`shrinker ${enterBraids ? "shrink" : ""}`}
-                        >
-                          <Parallax y={[-20, 20]}>
+                    <div className={`shrinker-braids`}>
+                      <div
+                        className={`shrinker ${enterBraids ? "shrink" : ""}`}
+                      >
+                        <Parallax y={[-20, 20]}>
+                          <Link to="/braids/newIn">
                             <motion.img
                               variants={nextPageImg}
                               exit={nextBraids ? "exit" : null}
@@ -811,10 +810,10 @@ function Home() {
                                 setNextBraids(true);
                               }}
                             />
-                          </Parallax>
-                        </div>
+                          </Link>
+                        </Parallax>
                       </div>
-                    </Link>
+                    </div>
                   </div>
                 </div>
 

@@ -31,17 +31,18 @@
 }
 
 /* General Css */
-
+html {
+  height: -webkit-fill-available;
+}
 body {
-  /* background-color: #edeae4; */
   background-color: white;
-  /* font-family: 'Arima Madurai', cursive; */
   font-family: "Montserrat", sans-serif;
   display: flex;
   justify-content: center;
   align-content: center;
   width: 100vw;
   overflow: hidden;
+  min-height: -webkit-fill-available;
 }
 button {
   font-family: "Montserrat", sans-serif;

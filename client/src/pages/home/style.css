@@ -18,7 +18,8 @@
 }
 .welcome {
   display: flex;
-  min-height: 90vh;
+  /* min-height: 90vh; */
+  padding-top: 2.5rem;
   width: 100%;
   position: relative;
   align-items: center;
@@ -29,7 +30,7 @@
 }
 .welcome-section {
   display: flex;
-  min-height: 80vh;
+  /* min-height: 80vh; */
   width: 100%;
   position: relative;
   align-items: center;
@@ -313,23 +314,19 @@
   overflow: hidden;
   transition: all 1.5s;
   z-index: 1;
-}
-.parallax-inner,
-.parallax-outer {
-  width: 37rem;
-  height: 47rem;
+  position: relative;
 }
 .shrink {
   width: 34rem;
   height: 44rem;
 }
-/* .parallax-inner,
+.parallax-inner,
 .parallax-outer {
-  height: 100%;
+  position: absolute;
+  width: 37rem;
+  height: 50rem;
 }
-.parallax-outer {
-  height: 130%;
-} */
+
 .locs-img,
 .weaves-img,
 .braids-img,
@@ -441,16 +438,6 @@
     font-size: 4.8rem;
   }
 
-  .shrinker,
-  .parallax-inner,
-  .parallax-outer {
-    width: 30rem;
-    height: 40rem;
-  }
-  .shrink {
-    width: 29rem;
-    height: 39rem;
-  }
   .locs-write,
   .weaves-write,
   .twists-write,
@@ -479,6 +466,19 @@
   .shrinker-braids {
     width: 30rem;
     height: 40rem;
+  }
+  .shrinker {
+    width: 30rem;
+    height: 40rem;
+  }
+  .shrink {
+    width: 27rem;
+    height: 37rem;
+  }
+  .parallax-inner,
+  .parallax-outer {
+    width: 30rem;
+    height: 43rem;
   }
   .locs-write p,
   .weaves-write p,
@@ -529,13 +529,13 @@
   .braids-container,
   .twists-container {
     grid-area: container;
-    padding: 5rem 0 3rem 0;
   }
   .locs-go,
   .weaves-go,
   .twists-go,
   .braids-go {
     grid-area: go;
+    margin: 5rem 0 0 0;
   }
 }
 /* iPad  Pro*/
@@ -568,9 +568,10 @@
     grid-template-areas:
       "num"
       "container"
-      "go ";
+      "go";
     margin: 10rem 0;
     min-height: 60vh;
+    height: 63rem;
   }
 
   .locs-container,
@@ -580,18 +581,25 @@
     justify-self: center;
     align-self: center;
   }
-  .shrinker,
+  .shrinker-locs,
+  .shrinker-weaves,
+  .shrinker-twists,
+  .shrinker-braids {
+    width: 30rem;
+    height: 40rem;
+  }
+  .shrinker {
+    width: 100%;
+    height: 100%;
+  }
+  .shrink {
+    width: 95%;
+    height: 95%;
+  }
   .parallax-inner,
   .parallax-outer {
     width: 35rem;
-    height: 40rem;
-  }
-  .locs-img,
-  .weaves-img,
-  .braids-img,
-  .twists-img {
-    width: 100%;
-    height: 100%;
+    height: 46rem;
   }
   .locs-go,
   .weaves-go,
@@ -616,89 +624,40 @@
     width: 80vw;
     max-width: 100rem;
   }
-  .categories-top {
-    margin: 0 0;
-  }
-  .locs,
-  .weaves,
-  .braids,
-  .twists {
-    margin: 10rem 0;
-  }
   .locs-type,
   .weaves-type,
   .braids-type,
   .twists-type {
-    font-size: 4rem;
+    font-size: 3.2rem;
   }
-  .shrinker,
-  .parallax-inner,
-  .parallax-outer {
-    width: 30rem;
-    height: 45rem;
-  }
-  .locs-img,
-  .weaves-img,
-  .braids-img,
-  .twists-img {
-    width: 100%;
-    height: 100%;
+
+  .locs-type,
+  .weaves-type,
+  .braids-type,
+  .twists-type {
+    font-size: 4.5rem;
   }
 }
 @media only screen and (max-width: 770px) {
+}
+@media only screen and (max-width: 700px) {
+  .locs-img-container,
+  .weaves-img-container,
+  .braids-img-container,
+  .twists-img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: unset;
+    position: relative;
+  }
   .locs-type,
   .weaves-type,
   .braids-type,
   .twists-type {
     font-size: 3.5rem;
-  }
-  .locs-img-container,
-  .weaves-img-container,
-  .braids-img-container,
-  .twists-img-container {
-    height: 100%;
-    width: unset;
-  }
-  .shrinker-locs,
-  .shrinker-weaves,
-  .shrinker-twists,
-  .shrinker-braids {
-    width: 30rem;
-    height: 45rem;
-  }
-}
-@media only screen and (max-width: 600px) {
-  .locs-container,
-  .weaves-container,
-  .braids-container,
-  .twists-container {
-    width: unset;
-  }
-
-  .shrinker-locs,
-  .shrinker-weaves,
-  .shrinker-twists,
-  .shrinker-braids {
-    height: 35rem;
-    width: unset;
-  }
-  .shrinker,
-  .parallax-inner,
-  .parallax-outer {
-    width: 100%;
-    height: 35rem;
-    width: unset;
-  }
-  .shrink {
-    width: 19rem;
-    height: 29rem;
-  }
-  .locs-img,
-  .weaves-img,
-  .braids-img,
-  .twists-img {
-    width: 100%;
-    height: 100%;
+    top: 2%;
   }
   .locs-go,
   .weaves-go,
@@ -707,8 +666,32 @@
     width: 100%;
   }
 }
+@media only screen and (max-width: 600px) {
+  .locs-container,
+  .weaves-container,
+  .braids-container,
+  .twists-container,
+  .locs-img-container,
+  .weaves-img-container,
+  .braids-img-container,
+  .twists-img-container,
+  .shrinker,
+  .parallax-inner,
+  .parallax-outer {
+    width: 100%;
+  }
+  .shrinker-locs,
+  .shrinker-weaves,
+  .shrinker-twists,
+  .shrinker-braids {
+    width: 100%;
+  }
+}
 /* Surface Duo */
 @media only screen and (max-width: 550px) {
+  .welcome-image {
+    height: unset;
+  }
   .welcome-image img {
     height: 100%;
     width: 100%;
@@ -728,6 +711,13 @@
   .braids,
   .twists {
     margin: 6rem 0;
+    height: 55rem;
+  }
+  .shrinker-locs,
+  .shrinker-weaves,
+  .shrinker-twists,
+  .shrinker-braids {
+    height: 35rem;
   }
   .locs-num,
   .weaves-num,
@@ -739,32 +729,10 @@
   .weaves-type,
   .braids-type,
   .twists-type {
-    font-size: 2.2rem;
-    top: 6%;
+    font-size: 2.5rem;
+    top: 4.6%;
   }
 
-  .shrinker-locs,
-  .shrinker-weaves,
-  .shrinker-twists,
-  .shrinker-braids {
-    height: 30rem;
-  }
-  .shrinker,
-  .parallax-inner,
-  .parallax-outer {
-    height: 30rem;
-  }
-  .shrink {
-    width: 19rem;
-    height: 29rem;
-  }
-  .locs-img,
-  .weaves-img,
-  .braids-img,
-  .twists-img {
-    width: 100%;
-    height: 100%;
-  }
   .locs-go,
   .weaves-go,
   .twists-go,
@@ -795,58 +763,75 @@
 }
 /* iPhone 6-8 plus */
 @media only screen and (max-width: 415px) {
+  .locs,
+  .weaves,
+  .braids,
+  .twists {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "num"
+      "container"
+      "go";
+
+    min-height: 60vh;
+    height: 55rem;
+  }
+  .locs-write,
+  .weaves-write,
+  .twists-write,
+  .braids-write {
+    line-height: 1.3rem;
+    font-size: 0.75rem;
+  }
+  .locs-go,
+  .weaves-go,
+  .twists-go,
+  .braids-go {
+    position: relative;
+  }
+  .shrinker-locs,
+  .shrinker-weaves,
+  .shrinker-twists,
+  .shrinker-braids {
+    height: 35rem;
+  }
+  .parallax-inner,
+  .parallax-outer {
+    height: 40rem;
+  }
 }
 /* Pixel 2 XL */
 @media only screen and (max-width: 412px) and (min-height: 822px) {
 }
 /* Pixel 2 */
 @media only screen and (max-width: 412px) {
-  .categories {
-    padding: 5rem 0 5rem 0;
-  }
-  .shrinker-locs,
-  .shrinker-weaves,
-  .shrinker-twists,
-  .shrinker-braids {
-    height: 30rem;
-  }
-  .shrinker,
-  .parallax-inner,
-  .parallax-outer {
-    height: 30rem;
-  }
-  .shrink {
-    width: 19rem;
-    height: 29rem;
+}
+@media only screen and (max-width: 400px) {
+  .locs-type,
+  .weaves-type,
+  .braids-type,
+  .twists-type {
+    font-size: 2rem;
+    top: 4.6%;
   }
 }
 /* iPhone 6-8 */
 @media only screen and (max-width: 380px) {
-  .categories {
-    padding: 0 0 15vh 0;
+  .locs,
+  .weaves,
+  .braids,
+  .twists {
+    height: 50rem;
   }
   .shrinker-locs,
   .shrinker-weaves,
   .shrinker-twists,
   .shrinker-braids {
-    height: 25rem;
+    height: 30rem;
+    align-self: start;
   }
-  .shrinker,
-  .parallax-inner,
-  .parallax-outer {
-    height: 25rem;
-  }
-  .shrink {
-    width: 14rem;
-    height: 29rem;
-  }
-  .locs-img,
-  .weaves-img,
-  .braids-img,
-  .twists-img {
-    width: 100%;
-    height: 100%;
-  }
+
   .locs-write,
   .weaves-write,
   .twists-write,
@@ -860,6 +845,10 @@
   .braids-write h2 {
     font-size: 1rem;
   }
+  .parallax-inner,
+  .parallax-outer {
+    height: 46rem;
+  }
 }
 /* Galaxy s5 */
 @media only screen and (max-width: 362px) {
@@ -869,15 +858,7 @@
   .welcome-text h3 {
     font-size: 3.5rem;
   }
-  .shrinker,
-  .parallax-inner,
-  .parallax-outer {
-    height: 25rem;
-  }
-  .shrink {
-    width: 14rem;
-    height: 23rem;
-  }
+
   .locs-type,
   .weaves-type,
   .braids-type,
@@ -885,13 +866,7 @@
     font-size: 1.9rem;
     top: 6%;
   }
-  .locs-img,
-  .weaves-img,
-  .braids-img,
-  .twists-img {
-    width: 100%;
-    height: 100%;
-  }
+
   .locs-write,
   .weaves-write,
   .twists-write,
@@ -916,12 +891,6 @@
 }
 /* Galaxy Fold */
 @media only screen and (max-width: 282px) {
-  .locs,
-  .weaves,
-  .braids,
-  .twists {
-    height: 93vh;
-  }
   .locs-type,
   .weaves-type,
   .braids-type,

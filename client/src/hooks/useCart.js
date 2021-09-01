@@ -40,7 +40,7 @@ const useCart = () => {
           end: "bottom top",
         },
       })
-      .to(".overlay", 1.6, {
+      .to(".overlay", 1.3, {
         width: "100vw",
         opacity: "1",
         visibility: "visible",

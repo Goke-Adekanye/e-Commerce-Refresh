@@ -11,7 +11,8 @@ header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  height: 7rem;
+  padding: 2.5rem 0;
+
   width: 80vw;
   max-width: 100rem;
   color: black;
@@ -145,6 +146,12 @@ header {
   .nav-toggle div {
     width: 1.5rem;
     height: 0.2rem;
+  }
+}
+/* iPhone 6-8 plus */
+@media only screen and (max-width: 415px) {
+  .nav {
+    padding: 3.5rem 0 2.5rem 0;
   }
 }
 /* iPhone 6-8 */
