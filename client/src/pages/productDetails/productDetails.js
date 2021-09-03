@@ -8,7 +8,6 @@ import Carousel from "../../components/carousel/carousel";
 import AddButton from "../../components/buttons/button";
 import useFullPageLoader from "../../hooks/useFullPageLoader";
 import useCart from "../../hooks/useCart";
-import MobileNav from "../../components/mobileNav/mobileNav";
 import ItemCard from "../../components/itemCard/itemCard";
 import useMobileNav from "../../hooks/useMobileNav";
 import { ADD } from "../../redux/cart/actions";
@@ -153,8 +152,8 @@ function ProductDetails({ match }) {
         exit="exit"
         className="mask"
       ></motion.div>
+      <div className="overlay" onClick={hideCartFun}></div>
       {loader}
-      <MobileNav />
       <Navbar
         func={() => {
           cartFun();

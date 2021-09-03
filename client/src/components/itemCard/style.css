@@ -3,6 +3,7 @@
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
+  transition: 2s ease-in-out;
 }
 
 .type-product-section {
@@ -13,21 +14,25 @@
   text-align: left;
   flex-direction: column;
   line-height: 2rem;
+  width: 100%;
 }
 .product-img {
   width: 100%;
   height: 100%;
-  margin: 1.875rem 0px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding-top: 100%;
+  position: relative;
   overflow: hidden;
+  object-fit: contain;
+}
+.type-product-section a {
+  width: 100%;
 }
 .type-product-name {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   font-size: 1.2rem;
+  margin: 1.875rem 0 0 0;
   text-transform: uppercase;
 }
 .type-product-price {
@@ -40,9 +45,10 @@
   text-align: center;
 }
 .product-img > img {
+  position: absolute;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  top: 0;
   transition: 0.9s ease-in-out;
 }
 .product-img > img:hover {
@@ -63,9 +69,7 @@
     width: 100%;
     line-height: 2rem;
   }
-  .type-product-section a {
-    width: 100%;
-  }
+
   .product-img {
     width: 100%;
     height: 100%;
@@ -80,18 +84,14 @@
 
 /* Surface Duo */
 @media only screen and (max-width: 550px) {
-  .type-product-section {
-    margin: 0;
-    width: 100%;
-    line-height: 1.5rem;
-  }
   .product-img {
     width: 100%;
     height: 100%;
-    margin: 0 0 1rem 0;
+    /* margin: 0 0 1rem 0; */
   }
   .type-product-name {
     font-size: 0.8rem;
+    margin: 1rem 0 0 0;
   }
   .type-product-price {
     font-size: 0.7rem;

@@ -27,6 +27,12 @@
 }
 /* iPad  Pro*/
 @media screen and (max-width: 1030px) {
+  .mini-nav {
+    padding: 0 0 2rem 0;
+  }
+}
+/* iPad */
+@media only screen and (max-width: 770px) {
 }
 /* Surface Duo */
 @media screen and (max-width: 550px) {
@@ -36,9 +42,6 @@
 }
 /* iPhone 6-8 */
 @media only screen and (max-width: 380px) {
-  .mini-nav {
-    padding: 1.5rem 0;
-  }
 }
 /* iPhone 5 */
 @media only screen and (max-width: 322px) {

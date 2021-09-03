@@ -41,9 +41,8 @@ const useCart = () => {
         },
       })
       .to(".overlay", 1.3, {
-        width: "100vw",
+        zIndex: "2",
         opacity: "1",
-        visibility: "visible",
         right: "0",
         ease: Power2.easeInOut,
       });
@@ -68,24 +67,23 @@ const useCart = () => {
         x: "-100vw",
         left: "0",
         ease: Power2.easeInOut,
-      });
-    // Animation 16
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".container",
-          start: "top center",
-          end: "bottom top",
-        },
       })
       .to(".overlay", 2, {
         opacity: "0",
         ease: Power2.easeInOut,
-        delay: "1.3",
+        delay: "-1.3",
       })
       .to(".overlay", 0, {
-        visibility: "hidden",
+        zIndex: "-1",
       });
+    // Animation 16
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: ".container",
+        start: "top center",
+        end: "bottom top",
+      },
+    });
   }
 
   return [

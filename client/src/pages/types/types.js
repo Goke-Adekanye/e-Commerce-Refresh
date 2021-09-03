@@ -191,6 +191,7 @@ function Type({ match }) {
         exit="exit"
         className="mask"
       ></motion.div>
+      <div className="overlay" onClick={hideCartFun}></div>
       {loader}
       <MobileNav />
       <Navbar

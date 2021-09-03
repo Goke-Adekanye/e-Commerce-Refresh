@@ -116,11 +116,11 @@
   transition: 0.4s;
 }
 .type-section-body {
-  padding-top: 2.5rem;
+  padding-top: 3.5rem;
   padding-bottom: 5rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  gap: 2rem;
+  gap: 3rem;
   width: 70vw;
   min-height: 50vh;
 }
@@ -246,8 +246,8 @@
   }
   .type-section-body {
     width: 80vw;
-    padding-top: 5rem;
-    padding-bottom: 3rem;
+    /* padding-top: 5rem;
+    padding-bottom: 3rem; */
   }
 
   .load-more button {
@@ -267,7 +267,6 @@
 /* Surface Duo */
 @media only screen and (max-width: 550px) {
   .type-section-body {
-    padding: 5rem 0 1.75rem 0;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
   }

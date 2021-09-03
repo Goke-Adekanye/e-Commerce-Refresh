@@ -9,6 +9,7 @@
 }
 .product-body {
   height: 100%;
+  min-height: 60vh;
 }
 .product-container {
   display: flex;

@@ -18,8 +18,6 @@
 }
 .welcome {
   display: flex;
-  /* min-height: 90vh; */
-  padding-top: 2.5rem;
   width: 100%;
   position: relative;
   align-items: center;
@@ -317,8 +315,8 @@
   position: relative;
 }
 .shrink {
-  width: 34rem;
-  height: 44rem;
+  width: 94%;
+  height: 94%;
 }
 .parallax-inner,
 .parallax-outer {
@@ -472,8 +470,8 @@
     height: 40rem;
   }
   .shrink {
-    width: 27rem;
-    height: 37rem;
+    width: 94%;
+    height: 94%;
   }
   .parallax-inner,
   .parallax-outer {
@@ -593,8 +591,8 @@
     height: 100%;
   }
   .shrink {
-    width: 95%;
-    height: 95%;
+    width: 94%;
+    height: 94%;
   }
   .parallax-inner,
   .parallax-outer {
@@ -675,7 +673,6 @@
   .weaves-img-container,
   .braids-img-container,
   .twists-img-container,
-  .shrinker,
   .parallax-inner,
   .parallax-outer {
     width: 100%;
@@ -689,6 +686,9 @@
 }
 /* Surface Duo */
 @media only screen and (max-width: 550px) {
+  .welcome {
+    padding-top: 0.5rem;
+  }
   .welcome-image {
     height: unset;
   }

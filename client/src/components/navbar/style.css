@@ -150,9 +150,6 @@ header {
 }
 /* iPhone 6-8 plus */
 @media only screen and (max-width: 415px) {
-  .nav {
-    padding: 3.5rem 0 2.5rem 0;
-  }
 }
 /* iPhone 6-8 */
 @media only screen and (max-width: 380px) {

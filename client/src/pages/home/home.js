@@ -445,7 +445,12 @@ function Home() {
 
                   <div className="locs-img-container">
                     <div className={`shrinker-locs`}>
-                      <div className={`shrinker ${enterLocs ? "shrink" : ""} `}>
+                      <div
+                        className={`shrinker ${enterLocs ? "shrink" : null} `}
+                        onClick={() => {
+                          setEnterLocs(true);
+                        }}
+                      >
                         <Parallax y={[-20, 20]}>
                           <Link to="/locs/newIn">
                             <motion.img

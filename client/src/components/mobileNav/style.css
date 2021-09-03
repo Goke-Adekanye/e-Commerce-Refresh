@@ -1,4 +1,8 @@
 /* mobile-nav */
+.mobile-nav a {
+  text-decoration: none;
+  color: black;
+}
 
 /* iPad */
 .mobile-nav {
@@ -34,9 +38,9 @@
     opacity: 0;
     transform: translateY(40px);
   }
-  .mobile-links li:hover {
+  /* .mobile-links li:hover {
     background-color: black;
-  }
+  } */
 }
 /* Surface Duo */
 @media only screen and (max-width: 550px) {
