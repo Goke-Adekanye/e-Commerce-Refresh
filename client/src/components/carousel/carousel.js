@@ -7,9 +7,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 function Carousel({ slides }) {
-  useEffect(() => {
-    console.log(slides);
-  }, [slides]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => {}, [slides]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const [current, setCurrent] = useState(0);
   const length = slides.length;

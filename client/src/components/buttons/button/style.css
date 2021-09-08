@@ -1,0 +1,46 @@
+.button {
+  height: 3rem;
+  font-size: 1rem;
+  padding: 0 1rem;
+  cursor: pointer;
+  border: 2px solid black !important;
+  background-color: unset;
+  color: #d3b7a3;
+  color: #dd7d78;
+  color: black;
+  transition: 0.4s;
+  text-transform: uppercase;
+  font-family: "Arima Madurai", cursive;
+  position: relative;
+  overflow: hidden;
+}
+.button::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  top: 0;
+  right: 100%;
+  transition: all 0.4s;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Desktop 15 inches */
+@media only screen and (max-width: 1650px) {
+  .button {
+    height: 3rem;
+    font-size: 0.9rem;
+    padding: 0 1rem;
+  }
+}
+
+/* Surface Duo */
+@media only screen and (max-width: 550px) {
+  .button {
+    height: 2.5rem;
+    font-size: 0.8rem;
+    padding: 0 0.7rem;
+  }
+}

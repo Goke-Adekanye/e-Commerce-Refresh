@@ -1,3 +1,7 @@
+.noMore {
+  pointer-events: none;
+  display: none;
+}
 .type-product-container {
   display: flex;
   justify-content: flex-start;
@@ -15,6 +19,16 @@
   flex-direction: column;
   line-height: 2rem;
   width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.product_overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 1;
+  /* animation: mymove 2s ease-in-out forwards; */
 }
 .product-img {
   width: 100%;
@@ -54,12 +68,15 @@
 .product-img > img:hover {
   transform: scale(1.025);
 }
+
 .load-more-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 70vw;
+  max-width: 100rem;
+  opacity: 0;
 }
 
 /* iPad  Pro*/

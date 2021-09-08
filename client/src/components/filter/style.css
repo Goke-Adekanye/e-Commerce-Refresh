@@ -1,0 +1,129 @@
+.filter-change-head {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.filter-change-button {
+  height: 3.125rem;
+  font-size: 1.17em;
+  min-width: 11rem;
+  cursor: pointer;
+  border: 2px solid black;
+  background-color: unset;
+  color: black;
+  padding: 0px 1rem;
+  position: relative;
+  text-align: left;
+}
+.filter-change-button span {
+  position: absolute;
+  right: 1rem;
+  transition: 0.4s;
+}
+.filter-change-body {
+  font-size: 1.17em;
+  margin-top: 3vh;
+  position: relative;
+  top: 10%;
+  list-style: none;
+  border: 2px solid black;
+  z-index: 1;
+  cursor: pointer;
+}
+.filter-appear {
+  opacity: 1;
+  pointer-events: unset;
+}
+.filter-disappear {
+  opacity: 0;
+  pointer-events: none;
+}
+.filter-change-body li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  min-height: 3rem;
+  min-width: 10.75rem;
+  border-bottom: 0.5px solid black;
+  background-color: white;
+}
+.button-span-on {
+  transform: rotate(180deg);
+  transition: 0.4s;
+}
+.button-span-off {
+  transform: rotate(0deg);
+  transition: 0.4s;
+}
+@media only screen and (max-width: 1600px) {
+  .filter-change-button {
+    font-size: 1rem;
+    min-width: 10rem;
+  }
+  .filter-change-body {
+    top: 10%;
+    font-size: 1rem;
+  }
+  .filter-change-body li {
+    min-height: 3rem;
+    min-width: 9.75rem;
+  }
+}
+/* iPad  Pro*/
+@media only screen and (max-width: 1030px) {
+  .filter-change-head {
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+  .filter-change-button {
+    height: 2.525rem;
+    font-size: 0.8rem;
+    min-width: 9rem;
+    padding: 0px 0.5rem;
+  }
+  .filter-change-button span {
+    right: 0.5rem;
+  }
+  .filter-change-body {
+    font-size: 0.8rem;
+    margin-top: 2vh;
+    top: 10%;
+  }
+  .filter-appear {
+    opacity: 1;
+  }
+  .filter-change-body li {
+    min-height: 3.525rem;
+    min-width: 8.75rem;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .filter-change-head {
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+  .filter-change-button {
+    height: 2.125rem;
+    font-size: 0.8rem;
+    min-width: 7rem;
+    padding: 0px 0.5rem;
+  }
+  .filter-change-button span {
+    right: 0.5rem;
+  }
+  .filter-change-body {
+    font-size: 0.8rem;
+    margin-top: 2vh;
+    top: 10%;
+  }
+  .filter-appear {
+    opacity: 1;
+  }
+  .filter-change-body li {
+    min-height: 3rem;
+    min-width: 6.75rem;
+  }
+}

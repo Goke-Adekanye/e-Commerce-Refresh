@@ -3,34 +3,28 @@ import "./style.css";
 import Footer from "../../components/footer/footer";
 import Navbar from "../../components/navbar/navbar";
 import MiniNav from "../../components/miniNav/miniNav";
-import Cart from "../../components/cart/cart";
 import Carousel from "../../components/carousel/carousel";
-import AddButton from "../../components/buttons/button";
+import AddButton from "../../components/buttons/addToCart/addToCart";
 import useFullPageLoader from "../../hooks/useFullPageLoader";
 import useCart from "../../hooks/useCart";
 import ItemCard from "../../components/itemCard/itemCard";
-import useMobileNav from "../../hooks/useMobileNav";
-import { ADD } from "../../redux/cart/actions";
+import { ADD, CLICKED_FALSE } from "../../redux/cart/types/types";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import { motion } from "framer-motion";
-import { Power2, gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import useShowProduct from "../../hooks/useShowProduct";
+import useHideMask from "../../hooks/useHideMask";
 
 function ProductDetails({ match }) {
   const dispatch = useDispatch();
   const [loader, showLoader, hideLoader] = useFullPageLoader();
-  const [cart, showCart, hideCart] = useCart();
-  const [displayCart, setDisplayCart] = useState(true);
-  const [items, setItems] = useState([]);
-  const [itemImg, setItemImg] = useState([]);
-  const [related, setRelated] = useState([]);
-  const [displayNav, hideNav] = useMobileNav();
-  const [showNav, setShowNav] = useState(true);
+  const [showProduct] = useShowProduct();
+  const [hideMask, nextPageMask] = useHideMask();
+  const [displayCart] = useCart(); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const body = document.querySelector("body");
+  const [items, setItems] = useState([]);
+  const [related, setRelated] = useState([]);
+
   const filter = match.params.filterType;
   const style = match.params.productType;
   const level = "2";
@@ -42,6 +36,8 @@ function ProductDetails({ match }) {
     fetchRelated();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
+  showProduct();
+
   items.map((item) => {
     return (from = item.name);
   });
@@ -51,16 +47,10 @@ function ProductDetails({ match }) {
     showLoader();
     axios
       .get(
-        `https://e-commerce-frugal.herokuapp.com/${match.params.productType}/${match.params.productId}/details`
+        `https://frugal-targets.herokuapp.com/${match.params.productType}/${match.params.productId}/details`
       )
       .then((response) => {
         setItems([response.data]);
-
-        items.map((item) => {
-          setItemImg([item.image]);
-          return items;
-        });
-        console.log(itemImg);
         hideLoader();
       });
   }
@@ -68,42 +58,21 @@ function ProductDetails({ match }) {
   function fetchRelated() {
     axios
       .get(
-        `https://e-commerce-frugal.herokuapp.com/${match.params.productType}/${match.params.productId}/related`
+        `https://frugal-targets.herokuapp.com/${match.params.productType}/${match.params.productId}/related`
       )
       .then((response) => {
         setRelated(response.data);
       });
   }
 
-  const hideMask = () => {
-    // Animation 12
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".container",
-          start: "top center",
-          end: "bottom top",
-        },
-      })
-      .to(".mask", 2, {
-        width: "0vw",
-        left: "0",
-        position: "fixed",
-        ease: Power2.easeInOut,
-      })
-      .call(() => {
-        body.style.overflow = "unset";
-      });
-  };
-  const nextPageMask = {
-    exit: {
-      width: "100vw",
-      left: "0",
-      position: "fixed",
-      transition: { delay: 0.4, duration: 2, ease: Power2.easeInOut },
-    },
-  };
   const addItem = () => {
+    displayCart();
+    dispatch({
+      type: CLICKED_FALSE,
+      payload: {
+        state: false,
+      },
+    });
     items.map((item) => {
       dispatch({
         type: ADD,
@@ -117,31 +86,7 @@ function ProductDetails({ match }) {
       return items;
     });
   };
-  const cartFun = () => {
-    if (displayCart === true) {
-      setDisplayCart(false);
-      showCart();
-      setTimeout(() => {
-        body.style.overflow = "hidden";
-      }, 1000);
-    } else {
-      hideCartFun();
-    }
-  };
-  const hideCartFun = () => {
-    setDisplayCart(true);
-    hideCart();
-    setTimeout(() => {
-      body.style.overflow = "unset";
-    }, 1000);
-  };
-  const navFunc = () => {
-    showNav ? setShowNav(false) : setShowNav(true);
-    showNav ? displayNav() : hideNav();
-    console.log(showNav);
-  };
   const btnFun = () => {
-    cartFun();
     addItem();
   };
 
@@ -152,16 +97,8 @@ function ProductDetails({ match }) {
         exit="exit"
         className="mask"
       ></motion.div>
-      <div className="overlay" onClick={hideCartFun}></div>
       {loader}
-      <Navbar
-        func={() => {
-          cartFun();
-        }}
-        mobileNavFunc1={navFunc}
-        mobileNavFunc2={showNav}
-        mobileNavFunc3={displayCart}
-      />
+      <Navbar />
       <div className="product-main">
         <MiniNav level={level} style={style} filter={filter} product={from} />
         <div className="product-body">
@@ -170,10 +107,12 @@ function ProductDetails({ match }) {
               <div className="product-container" key={item._id}>
                 <div className="product-container-top" key={item._id}>
                   <div className="product-container-left">
+                    <div className="product_overlay"></div>
                     <Carousel slides={items} />
                   </div>
 
                   <div className="product-container-right">
+                    <div className="product_overlay"></div>
                     <div className="product-name"> {item.name} </div>
                     <div className="product-price"> Price : ₦{item.price} </div>
                     <div className="product-add">
@@ -191,6 +130,7 @@ function ProductDetails({ match }) {
                           <ItemCard
                             item={item}
                             to={`/${item.type}/newIn/${item._id}/details`}
+                            noCover
                           />
                         </div>
                       );
@@ -203,12 +143,6 @@ function ProductDetails({ match }) {
         </div>
       </div>
       <Footer />
-      {cart}
-      <Cart
-        func={() => {
-          hideCartFun();
-        }}
-      />
     </div>
   );
 }

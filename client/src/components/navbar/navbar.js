@@ -3,44 +3,37 @@ import "./style.css";
 import { Link, useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faOpencart } from "@fortawesome/free-brands-svg-icons";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { CLICKED_TRUE, CLICKED_FALSE } from "../../redux/cart/types/types";
+import Cart from "../../components/cart/cart";
 import MobileNav from "../mobileNav/mobileNav";
-import { selectCartItemsCount } from "../../redux/cart/cartSelector";
-import { Power2, gsap } from "gsap";
+import useCart from "../../hooks/useCart";
+import useMobileNav from "../../hooks/useMobileNav";
+import { selectCartItemsCount } from "../../redux/cart/selector/cartSelector";
 
 const mapState = (state) => {
   return {
     totalNumberCart: selectCartItemsCount(state),
+    cartState: state.showCart.showCart.state,
   };
 };
 
-const Navbar = ({
-  func,
-  miniNav,
-  mobileNavFunc1,
-  mobileNavFunc2,
-  mobileNavFunc3,
-}) => {
-  const { totalNumberCart } = useSelector(mapState);
-  const [navFixed, setNavFixed] = useState();
+const Navbar = () => {
+  const { totalNumberCart, cartState } = useSelector(mapState);
+  const dispatch = useDispatch();
+  const [displayMobileNav, hideMobileNav] = useMobileNav();
+  const [displayCart, hideCart] = useCart();
   const history = useHistory();
+  const [cart, setCart] = useState(cartState);
+  const [showMobileNav, setShowMobileNav] = useState(true);
+
   let click = [];
   let numberCart = null;
 
   useEffect(() => {
-    setNavFixed(mobileNavFunc3);
+    setCart(cartState);
+  }, [cartState]); // eslint-disable-line react-hooks/exhaustive-deps
 
-    if (navFixed === true) {
-      show();
-      setNavFixed(false);
-    } else {
-      hide();
-      setNavFixed(true);
-    }
-  }, [mobileNavFunc3]); // eslint-disable-line react-hooks/exhaustive-deps
-  gsap.config({
-    nullTargetWarn: false,
-  });
   history.location.pathname === "/"
     ? click.push("noClick")
     : click.push("Click");
@@ -50,29 +43,46 @@ const Navbar = ({
   } else {
     numberCart = totalNumberCart;
   }
-  function show() {
-    // Animation 13
-    gsap.timeline().to(".nav", 2, {
-      position: "fixed",
-      top: "0rem",
-      delay: "1",
-    });
-  }
-  function hide() {
-    // Animation 13
-    gsap
-      .timeline()
-      .to(".nav", 1, {
-        ease: Power2.easeInOut,
-      })
-      .to(".nav", 0.1, {
-        position: "relative",
-      });
-  }
 
+  const cartFun = () => {
+    if (showMobileNav) {
+      cart ? showCartFun() : hideCartFun();
+    } else {
+      return null;
+    }
+  };
+  const showCartFun = () => {
+    displayCart();
+    dispatch({
+      type: CLICKED_FALSE,
+      payload: {
+        state: false,
+      },
+    });
+  };
+  const hideCartFun = () => {
+    hideCart();
+    dispatch({
+      type: CLICKED_TRUE,
+      payload: {
+        state: true,
+      },
+    });
+  };
+
+  const mobileNav = () => {
+    if (cart) {
+      showMobileNav ? setShowMobileNav(false) : setShowMobileNav(true);
+      showMobileNav ? displayMobileNav() : hideMobileNav();
+    } else {
+      return null;
+    }
+  };
   return (
     <>
+      <Cart />
       <MobileNav />
+      <div className="overlay" onClick={hideCartFun}></div>
       <header>
         <nav className={`nav `}>
           <ul className={`nav-links`}>
@@ -89,13 +99,13 @@ const Navbar = ({
                 data-badge={numberCart}
               >
                 {" "}
-                <FontAwesomeIcon icon={faOpencart} onClick={func} />
+                <FontAwesomeIcon icon={faOpencart} onClick={cartFun} />
               </div>
               <div
                 className={`nav-toggle ${
-                  mobileNavFunc2 ? "open-nav" : "close-nav"
+                  showMobileNav ? "open-nav" : "close-nav"
                 }`}
-                onClick={mobileNavFunc1}
+                onClick={mobileNav}
               >
                 <div className="nav-top"></div>
                 <div className="nav-bottom"></div>

@@ -12,7 +12,7 @@ footer {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  width: 80vw;
+  width: 70vw;
   max-width: 100rem;
   position: relative;
   font-weight: 200;
@@ -188,6 +188,11 @@ footer {
   .contact-head {
     font-size: 2rem;
   }
+  .bottom {
+    width: 80vw;
+  }
+}
+@media only screen and (max-width: 800px) {
 }
 /* iPad */
 @media screen and (max-width: 770px) {

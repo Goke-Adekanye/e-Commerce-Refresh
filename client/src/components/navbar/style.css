@@ -12,12 +12,11 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 2.5rem 0;
-
-  width: 80vw;
+  width: 70vw;
   max-width: 100rem;
   color: black;
   font-size: 1.6rem;
-  z-index: 9;
+  z-index: 4;
 }
 .nav a {
   color: rgb(0, 0, 0);
@@ -29,7 +28,6 @@ header {
   text-decoration: none;
   list-style: none;
   width: 100%;
-  z-index: 9;
   opacity: 1;
 }
 .nav-links li,
@@ -104,6 +102,11 @@ header {
 }
 /* iPad  Pro*/
 @media only screen and (max-width: 1030px) {
+  .nav {
+    width: 80vw;
+  }
+}
+@media only screen and (max-width: 800px) {
 }
 /* iPad */
 @media only screen and (max-width: 770px) {

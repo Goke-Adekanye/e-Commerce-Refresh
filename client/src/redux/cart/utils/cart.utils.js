@@ -26,21 +26,6 @@ export const handleAddToCart = ({ prevCartItems, nextCartItem }) => {
   ];
 };
 
-// export const checkOut = ({
-
-//     checkOutDets
-
-// }) => {
-
-//     return [
-//         {
-//             reference: (new Date()).getTime(),
-//             email: checkOutDets.email,
-//             amount: checkOutDets.amount,
-//         }
-//     ]
-// };
-
 export const handleRemoveFromCart = ({ prevCartItems, CartItemToRemove }) => {
   return prevCartItems.filter((item) => item.name !== CartItemToRemove.name);
 };
@@ -64,3 +49,16 @@ export const handleDecreaseFromCart = ({ prevCartItems, CartItemToReduce }) => {
       : cartItem
   );
 };
+
+// Code to open cart
+// export const handleClick = ({ prevState, currState }) => {
+//   if (prevState.state === currState) {
+//     return {
+//       cartShow: !currState,
+//     };
+//   }
+
+//   return {
+//     cartShow: currState,
+//   };
+// };

@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
-import { selectCartTotal } from "../../redux/cart/cartSelector";
+import { selectCartTotal } from "../../redux/cart/selector/cartSelector";
 import { connect, useDispatch } from "react-redux";
 import Navbar from "../../components/navbar/navbar";
 import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
 import image from "../../assets/pexels-pixabay-259200.jpg";
-import { CLEAR_CART } from "../../redux/cart/actions";
+import { CLEAR_CART } from "../../redux/cart/types/types";
 import Cities from "../../utils/cities";
 import { apiInstance } from "../../utils/utils";
-import { Power2, gsap } from "gsap";
+import useHideMask from "../../hooks/useHideMask";
+
 import { motion } from "framer-motion";
 const config = {
   reference: new Date().getTime(),
@@ -31,6 +32,7 @@ const initialAdressState = {
 function CheckOut({ total }) {
   const dispatch = useDispatch();
   const [info, setInfo] = useState({ ...config });
+  const [hideMask, nextPageMask] = useHideMask();
   const [shippingAddress, setshippingAddress] = useState({
     ...initialAdressState,
   });
@@ -84,32 +86,7 @@ function CheckOut({ total }) {
         dispatch({ type: CLEAR_CART });
       });
   };
-  const hideMask = () => {
-    // Animation 17
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".container",
-          start: "top center",
-          end: "bottom top",
-        },
-      })
-      .to(".mask", 2, {
-        width: "0vw",
-        left: "0",
-        position: "fixed",
-        ease: Power2.easeInOut,
-      });
-  };
-  const nextPageMask = {
-    exit: {
-      width: "100vw",
-      left: "0",
-      position: "fixed",
-      zIndex: "3",
-      transition: { duration: 2, ease: Power2.easeInOut },
-    },
-  };
+
   return (
     <div className="container">
       <motion.div

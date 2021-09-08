@@ -5,23 +5,14 @@ import "./style.css";
 import { Link } from "react-router-dom";
 import Navbar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
-import MobileNav from "../../components/mobileNav/mobileNav";
-import useMobileNav from "../../hooks/useMobileNav";
-import { Power1, Power2, Power3, gsap } from "gsap";
+import Button from "../../components/buttons/button/button";
 import { motion } from "framer-motion";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Parallax } from "react-scroll-parallax";
-
-gsap.registerPlugin(ScrollTrigger);
+import useHomeAnimation from "../../hooks/useHomeAnimation";
 
 function Home() {
-  const [displayNav, hideNav] = useMobileNav();
-  const [showNav, setShowNav] = useState(true);
-  const [canScroll, setCanScroll] = useState(false);
-  const [enterLocs, setEnterLocs] = useState(false);
-  const [enterTwists, setEnterTwists] = useState(false);
-  const [enterWeaves, setEnterWeaves] = useState(false);
-  const [enterBraids, setEnterBraids] = useState(false);
+  const [homeAnim, letter, nextPageMask, nextPage, nextPageFont] =
+    useHomeAnimation();
   const [nextLocs, setNextLocs] = useState(false);
   const [nextTwists, setNextTwists] = useState(false);
   const [nextWeaves, setNextWeaves] = useState(false);
@@ -33,336 +24,8 @@ function Home() {
     window.onbeforeunload = function () {
       window.scrollTo(0, 0);
     };
-  }, []);
-
-  useEffect(() => {
-    if (canScroll === false) {
-      body.style.overflow = "hidden";
-    } else {
-      body.style.overflow = "unset";
-    }
-  }, [canScroll]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  useEffect(() => {
-    ScrollTrigger.defaults({
-      toggleActions: "play none none none",
-      markers: false,
-    });
-
-    // Animation 1
-    gsap
-      .timeline()
-      .call(() => {
-        setCanScroll(false);
-      })
-      .to(".container", 1, { css: { visibility: "visible" } })
-      .to(".welcome-text h3", 0.1, { css: { mixBlendMode: "difference" } })
-      .from([".welcome-text h3"], 1.4, {
-        opacity: "0",
-        transform: "scale(1.4)",
-        ease: Power2.easeInOut,
-        reversed: false,
-      })
-      .to(".mask", 1.4, { width: "0%", left: "0", ease: Power2.easeInOut })
-      .to(".mask-revealer", 3, {
-        height: "0rem",
-        ease: Power2.easeInOut,
-        delay: "-1",
-      })
-      .call(() => {
-        setCanScroll(true);
-      });
-
-    // Animation 2
-
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".categories-top",
-          start: "top center",
-          end: "bottom top",
-        },
-      })
-      .fromTo(
-        ".categories-top h1",
-        1.5,
-        {
-          y: "200",
-          opacity: 0,
-          ease: Power3.easeOut,
-        },
-        {
-          y: "0",
-          opacity: 1,
-        }
-      )
-      .from(".headTitle", 2, {
-        opacity: 0,
-        ease: Power3.easeOut,
-      });
-
-    // Animation 3
-
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".categories-top",
-          start: "bottom center",
-          end: "bottom top",
-        },
-      })
-      .from(".locs-num", 2, {
-        opacity: 0,
-        ease: Power3.easeOut,
-        delay: 0.3,
-      });
-
-    // Animation 4
-
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".locs",
-          start: "top +=200",
-          end: "bottom top",
-        },
-      })
-      .from(".locs-num span ", 0.4, { opacity: "0", ease: Power2.easeInOut })
-      .staggerFrom(
-        [".locs1", ".locs2", ".locs3", ".locs4"],
-        0.8,
-        {
-          y: 400,
-          opacity: 0,
-          zIndex: "2",
-          ease: Power2.easeInOut,
-        },
-        0.2
-      )
-      .from(".shrinker-locs", 1.0, {
-        opacity: "0",
-        y: "100",
-        ease: Power1.easeInOut,
-      })
-      .from([".locs-write", ".locs-shop"], 1.0, {
-        opacity: "0",
-        ease: Power2.easeOut,
-        delay: 0.3,
-      });
-    // Animation 5
-
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".locs",
-          start: "bottom center",
-          end: "bottom top",
-        },
-      })
-      .from([".twists-num"], 2, {
-        opacity: 0,
-        ease: Power3.easeOut,
-      });
-
-    // Animation 6
-
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".twists",
-          start: "top center",
-          end: "bottom top",
-        },
-      })
-      .from(".twists-num span", 0.4, { opacity: "0", ease: Power2.easeInOut })
-      .staggerFrom(
-        [
-          ".twists1",
-          ".twists2",
-          ".twists3",
-          ".twists4",
-          ".twists5",
-          ".twists6",
-        ],
-        0.8,
-        {
-          y: 400,
-          opacity: 0,
-          zIndex: "2",
-          ease: Power2.easeInOut,
-        },
-        -0.2
-      )
-      .from(".shrinker-twists", 1.0, {
-        opacity: "0",
-        y: "100",
-        ease: Power1.easeInOut,
-      })
-      .from([".twists-write", ".twists-shop"], 1.0, {
-        opacity: "0",
-
-        ease: Power2.easeOut,
-        delay: 0.3,
-      });
-
-    // Animation 7
-
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".twists",
-          start: "bottom center",
-          end: "bottom top",
-        },
-      })
-      .from([".weaves-num"], 2, {
-        opacity: 0,
-        ease: Power3.easeOut,
-      });
-
-    // Animation 8
-
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".weaves",
-          start: "top center",
-          end: "bottom top",
-        },
-      })
-      .from(".weaves-num span", 0.4, { opacity: "0", ease: Power2.easeInOut })
-      .staggerFrom(
-        [
-          ".weaves1",
-          ".weaves2",
-          ".weaves3",
-          ".weaves4",
-          ".weaves5",
-          ".weaves6",
-        ],
-        0.8,
-        {
-          y: 400,
-          opacity: 0,
-          zIndex: "2",
-          ease: Power2.easeInOut,
-        },
-        0.2
-      )
-      .from(".shrinker-weaves", 1.0, {
-        opacity: "0",
-        y: "100",
-        ease: Power1.easeInOut,
-      })
-      .from([".weaves-write", ".weaves-shop"], 1.0, {
-        opacity: "0",
-
-        ease: Power2.easeOut,
-        delay: 0.3,
-      });
-
-    // Animation 9
-
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".weaves",
-          start: "bottom center",
-          end: "bottom top",
-        },
-      })
-      .from([".braids-num"], 2, {
-        opacity: 0,
-        ease: Power3.easeOut,
-      });
-
-    // Animation 10
-
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".braids",
-          start: "top center",
-          end: "bottom top",
-        },
-      })
-      .from(".braids-num span", 0.4, { opacity: "0", ease: Power2.easeInOut })
-      .staggerFrom(
-        [
-          ".braids1",
-          ".braids2",
-          ".braids3",
-          ".braids4",
-          ".braids5",
-          ".braids6",
-        ],
-        0.8,
-        {
-          y: 400,
-          opacity: 0,
-          zIndex: "2",
-          ease: Power2.easeInOut,
-        },
-        -0.2
-      )
-      .from(".shrinker-braids", 1.0, {
-        opacity: "0",
-        y: "100",
-        ease: Power1.easeInOut,
-      })
-      .from([".braids-write", ".braids-shop"], 1.0, {
-        opacity: "0",
-        ease: Power2.easeOut,
-        delay: 0.3,
-      });
-  }, []);
-
-  //Ease
-  const transition = { duration: 1.8, ease: [0.6, 0.01, -0.05, 0.9] };
-
-  const nextPageImg = {
-    exit: {
-      filter: "grayscale(100%) blur(1px)",
-      transition: { delay: 0.5, duration: 1.0, ease: "easeInOut" },
-    },
-  };
-  const nextPageFont = {
-    exit: {
-      transition: {
-        delayChildren: 0.8,
-        staggerChildren: 0.2,
-        staggerDirection: -1,
-        ease: "easeInOut",
-      },
-    },
-  };
-  const nextPage = {
-    exit: {
-      opacity: 0,
-      transition: { duration: 0.8, ease: "easeInOut" },
-    },
-  };
-  const nextPageMask = {
-    exit: {
-      width: "100vw",
-      left: "0",
-      position: "fixed",
-      zIndex: "3",
-      transition: { delay: 2.5, duration: 2, ease: Power2.easeInOut },
-    },
-  };
-  const letter = {
-    exit: {
-      y: 400,
-      transition: { duration: 0.5, ...transition },
-    },
-  };
-
-  const navFunc = () => {
-    showNav ? setShowNav(false) : setShowNav(true);
-    showNav ? displayNav() : hideNav();
-    console.log(showNav);
-  };
+    homeAnim();
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="container">
@@ -370,17 +33,16 @@ function Home() {
         variants={nextPageMask}
         exit="exit"
         className="mask"
-        onAnimationStart={() => setCanScroll(false)}
-        onAnimationComplete={() => setCanScroll(true)}
+        onAnimationStart={() => (body.style.overflow = "hidden")}
+        onAnimationComplete={() => (body.style.overflow = "unset")}
       ></motion.div>
-      <MobileNav />
-      <Navbar mobileNavFunc1={navFunc} mobileNavFunc2={showNav} />
+      <Navbar cartState />
 
       <div className="home-section-1">
         <div className="welcome">
           <div className="welcome-section">
-            <div className="mask-revealer"></div>
             <div className={`welcome-image`}>
+              <div className="mask-revealer"></div>
               <img className="" src={welImg} alt="logo" />
             </div>
 
@@ -419,14 +81,7 @@ function Home() {
                     className="locs-type"
                   >
                     {" "}
-                    <h1
-                      onMouseEnter={() => {
-                        setEnterLocs(true);
-                      }}
-                      onMouseLeave={() => {
-                        setEnterLocs(false);
-                      }}
-                    >
+                    <h1>
                       {" "}
                       <motion.span variants={letter} className="locs1">
                         l
@@ -446,25 +101,14 @@ function Home() {
                   <div className="locs-img-container">
                     <div className={`shrinker-locs`}>
                       <div
-                        className={`shrinker ${enterLocs ? "shrink" : null} `}
-                        onClick={() => {
-                          setEnterLocs(true);
-                        }}
+                        className={`shrinker ${nextLocs ? "shrink" : null} `}
                       >
                         <Parallax y={[-20, 20]}>
                           <Link to="/locs/newIn">
-                            <motion.img
-                              variants={nextPageImg}
-                              exit={nextLocs ? "exit" : null}
+                            <img
                               className="locs-img"
                               src={image1}
                               alt="Locs"
-                              onMouseEnter={() => {
-                                setEnterLocs(true);
-                              }}
-                              onMouseLeave={() => {
-                                setEnterLocs(false);
-                              }}
                               onClick={() => {
                                 setNextLocs(true);
                               }}
@@ -487,23 +131,14 @@ function Home() {
                     <p>Choose from our variety of unique styles</p>
                   </div>
                   <div className="locs-shop">
-                    <Link to="/locs/newIn">
-                      <button
-                        className="locs-button"
-                        type="button"
-                        onMouseEnter={() => {
-                          setEnterLocs(true);
-                        }}
-                        onMouseLeave={() => {
-                          setEnterLocs(false);
-                        }}
-                        onClick={() => {
-                          setNextLocs(true);
-                        }}
-                      >
-                        <span>Shop Now</span>
-                      </button>
-                    </Link>
+                    <Button
+                      to="/locs/newIn"
+                      nameClass="locs-button"
+                      text="Shop Now"
+                      func={() => {
+                        setNextLocs(true);
+                      }}
+                    />
                   </div>
                 </motion.div>
               </div>
@@ -520,29 +155,14 @@ function Home() {
                     <p>Choose from our variety of unique styles</p>
                   </div>
                   <div className="twists-shop">
-                    <Link to="/twists/newIn">
-                      <button
-                        className="twists-button"
-                        type="button"
-                        onMouseEnter={() => {
-                          setEnterTwists(true);
-                        }}
-                        onMouseLeave={() => {
-                          setEnterTwists(false);
-                        }}
-                        onClick={() => {
-                          setNextTwists(true);
-                          console.log(
-                            nextTwists,
-                            nextLocs,
-                            nextWeaves,
-                            nextBraids
-                          );
-                        }}
-                      >
-                        <span>Shop Now</span>
-                      </button>
-                    </Link>
+                    <Button
+                      to="/twists/newIn"
+                      nameClass="twists-button"
+                      text="Shop Now"
+                      func={() => {
+                        setNextTwists(true);
+                      }}
+                    />
                   </div>
                 </motion.div>
 
@@ -552,14 +172,7 @@ function Home() {
                     exit={nextTwists ? "exit" : null}
                     className="twists-type"
                   >
-                    <h1
-                      onMouseEnter={() => {
-                        setEnterTwists(true);
-                      }}
-                      onMouseLeave={() => {
-                        setEnterTwists(false);
-                      }}
-                    >
+                    <h1>
                       {" "}
                       <motion.span variants={letter} className="twists1">
                         t
@@ -583,23 +196,13 @@ function Home() {
                   </motion.div>
                   <div className="twists-img-container">
                     <div className={`shrinker-twists`}>
-                      <div
-                        className={`shrinker ${enterTwists ? "shrink" : ""}`}
-                      >
+                      <div className={`shrinker ${nextTwists ? "shrink" : ""}`}>
                         <Parallax y={[-20, 20]}>
                           <Link to="/twists/newIn">
-                            <motion.img
-                              variants={nextPageImg}
-                              exit={nextTwists ? "exit" : null}
+                            <img
                               className="twists-img"
                               src={image1}
                               alt="Twists"
-                              onMouseEnter={() => {
-                                setEnterTwists(true);
-                              }}
-                              onMouseLeave={() => {
-                                setEnterTwists(false);
-                              }}
                               onClick={() => {
                                 setNextTwists(true);
                               }}
@@ -635,14 +238,7 @@ function Home() {
                     exit={nextWeaves ? "exit" : null}
                     className="weaves-type"
                   >
-                    <h1
-                      onMouseEnter={() => {
-                        setEnterWeaves(true);
-                      }}
-                      onMouseLeave={() => {
-                        setEnterWeaves(false);
-                      }}
-                    >
+                    <h1>
                       {" "}
                       <motion.span variants={letter} className="weaves1">
                         w
@@ -666,23 +262,13 @@ function Home() {
                   </motion.div>
                   <div className="weaves-img-container">
                     <div className={`shrinker-weaves`}>
-                      <div
-                        className={`shrinker ${enterWeaves ? "shrink" : ""}`}
-                      >
+                      <div className={`shrinker ${nextWeaves ? "shrink" : ""}`}>
                         <Parallax y={[-20, 20]}>
                           <Link to="/weaves/newIn">
-                            <motion.img
-                              variants={nextPageImg}
-                              exit={nextWeaves ? "exit" : null}
+                            <img
                               className="weaves-img"
                               src={image1}
                               alt="Weaves"
-                              onMouseEnter={() => {
-                                setEnterWeaves(true);
-                              }}
-                              onMouseLeave={() => {
-                                setEnterWeaves(false);
-                              }}
                               onClick={() => {
                                 setNextWeaves(true);
                               }}
@@ -704,23 +290,14 @@ function Home() {
                     <p>Choose from our variety of unique styles</p>
                   </div>
                   <div className="weaves-shop">
-                    <Link to="/weaves/newIn">
-                      <button
-                        className="weaves-button"
-                        type="button"
-                        onMouseEnter={() => {
-                          setEnterWeaves(true);
-                        }}
-                        onMouseLeave={() => {
-                          setEnterWeaves(false);
-                        }}
-                        onClick={() => {
-                          setNextWeaves(true);
-                        }}
-                      >
-                        <span>Shop Now</span>
-                      </button>
-                    </Link>
+                    <Button
+                      to="/weaves/newIn"
+                      nameClass="weaves-button"
+                      text="Shop Now"
+                      func={() => {
+                        setNextWeaves(true);
+                      }}
+                    />
                   </div>
                 </motion.div>
               </div>
@@ -737,23 +314,14 @@ function Home() {
                     <p>Choose from our variety of unique styles</p>
                   </div>
                   <div className="braids-shop">
-                    <Link to="/braids/newIn">
-                      <button
-                        className="braids-button"
-                        type="button"
-                        onMouseEnter={() => {
-                          setEnterBraids(true);
-                        }}
-                        onMouseLeave={() => {
-                          setEnterBraids(false);
-                        }}
-                        onClick={() => {
-                          setNextBraids(true);
-                        }}
-                      >
-                        <span>Shop Now</span>
-                      </button>
-                    </Link>
+                    <Button
+                      to="/braids/newIn"
+                      nameClass="braids-button"
+                      text="Shop Now"
+                      func={() => {
+                        setNextBraids(true);
+                      }}
+                    />
                   </div>
                 </motion.div>
 
@@ -763,14 +331,7 @@ function Home() {
                     exit={nextBraids ? "exit" : null}
                     className="braids-type"
                   >
-                    <h1
-                      onMouseEnter={() => {
-                        setEnterBraids(true);
-                      }}
-                      onMouseLeave={() => {
-                        setEnterBraids(false);
-                      }}
-                    >
+                    <h1>
                       {" "}
                       <motion.span variants={letter} className="braids1">
                         b
@@ -794,23 +355,13 @@ function Home() {
                   </motion.div>
                   <div className="braids-img-container">
                     <div className={`shrinker-braids`}>
-                      <div
-                        className={`shrinker ${enterBraids ? "shrink" : ""}`}
-                      >
+                      <div className={`shrinker ${nextBraids ? "shrink" : ""}`}>
                         <Parallax y={[-20, 20]}>
                           <Link to="/braids/newIn">
-                            <motion.img
-                              variants={nextPageImg}
-                              exit={nextBraids ? "exit" : null}
+                            <img
                               className="braids-img"
                               src={image1}
                               alt="Braids"
-                              onMouseEnter={() => {
-                                setEnterBraids(true);
-                              }}
-                              onMouseLeave={() => {
-                                setEnterBraids(false);
-                              }}
                               onClick={() => {
                                 setNextBraids(true);
                               }}

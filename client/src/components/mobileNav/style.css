@@ -12,12 +12,14 @@
 @media screen and (max-width: 770px) {
   .mobile-nav {
     height: 100vh;
+    height: -webkit-fill-available;
+    min-height: -webkit-fill-available;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100vw;
     position: fixed;
-    z-index: 4;
+    z-index: 3;
     background-color: #edeae4;
     transform: translateX(100vw);
   }
@@ -38,9 +40,6 @@
     opacity: 0;
     transform: translateY(40px);
   }
-  /* .mobile-links li:hover {
-    background-color: black;
-  } */
 }
 /* Surface Duo */
 @media only screen and (max-width: 550px) {

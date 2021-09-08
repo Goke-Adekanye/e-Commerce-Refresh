@@ -6,25 +6,12 @@ import ProductDetails from "./pages/productDetails/productDetails";
 import Admin from "./pages/admin/admin";
 import Cart from "./components/cart/cart";
 import { Switch, Route, useLocation } from "react-router-dom";
-import { createStore } from "redux";
-import reducer from "./redux/cart/reducer";
+import store from "./redux/store";
 import { Provider } from "react-redux";
 import { persistStore } from "redux-persist";
 import CheckOut from "./pages/checkOut/checkOut";
 import { AnimatePresence } from "framer-motion";
 import ReactGa from "react-ga";
-
-//initial store
-const initialStore = {
-  cart: [],
-};
-
-//store
-const store = createStore(
-  reducer,
-  initialStore,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
 
 const App = () => {
   useEffect(() => {

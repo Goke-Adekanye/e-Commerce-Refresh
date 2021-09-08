@@ -7,11 +7,11 @@ import {
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
-import { REMOVE, ADD, DECREASE } from "../../redux/cart/actions";
-import { selectCartTotal } from "../../redux/cart/cartSelector";
+import { REMOVE, ADD, DECREASE } from "../../redux/cart/types/types";
+import { selectCartTotal } from "../../redux/cart/selector/cartSelector";
 
-const mapState = (store) => {
-  return { cart: store.cart, total: selectCartTotal(store) };
+const mapState = (state) => {
+  return { cart: state.cart.cart, total: selectCartTotal(state) };
 };
 
 const Cart = ({ func }) => {

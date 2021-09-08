@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 import { Link } from "react-router-dom";
 
-function ItemCard({ item, index, to }) {
+function ItemCard({ item, index, to, noCover }) {
   return (
     <>
       <div
@@ -11,10 +11,15 @@ function ItemCard({ item, index, to }) {
       >
         {}
         <div className="type-product-section">
+          <div className={`product_overlay ${noCover ? "noMore" : null}`}></div>
           <Link to={to}>
             <div className="product-img">
               {" "}
-              <img className="image3" src={item.image} alt={item.name} />{" "}
+              <img
+                className="product-image"
+                src={item.image}
+                alt={item.name}
+              />{" "}
             </div>
           </Link>
           <div className="type-product-name">{item.name}</div>

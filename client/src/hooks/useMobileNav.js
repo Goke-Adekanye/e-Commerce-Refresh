@@ -4,7 +4,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const useMobileNav = () => {
-  const body = document.querySelector("body");
   const show = () => {
     gsap
       .timeline({
@@ -14,10 +13,14 @@ const useMobileNav = () => {
           end: "bottom bottom",
         },
       })
-      .call(() => {
-        body.style.overflow = "hidden";
+      .to("body", 0, {
+        overflow: "hidden",
       })
-      .to(".mobile-nav", 1.6, { x: 0, ease: Power2.easeInOut })
+      .to(".mobile-nav", 1.6, {
+        x: 0,
+        zIndex: 8,
+        ease: Power2.easeInOut,
+      })
       .staggerTo(
         [".mobile-locs", ".mobile-twists", ".mobile-weaves", ".mobile-braids"],
         1.5,
@@ -33,6 +36,7 @@ const useMobileNav = () => {
           end: "bottom top",
         },
       })
+      .to(".nav", 0, { zIndex: 8 })
       .to(".overlay2", 1.6, {
         width: "100vw",
         opacity: "1",
@@ -50,7 +54,9 @@ const useMobileNav = () => {
           end: "bottom bottom",
         },
       })
-
+      .to(".mask", 0, {
+        zIndex: "4",
+      })
       .staggerTo(
         [".mobile-locs", ".mobile-twists", ".mobile-weaves", ".mobile-braids"],
         1.5,
@@ -62,8 +68,11 @@ const useMobileNav = () => {
         ease: Power2.easeInOut,
         delay: "-0.5",
       })
-      .call(() => {
-        body.style.overflow = "unset";
+      .to(".mask", 0, {
+        zIndex: "3",
+      })
+      .to("body", 0, {
+        overflow: "unset",
       });
 
     gsap

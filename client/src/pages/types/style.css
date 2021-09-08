@@ -1,7 +1,8 @@
 /* Type Css */
+
 .More {
   pointer-events: unset;
-  display: flex;
+  display: block;
 }
 .noMore {
   pointer-events: none;
@@ -26,6 +27,7 @@
   display: flex;
   flex-direction: column;
   width: 70vw;
+  max-width: 100rem;
   justify-content: center;
   align-items: center;
   padding-bottom: 10px;
@@ -34,7 +36,7 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  min-width: 70vw;
+  width: 100%;
   position: relative;
 }
 .type-collection {
@@ -54,67 +56,9 @@
   flex-direction: column;
   position: absolute;
   right: 0;
-  top: 0.5rem;
-}
-.filter-change-head {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-direction: column;
-}
-.filter-change-button {
-  height: 3.125rem;
-  font-size: 1.17em;
-  min-width: 11rem;
-  cursor: pointer;
-  border: 2px solid black;
-  background-color: unset;
-  color: black;
-  padding: 0px 1rem;
-  position: relative;
-  text-align: left;
-}
-.filter-change-button span {
-  position: absolute;
-  right: 1rem;
-  transition: 0.4s;
-}
-.filter-change-body {
-  font-size: 1.17em;
-  margin-top: 3vh;
-  position: relative;
   top: 10%;
-  list-style: none;
-  border: 2px solid black;
-  z-index: 1;
-  cursor: pointer;
 }
-.filter-appear {
-  opacity: 1;
-  pointer-events: unset;
-}
-.filter-disappear {
-  opacity: 0;
-  pointer-events: none;
-}
-.filter-change-body li {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: left;
-  min-height: 3rem;
-  min-width: 10.75rem;
-  border-bottom: 0.5px solid black;
-  background-color: white;
-}
-.button-span-on {
-  transform: rotate(180deg);
-  transition: 0.4s;
-}
-.button-span-off {
-  transform: rotate(0deg);
-  transition: 0.4s;
-}
+
 .type-section-body {
   padding-top: 3.5rem;
   padding-bottom: 5rem;
@@ -122,6 +66,7 @@
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   gap: 3rem;
   width: 70vw;
+  max-width: 100rem;
   min-height: 50vh;
 }
 .type-section-body a {
@@ -131,51 +76,21 @@
 .load-more {
   align-self: center;
 }
-.load-more button {
-  background-color: unset;
-  border: 2px solid black !important;
-  font-size: 1rem;
-  position: relative;
-  padding: 1.2rem;
-  text-transform: uppercase;
-  cursor: pointer;
-  overflow: hidden;
-}
-.load-more button::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: black;
+.load-more-button::after {
   top: 100%;
   left: 0;
-  transition: all 0.4s;
-  z-index: -1;
-  pointer-events: none;
 }
-.load-more button:hover {
+.load-more-button:hover {
   color: white;
   transition: 1s;
 }
-.load-more button:hover::after {
+.load-more-button:hover::after {
   top: 0%;
 }
 /* Desktop 15 inches */
 @media only screen and (max-width: 1600px) {
   .type-collection {
     font-size: 3.2rem;
-  }
-  .filter-change-button {
-    font-size: 1rem;
-    min-width: 10rem;
-  }
-  .filter-change-body {
-    top: 10%;
-    font-size: 1rem;
-  }
-  .filter-change-body li {
-    min-height: 3rem;
-    min-width: 9.75rem;
   }
   .type-product-name {
     font-size: 1rem;
@@ -204,35 +119,6 @@
   .type-collection {
     font-size: 2rem;
   }
-  .filter-change {
-    align-items: flex-end;
-    justify-content: flex-end;
-  }
-  .filter-change-head {
-    align-items: flex-end;
-    justify-content: flex-end;
-  }
-  .filter-change-button {
-    height: 2.525rem;
-    font-size: 0.8rem;
-    min-width: 9rem;
-    padding: 0px 0.5rem;
-  }
-  .filter-change-button span {
-    right: 0.5rem;
-  }
-  .filter-change-body {
-    font-size: 0.8rem;
-    margin-top: 2vh;
-    top: 10%;
-  }
-  .filter-appear {
-    opacity: 1;
-  }
-  .filter-change-body li {
-    min-height: 3.525rem;
-    min-width: 8.75rem;
-  }
   .type-section-head {
     width: 80vw;
     padding-bottom: 0.5rem;
@@ -246,8 +132,6 @@
   }
   .type-section-body {
     width: 80vw;
-    /* padding-top: 5rem;
-    padding-bottom: 3rem; */
   }
 
   .load-more button {
@@ -330,9 +214,9 @@
 }
 /* iPhone 6-8 */
 @media only screen and (max-width: 380px) {
-  /* .odd {
-    margin-left: 1rem;
-  } */
+  .type-collection {
+    font-size: 1.5rem;
+  }
 }
 /* iPhone 5 */
 @media only screen and (max-width: 322px) {
